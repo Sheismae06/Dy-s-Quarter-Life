@@ -1,34 +1,44 @@
-/* === style.css === / body { margin: 0; padding: 0; background-color: #2f2f2f; / Dark charcoal */ color: #f5f5f5; font-family: 'Montserrat', sans-serif; font-size: 13.5px; line-height: 1.7; scroll-behavior: smooth; }
+/* Global Styles / body { margin: 0; padding: 0; background-color: #2f2f2f; / Dark charcoal for main page */ color: #f5f5f5; font-family: 'Montserrat', sans-serif; font-size: 13.5px; line-height: 1.7; scroll-behavior: smooth; }
 
-nav.navbar { position: fixed; top: 0; left: 0; width: 100%; height: 50px; background-color: #1b2d22; /* Army green */ display: flex; justify-content: flex-end; align-items: center; padding-right: 20px; z-index: 999; }
+/* Navbar / nav.navbar { position: fixed; top: 0; left: 0; width: 100%; height: 50px; background-color: #1b2d22; / Army green */ display: flex; justify-content: flex-end; align-items: center; padding: 0 20px; z-index: 999; }
 
-#music-toggle { width: 22px; height: 22px; background: url('https://upload.wikimedia.org/wikipedia/commons/f/fd/Piano_Icon.svg') no-repeat center center; background-size: contain; cursor: pointer; transition: filter 0.3s ease; }
+/* Music Icon */ #music-toggle { width: 24px; height: 24px; background: url('https://upload.wikimedia.org/wikipedia/commons/1/17/Font_Awesome_5_solid_music.svg') no-repeat center center; background-size: contain; cursor: pointer; filter: brightness(1) grayscale(1); transition: filter 0.3s ease; }
 
-#music-toggle.playing { filter: drop-shadow(0 0 5px #c9b37e) brightness(1.5); }
+#music-toggle.playing { filter: brightness(1) sepia(1) hue-rotate(30deg) saturate(2); }
 
-.content { max-width: 800px; margin: 60px auto 60px; padding: 20px; box-sizing: border-box; }
+/* Main Content Layout */ .content { max-width: 800px; margin: 70px auto 60px; padding: 20px; box-sizing: border-box; }
 
-.main-title { font-family: 'Playfair Display', serif; color: #c9b37e; font-size: 22px; margin-top: 10px; margin-bottom: 8px; text-align: center; }
+/* Title / .main-title { font-family: 'Playfair Display', serif; color: #d4af37; / Elegant antique gold */ font-size: 22px; margin-top: 10px; margin-bottom: 8px; text-align: center; }
 
-.intro { text-align: center; margin-bottom: 25px; font-size: 13.5px; color: #dddddd; }
+/* Subtitle */ .intro { text-align: center; margin-bottom: 25px; font-size: 13.5px; color: #dddddd; }
 
-.letter p { margin-bottom: 18px; text-align: justify; }
+/* Letter Body */ .letter p { margin-bottom: 18px; text-align: justify; }
 
-.signoff { margin-top: 30px; font-style: italic; text-align: right; color: #eeeeee; }
+/* Signoff */ .signoff { margin-top: 30px; font-style: italic; text-align: right; color: #eeeeee; }
 
 .signoff br + * { font-style: normal; font-weight: bold; color: #ffffff; }
 
-.throwback-btn { display: block; margin: 30px auto; padding: 10px 20px; font-size: 13px; background-color: #c9b37e; color: #2f2f2f; border: none; border-radius: 20px; cursor: pointer; transition: background-color 0.3s ease, transform 0.3s ease; }
+/* Button */ .throwback-btn { display: block; margin: 30px auto; padding: 10px 20px; background-color: #d4af37; color: #2f2f2f; border: none; border-radius: 20px; font-weight: 600; font-family: 'Montserrat', sans-serif; cursor: pointer; transition: all 0.3s ease; }
 
-.throwback-btn:hover { background-color: #bfa153; transform: scale(1.05); }
+.throwback-btn:hover { transform: scale(1.05); background-color: #bfa153; }
 
-.throwback-section { display: none; animation: fadeIn 0.8s ease forwards; text-align: center; margin-top: 20px; }
+/* Decorative Gold Line */ .gold-line { border: none; height: 1px; background-color: #bfa153; width: 100%; margin-top: 40px; margin-bottom: 14px; }
 
-.throwback-section.show { display: block; }
+/* After Border Text */ .after-border-text { text-align: center; color: #bfa153; font-size: 13px; font-weight: 500; margin-bottom: 40px; }
 
-.memory-img { max-width: 100%; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 0 10px rgba(201, 179, 126, 0.2); }
+/* Photos */ .photo-section { margin-top: 20px; text-align: center; }
+
+.memory-img { max-width: 100%; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 0 10px rgba(191, 161, 83, 0.2); }
 
 .photo-caption { color: #cccccc; font-size: 13px; max-width: 700px; margin: 0 auto; line-height: 1.6; font-style: italic; }
+
+/* Animations */ .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 1s ease-out, transform 1s ease-out; }
+
+.appear { opacity: 1; transform: translateY(0); }
+
+/* Hidden Throwback Content */ .throwback-section { display: none; animation: fadeIn 1s ease forwards; }
+
+.throwback-section.show { display: block; }
 
 @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
