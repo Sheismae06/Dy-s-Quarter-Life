@@ -1,37 +1,34 @@
-// MUSIC PLAYER
-const music = document.getElementById("bg-music");
-music.volume = 1.0;
+// MUSIC AUTOPLAY AND TOGGLE
+const musicToggle = document.getElementById('music-toggle');
+const audio = new Audio('https://dl.sndup.net/dj4z/KungTayoAyMatandaNa.mp3');
+audio.loop = true;
+audio.volume = 1;
+audio.autoplay = true;
 
-const toggleBtn = document.getElementById("music-toggle");
-let isPlaying = true;
-
-toggleBtn.addEventListener("click", () => {
-  if (isPlaying) {
-    music.pause();
-    toggleBtn.classList.add("muted");
-  } else {
-    music.play();
-    toggleBtn.classList.remove("muted");
-  }
-  isPlaying = !isPlaying;
-});
-
-// FADE-IN ON SCROLL
-const faders = document.querySelectorAll(".fade-in");
-
-const appearOptions = {
-  threshold: 0.1,
-  rootMargin: "0px 0px -30px 0px"
-};
-
-const appearOnScroll = new IntersectionObserver(function (entries, observer) {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    entry.target.classList.add("appear");
-    observer.unobserve(entry.target);
+// Autoplay on load
+window.addEventListener('load', () => {
+  audio.play().catch(() => {
+    // Autoplay might be blocked until user interacts
   });
-}, appearOptions);
-
-faders.forEach(fader => {
-  appearOnScroll.observe(fader);
 });
+
+// Toggle mute/unmute
+musicToggle.addEventListener('click', () => {
+  if (audio.paused) {
+    audio.play();
+    musicToggle.classList.remove('muted');
+  } else {
+    audio.pause();
+    musicToggle.classList.add('muted');
+  }
+});
+
+// THROWBACK BUTTON TOGGLE
+const throwbackBtn = document.getElementById('throwback-btn');
+const throwbackSection = document.getElementById('throwback-section');
+
+if (throwbackBtn && throwbackSection) {
+  throwbackBtn.addEventListener('click', () => {
+    throwbackSection.classList.toggle('show');
+  });
+}
