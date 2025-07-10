@@ -1,3 +1,4 @@
+/* Global Styles */
 body {
   margin: 0;
   padding: 0;
@@ -24,13 +25,13 @@ nav.navbar {
 }
 
 nav.navbar .date {
-  color: gold;
+  color: #FFD700; /* Pure gold */
   font-size: 12px;
   letter-spacing: 1px;
   margin-right: 40px;
 }
 
-/* Music toggle icon */
+/* Music Icon */
 #music-toggle {
   position: absolute;
   right: 20px;
@@ -40,10 +41,10 @@ nav.navbar .date {
   background: url('https://upload.wikimedia.org/wikipedia/commons/8/83/Musical_note_icon_gold.svg') no-repeat center center;
   background-size: contain;
   cursor: pointer;
-  filter: drop-shadow(0 0 4px gold);
+  filter: drop-shadow(0 0 4px #FFD700);
 }
 
-/* Main content */
+/* Main Content Layout */
 .content {
   max-width: 800px;
   margin: 70px auto 60px;
@@ -54,7 +55,7 @@ nav.navbar .date {
 /* Title */
 .main-title {
   font-family: 'Playfair Display', serif;
-  color: gold;
+  color: #FFD700; /* Pure gold */
   font-size: 22px;
   margin-top: 25px;
   margin-bottom: 6px;
@@ -69,12 +70,13 @@ nav.navbar .date {
   color: #dddddd;
 }
 
-/* Letter */
+/* Letter Body */
 .letter p {
   margin-bottom: 18px;
   text-align: justify;
 }
 
+/* Signoff */
 .signoff {
   margin-top: 30px;
   font-style: italic;
@@ -88,20 +90,20 @@ nav.navbar .date {
   color: #ffffff;
 }
 
-/* Gold Line */
+/* Decorative Gold Line */
 .gold-line {
   border: none;
   height: 1px;
-  background-color: gold;
+  background-color: #FFD700; /* Pure gold */
   width: 100%;
-  margin-top: 30px;
-  margin-bottom: 10px;
+  margin-top: 40px;
+  margin-bottom: 14px;
 }
 
 /* After Border Text */
 .after-border-text {
   text-align: center;
-  color: gold;
+  color: #FFD700; /* Pure gold */
   font-size: 13px;
   font-weight: 500;
   margin-bottom: 40px;
@@ -129,13 +131,13 @@ nav.navbar .date {
   font-style: italic;
 }
 
-/* Music toggle when muted */
+/* Muted Music Style */
 #music-toggle.muted {
   filter: grayscale(1) brightness(0.6);
   opacity: 0.5;
 }
 
-/* Fade-in Animation */
+/* Animations */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
