@@ -1,11 +1,10 @@
-/* General Layout */
 body {
   margin: 0;
   padding: 0;
   background-color: #1b2d22; /* Dark army green */
   color: #f5f5f5;
   font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
+  font-size: 13.5px;
   line-height: 1.7;
   scroll-behavior: smooth;
 }
@@ -26,16 +25,18 @@ nav.navbar {
 
 nav.navbar .date {
   color: gold;
-  font-size: 14px;
+  font-size: 12px;
   letter-spacing: 1px;
+  margin-right: 40px;
 }
 
-/* Music Toggle Icon beside date */
+/* Music toggle icon */
 #music-toggle {
   position: absolute;
   right: 20px;
-  width: 25px;
-  height: 25px;
+  top: 12px;
+  width: 22px;
+  height: 22px;
   background: url('https://upload.wikimedia.org/wikipedia/commons/8/83/Musical_note_icon_gold.svg') no-repeat center center;
   background-size: contain;
   cursor: pointer;
@@ -50,20 +51,21 @@ nav.navbar .date {
   box-sizing: border-box;
 }
 
-/* Titles */
+/* Title */
 .main-title {
   font-family: 'Playfair Display', serif;
   color: gold;
-  font-size: 24px;
-  margin-top: 10px;
-  margin-bottom: 8px;
+  font-size: 22px;
+  margin-top: 25px;
+  margin-bottom: 6px;
   text-align: center;
 }
 
+/* Subtitle */
 .intro {
   text-align: center;
   margin-bottom: 25px;
-  font-size: 14px;
+  font-size: 13.5px;
   color: #dddddd;
 }
 
@@ -79,24 +81,25 @@ nav.navbar .date {
   text-align: right;
 }
 
-/* Gold Border Line */
+/* Gold Line */
 .gold-line {
   border: none;
   height: 1px;
   background-color: gold;
-  margin: 30px auto 10px;
-  width: 60%;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 
-/* After border text */
+/* After Border Text */
 .after-border-text {
   text-align: center;
   color: gold;
-  font-size: 14px;
+  font-size: 13px;
   margin-bottom: 40px;
 }
 
-/* Photo Section */
+/* Photos */
 .photo-section {
   margin-top: 20px;
   text-align: center;
@@ -111,14 +114,14 @@ nav.navbar .date {
 
 .photo-caption {
   color: #cccccc;
-  font-size: 13.5px;
+  font-size: 13px;
   max-width: 700px;
   margin: 0 auto;
   line-height: 1.6;
   font-style: italic;
 }
 
-/* Muted State */
+/* Music toggle when muted */
 #music-toggle.muted {
   filter: grayscale(1) brightness(0.6);
   opacity: 0.5;
