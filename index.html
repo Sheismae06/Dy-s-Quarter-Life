@@ -1,18 +1,56 @@
-// Music Tracks const song1 = new Audio("https://sndup.net/fpf9/d"); // Kung Tayo Ay Matanda Na const song2 = new Audio("https://sndup.net/ftsc/d"); // Until I Found You const song3 = new Audio("https://sndup.net/fz2g/d"); // Happy Birthday
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>A Letter to the Man Who Came Back Home to Me</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div id="music-toggle" title="Toggle Music"></div>
+  </nav>
 
-const musicToggle = document.getElementById("music-toggle"); const throwbackBtn = document.getElementById("throwback-btn"); const backToStartBtn = document.getElementById("back-to-start-btn"); const giftBtn = document.getElementById("gift-btn"); const giftMessage = document.getElementById("gift-message"); const throwbackSection = document.querySelector(".throwback-section");
+  <main class="content">
+    <h1 class="main-title">A Letter to the Man Who Came Back Home to Me</h1>
+    <p class="intro">To the one I found, lost, and found again — Happy 25th Birthday, my love.</p>
 
-let currentSong = song1; let isPlaying = false;
+    <div class="letter">
+      <p>I still remember the day we connected (July 22, 2019) on Neargroup...</p>
+      <p>Six days later, July 28, 2019 we took a chance...</p>
+      <p>March 14, 2020, you break up with me...</p>
+      <p>Months passed. We were in a new relationship on December 2020...</p>
+      <p>Then, like fate trying again, November 2022 came...</p>
+      <p>It hasn’t been easy since. Life isn’t as light...</p>
+      <p>I love you so much. And I know you love me too...</p>
+      <p>Thank you for being my person...</p>
+      <p>I pray this year brings you peace, growth...</p>
+    </div>
 
-// Setup [song1, song2, song3].forEach(song => { song.loop = true; song.volume = 1; });
+    <div class="signoff">
+      With all my love,<br />
+      Angela Mae Marco
+    </div>
 
-// Auto-play song 1 on page load window.addEventListener("load", () => { currentSong.play(); isPlaying = true; musicToggle.classList.add("playing"); });
+    <button class="throwback-btn" id="throwback-btn">Let's Throwback</button>
 
-// Music icon toggle musicToggle.addEventListener("click", () => { if (isPlaying) { currentSong.pause(); musicToggle.classList.remove("playing"); } else { currentSong.play(); musicToggle.classList.add("playing"); } isPlaying = !isPlaying; });
+    <div class="throwback-section" id="throwback-section" style="display:none;">
+      <hr class="gold-line" />
+      <p class="after-border-text">Below are my favorite pictures from my album, and I know we’ll capture even more beautiful memories together.</p>
 
-// Let's Throwback Button throwbackBtn.addEventListener("click", () => { currentSong.pause(); currentSong = song2; currentSong.currentTime = 0; currentSong.play(); isPlaying = true; musicToggle.classList.add("playing"); throwbackSection.classList.add("show"); throwbackBtn.style.display = "none"; });
+      <div class="photo-section">
+        <img src="https://raw.githubusercontent.com/Sheismae06/Dy-s-Quarter-Life/main/FB_IMG_1752122440480.webp" alt="Memory" class="memory-img">
+        <p class="photo-caption">This is my first favorite photo because on this day, December 31, 2022 we traveled to Tanay to celebrate New Year 2023 with my family...</p>
+      </div>
 
-// Back to Start Button backToStartBtn.addEventListener("click", () => { currentSong.pause(); currentSong = song1; currentSong.currentTime = 0; currentSong.play(); isPlaying = true; musicToggle.classList.add("playing"); throwbackSection.classList.remove("show"); throwbackBtn.style.display = "block"; giftMessage.style.display = "none"; });
+      <button class="throwback-btn" id="gift-btn">Open Your Present</button>
+      <p id="gift-message" class="after-border-text" style="display:none;">🎁 Mahal na mahal kita Dy, hope you like my gift for you ❤️</p>
+    </div>
+    
+    <audio id="audio-player" autoplay loop></audio>
+  </main>
 
-// Open Your Present Button giftBtn.addEventListener("click", () => { currentSong.pause(); currentSong = song3; currentSong.currentTime = 0; currentSong.play(); isPlaying = true; giftMessage.style.display = "block"; musicToggle.classList.add("playing"); });
-
+  <script src="script.js"></script>
+</body>
+</html>
