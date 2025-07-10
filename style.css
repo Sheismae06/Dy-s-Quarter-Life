@@ -2,7 +2,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #121212;
+  background-color: #1b2d22; /* Dark army green */
   color: #f5f5f5;
   font-family: 'Lora', serif;
   line-height: 1.8;
@@ -15,7 +15,7 @@ nav.navbar {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #014421; /* Dark green */
+  background-color: #2f2f2f; /* Charcoal gray */
   padding: 10px 0;
   text-align: center;
   z-index: 999;
@@ -30,14 +30,17 @@ nav.navbar .date {
 /* Main content */
 .content {
   max-width: 800px;
-  margin: 100px auto 60px;
+  margin: 80px auto 60px;
   padding: 20px;
+  box-sizing: border-box;
 }
 
+/* Titles */
 .main-title {
   font-family: 'Playfair Display', serif;
   color: gold;
   font-size: 28px;
+  margin-top: 10px;
   margin-bottom: 10px;
   text-align: center;
 }
@@ -49,6 +52,7 @@ nav.navbar .date {
   color: #dddddd;
 }
 
+/* Letter */
 .letter p {
   margin-bottom: 20px;
   text-align: justify;
@@ -86,14 +90,14 @@ nav.navbar .date {
 #music-toggle {
   position: fixed;
   bottom: 20px;
-  left: 20px;
+  right: 20px;
   width: 30px;
   height: 30px;
-  background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Simple_music_note.svg/32px-Simple_music_note.svg.png') no-repeat center center;
+  background: url('https://upload.wikimedia.org/wikipedia/commons/8/83/Musical_note_icon_gold.svg') no-repeat center center;
   background-size: contain;
-  opacity: 0.8;
   cursor: pointer;
   z-index: 1000;
+  filter: drop-shadow(0 0 4px gold);
 }
 
 #music-toggle.muted {
