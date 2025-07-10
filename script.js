@@ -1,4 +1,4 @@
-// MUSIC TOGGLE LOGIC
+// MUSIC PLAYER
 const music = document.getElementById("bg-music");
 music.volume = 1.0; // Max volume
 
