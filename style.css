@@ -4,8 +4,9 @@ body {
   padding: 0;
   background-color: #1b2d22; /* Dark army green */
   color: #f5f5f5;
-  font-family: 'Lora', serif;
-  line-height: 1.8;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
   scroll-behavior: smooth;
 }
 
@@ -15,9 +16,11 @@ nav.navbar {
   top: 0;
   left: 0;
   width: 100%;
+  height: 50px;
   background-color: #2f2f2f; /* Charcoal gray */
-  padding: 10px 0;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 999;
 }
 
@@ -27,10 +30,22 @@ nav.navbar .date {
   letter-spacing: 1px;
 }
 
+/* Music Toggle Icon beside date */
+#music-toggle {
+  position: absolute;
+  right: 20px;
+  width: 25px;
+  height: 25px;
+  background: url('https://upload.wikimedia.org/wikipedia/commons/8/83/Musical_note_icon_gold.svg') no-repeat center center;
+  background-size: contain;
+  cursor: pointer;
+  filter: drop-shadow(0 0 4px gold);
+}
+
 /* Main content */
 .content {
   max-width: 800px;
-  margin: 80px auto 60px;
+  margin: 70px auto 60px;
   padding: 20px;
   box-sizing: border-box;
 }
@@ -39,22 +54,22 @@ nav.navbar .date {
 .main-title {
   font-family: 'Playfair Display', serif;
   color: gold;
-  font-size: 28px;
+  font-size: 24px;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   text-align: center;
 }
 
 .intro {
   text-align: center;
-  margin-bottom: 30px;
-  font-size: 16px;
+  margin-bottom: 25px;
+  font-size: 14px;
   color: #dddddd;
 }
 
 /* Letter */
 .letter p {
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   text-align: justify;
 }
 
@@ -64,9 +79,26 @@ nav.navbar .date {
   text-align: right;
 }
 
+/* Gold Border Line */
+.gold-line {
+  border: none;
+  height: 1px;
+  background-color: gold;
+  margin: 30px auto 10px;
+  width: 60%;
+}
+
+/* After border text */
+.after-border-text {
+  text-align: center;
+  color: gold;
+  font-size: 14px;
+  margin-bottom: 40px;
+}
+
 /* Photo Section */
 .photo-section {
-  margin-top: 50px;
+  margin-top: 20px;
   text-align: center;
 }
 
@@ -79,27 +111,14 @@ nav.navbar .date {
 
 .photo-caption {
   color: #cccccc;
-  font-size: 15px;
+  font-size: 13.5px;
   max-width: 700px;
   margin: 0 auto;
   line-height: 1.6;
   font-style: italic;
 }
 
-/* Music Toggle Icon */
-#music-toggle {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 30px;
-  height: 30px;
-  background: url('https://upload.wikimedia.org/wikipedia/commons/8/83/Musical_note_icon_gold.svg') no-repeat center center;
-  background-size: contain;
-  cursor: pointer;
-  z-index: 1000;
-  filter: drop-shadow(0 0 4px gold);
-}
-
+/* Muted State */
 #music-toggle.muted {
   filter: grayscale(1) brightness(0.6);
   opacity: 0.5;
