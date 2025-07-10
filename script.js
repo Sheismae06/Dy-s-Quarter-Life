@@ -1,34 +1,58 @@
-// MUSIC AUTOPLAY AND TOGGLE
-const musicToggle = document.getElementById('music-toggle');
-const audio = new Audio('https://dl.sndup.net/dj4z/KungTayoAyMatandaNa.mp3');
-audio.loop = true;
-audio.volume = 1;
-audio.autoplay = true;
+const musicToggle = document.getElementById("music-toggle");
+const throwbackBtn = document.getElementById("throwback-btn");
+const backToStartBtn = document.getElementById("back-to-start-btn");
+const throwbackSection = document.querySelector(".throwback-section");
 
-// Autoplay on load
-window.addEventListener('load', () => {
-  audio.play().catch(() => {
-    // Autoplay might be blocked until user interacts
-  });
+const song1 = new Audio("https://sndup.net/fpf9/d");
+const song2 = new Audio("https://sndup.net/fksb/d");
+
+song1.loop = true;
+song2.loop = true;
+song1.volume = 1;
+song2.volume = 1;
+
+let currentSong = song1;
+let isPlaying = false;
+
+// Auto-play song 1 on page load
+window.addEventListener("load", () => {
+  currentSong.play();
+  isPlaying = true;
+  musicToggle.classList.add("playing");
 });
 
-// Toggle mute/unmute
-musicToggle.addEventListener('click', () => {
-  if (audio.paused) {
-    audio.play();
-    musicToggle.classList.remove('muted');
+// Music icon toggle
+musicToggle.addEventListener("click", () => {
+  if (isPlaying) {
+    currentSong.pause();
+    musicToggle.classList.remove("playing");
   } else {
-    audio.pause();
-    musicToggle.classList.add('muted');
+    currentSong.play();
+    musicToggle.classList.add("playing");
   }
+  isPlaying = !isPlaying;
 });
 
-// THROWBACK BUTTON TOGGLE
-const throwbackBtn = document.getElementById('throwback-btn');
-const throwbackSection = document.getElementById('throwback-section');
+// Throwback button
+throwbackBtn.addEventListener("click", () => {
+  currentSong.pause();
+  currentSong = song2;
+  currentSong.currentTime = 0;
+  currentSong.play();
+  isPlaying = true;
+  musicToggle.classList.add("playing");
+  throwbackSection.classList.add("show");
+  throwbackBtn.style.display = "none";
+});
 
-if (throwbackBtn && throwbackSection) {
-  throwbackBtn.addEventListener('click', () => {
-    throwbackSection.classList.toggle('show');
-  });
-}
+// Back to Start button
+backToStartBtn.addEventListener("click", () => {
+  currentSong.pause();
+  currentSong = song1;
+  currentSong.currentTime = 0;
+  currentSong.play();
+  isPlaying = true;
+  musicToggle.classList.add("playing");
+  throwbackSection.classList.remove("show");
+  throwbackBtn.style.display = "block";
+});
