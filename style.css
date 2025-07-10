@@ -2,7 +2,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #1b2d22; /* Dark army green */
+  background-color: #2f2f2f; /* Dark charcoal for main page */
   color: #f5f5f5;
   font-family: 'Montserrat', sans-serif;
   font-size: 13.5px;
@@ -17,7 +17,7 @@ nav.navbar {
   left: 0;
   width: 100%;
   height: 50px;
-  background-color: #2f2f2f; /* Charcoal gray */
+  background-color: #1b2d22; /* Army green */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,7 +25,7 @@ nav.navbar {
 }
 
 nav.navbar .date {
-  color: #d4af37; /* Antique gold */
+  color: #bfa153; /* Muted elegant gold */
   font-size: 12px;
   letter-spacing: 1px;
   margin-right: 40px;
@@ -41,7 +41,7 @@ nav.navbar .date {
   background: url('https://upload.wikimedia.org/wikipedia/commons/8/83/Musical_note_icon_gold.svg') no-repeat center center;
   background-size: contain;
   cursor: pointer;
-  filter: drop-shadow(0 0 4px #d4af37);
+  filter: drop-shadow(0 0 4px #bfa153);
 }
 
 /* Main Content Layout */
@@ -55,7 +55,7 @@ nav.navbar .date {
 /* Title */
 .main-title {
   font-family: 'Playfair Display', serif;
-  color: #d4af37; /* Antique gold */
+  color: #bfa153;
   font-size: 22px;
   margin-top: 25px;
   margin-bottom: 6px;
@@ -94,7 +94,7 @@ nav.navbar .date {
 .gold-line {
   border: none;
   height: 1px;
-  background-color: #d4af37; /* Antique gold */
+  background-color: #bfa153;
   width: 100%;
   margin-top: 40px;
   margin-bottom: 14px;
@@ -103,7 +103,7 @@ nav.navbar .date {
 /* After Border Text */
 .after-border-text {
   text-align: center;
-  color: #d4af37; /* Antique gold */
+  color: #bfa153;
   font-size: 13px;
   font-weight: 500;
   margin-bottom: 40px;
@@ -119,7 +119,7 @@ nav.navbar .date {
   max-width: 100%;
   border-radius: 12px;
   margin-bottom: 15px;
-  box-shadow: 0 0 10px rgba(212, 175, 55, 0.2); /* antique gold glow */
+  box-shadow: 0 0 10px rgba(191, 161, 83, 0.2); /* glow in gold */
 }
 
 .photo-caption {
@@ -147,4 +147,4 @@ nav.navbar .date {
 .appear {
   opacity: 1;
   transform: translateY(0);
-  }
+}
