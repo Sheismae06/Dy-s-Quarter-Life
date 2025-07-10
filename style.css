@@ -19,35 +19,26 @@ nav.navbar {
   height: 50px;
   background-color: #1b2d22; /* Army green */
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
+  padding-right: 20px;
   z-index: 999;
-}
-
-nav.navbar .date {
-  color: #bfa153; /* Muted elegant gold */
-  font-size: 12px;
-  letter-spacing: 1px;
-  margin-right: 40px;
 }
 
 /* Music Icon */
 #music-toggle {
-  position: absolute;
-  right: 20px;
-  top: 12px;
   width: 22px;
   height: 22px;
   background: url('https://upload.wikimedia.org/wikipedia/commons/8/83/Musical_note_icon_gold.svg') no-repeat center center;
   background-size: contain;
   cursor: pointer;
-  filter: drop-shadow(0 0 4px #bfa153);
+  filter: drop-shadow(0 0 4px #c9b37e); /* Champagne gold */
 }
 
 /* Main Content Layout */
 .content {
   max-width: 800px;
-  margin: 70px auto 60px;
+  margin: 60px auto 60px;
   padding: 20px;
   box-sizing: border-box;
 }
@@ -55,9 +46,9 @@ nav.navbar .date {
 /* Title */
 .main-title {
   font-family: 'Playfair Display', serif;
-  color: #bfa153;
+  color: #c9b37e;
   font-size: 22px;
-  margin-top: 25px;
+  margin-top: 10px; /* moved closer to navbar */
   margin-bottom: 6px;
   text-align: center;
 }
@@ -90,61 +81,65 @@ nav.navbar .date {
   color: #ffffff;
 }
 
-/* Decorative Gold Line */
-.gold-line {
-  border: none;
-  height: 1px;
-  background-color: #bfa153;
-  width: 100%;
-  margin-top: 40px;
-  margin-bottom: 14px;
+/* Throwback Button */
+.throwback-btn {
+  display: block;
+  margin: 40px auto 20px;
+  background-color: transparent;
+  border: 1px solid #c9b37e;
+  color: #c9b37e;
+  padding: 10px 20px;
+  font-size: 13px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-/* After Border Text */
-.after-border-text {
+.throwback-btn:hover {
+  background-color: #c9b37e;
+  color: #1b2d22;
+}
+
+/* Hidden Throwback Section */
+.throwback-section {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.8s ease;
   text-align: center;
-  color: #bfa153;
-  font-size: 13px;
-  font-weight: 500;
-  margin-bottom: 40px;
+}
+
+.throwback-section.show {
+  display: block;
+  opacity: 1;
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Photos */
-.photo-section {
-  margin-top: 20px;
-  text-align: center;
-}
-
 .memory-img {
   max-width: 100%;
   border-radius: 12px;
-  margin-bottom: 15px;
-  box-shadow: 0 0 10px rgba(191, 161, 83, 0.2); /* glow in gold */
+  margin-top: 15px;
+  margin-bottom: 12px;
+  box-shadow: 0 0 10px rgba(201, 179, 126, 0.2); /* subtle gold glow */
 }
 
 .photo-caption {
   color: #cccccc;
   font-size: 13px;
   max-width: 700px;
-  margin: 0 auto;
+  margin: 0 auto 30px;
   line-height: 1.6;
   font-style: italic;
-}
-
-/* Muted Music Style */
-#music-toggle.muted {
-  filter: grayscale(1) brightness(0.6);
-  opacity: 0.5;
-}
-
-/* Animations */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
-}
-
-.appear {
-  opacity: 1;
-  transform: translateY(0);
 }
