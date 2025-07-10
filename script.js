@@ -1,10 +1,10 @@
 // MUSIC PLAYER
 const music = document.getElementById("bg-music");
-music.volume = 1.0; // Max volume
+music.volume = 1.0;
 
 const toggleBtn = document.getElementById("music-toggle");
-
 let isPlaying = true;
+
 toggleBtn.addEventListener("click", () => {
   if (isPlaying) {
     music.pause();
