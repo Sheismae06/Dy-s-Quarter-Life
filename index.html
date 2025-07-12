@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy 25th, My Love</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="#" onclick="goBack()" class="back-arrow">&#8592;</a>
+    </div>
+    <div class="nav-right">
+      <div id="musicToggle" onclick="toggleMusic()">
+        <img id="pianoIcon" src="media/piano-off.svg" alt="Music Icon" width="24" height="24">
+      </div>
+    </div>
+  </nav>
+
+  <main class="welcome-section">
+    <h1>Happy 25th, My Love</h1>
+    <p>A quarter of a century of your light. Here’s a piece of my love for you.</p>
+    <button onclick="startExperience()">Get Started</button>
+  </main>
+
+  <audio id="backgroundMusic" src="media/song1-kung-tayo.mp3"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
