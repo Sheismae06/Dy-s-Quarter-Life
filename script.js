@@ -1,1 +1,0 @@
-// JavaScript logic for toggling music, navigation, autoplay
