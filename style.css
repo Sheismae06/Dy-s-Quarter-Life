@@ -1,11 +1,10 @@
-/* Color Variables */
 :root {
   --dark-charcoal: #1F1F1F;
   --cream-gold: #C2B280;
   --maroon-bg: #3D1F1F;
 }
 
-/* General Reset */
+/* Global Reset */
 * {
   margin: 0;
   padding: 0;
@@ -17,8 +16,13 @@ body {
   color: #EAEAEA;
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
-  margin: 0;
-  padding: 0;
+  animation: fadeInPage 1s ease forwards;
+}
+
+/* Fade-in animation on page load */
+@keyframes fadeInPage {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Navbar */
@@ -30,19 +34,20 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 28px; /* thicker and elegant */
+  padding: 18px 28px;
   z-index: 999;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.4);
   user-select: none;
 }
 
-/* Navbar Icons (if used on other pages) */
+/* Navbar Icons */
 .navbar svg {
   width: 24px;
   height: 24px;
   cursor: pointer;
   fill: var(--cream-gold);
   transition: transform 0.2s ease, opacity 0.2s ease;
+  user-select: none;
 }
 
 .navbar svg:hover {
@@ -55,15 +60,16 @@ body {
   opacity: 0.7;
 }
 
-/* Center Content */
+/* Centered content */
 .center-screen {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  min-height: 100vh;
-  padding: 100px 20px 40px; /* space from navbar */
+  padding: 30px;
+  margin-top: 80px;
 }
 
 /* Titles */
@@ -71,7 +77,7 @@ h1, h2, h3 {
   color: var(--cream-gold);
   font-weight: 600;
   margin-bottom: 20px;
-  font-size: 2rem;
+  font-size: 2.2rem;
   animation: fadeUp 1s ease forwards;
 }
 
@@ -80,8 +86,7 @@ p {
   font-size: 0.95rem;
   line-height: 1.6;
   color: #EAEAEA;
-  margin-bottom: 25px;
-  max-width: 700px;
+  margin-bottom: 20px;
   animation: fadeUp 1s ease forwards;
 }
 
@@ -89,52 +94,39 @@ p {
 button, .btn-start, .btn {
   background-color: transparent;
   color: var(--cream-gold);
-  border: 2px solid var(--cream-gold);
   font-weight: 600;
+  border: 2px solid var(--cream-gold);
   border-radius: 30px;
   padding: 10px 24px;
   font-size: 0.9rem;
   cursor: pointer;
-  transition: all 0.3s ease;
-  animation: fadeUp 1s ease forwards;
+  transition: background-color 0.3s ease, transform 0.15s ease, color 0.3s ease;
+  animation: fadeUp 1.2s ease forwards;
 }
 
-button:hover, .btn:hover {
-  background-color: rgba(194, 178, 128, 0.1);
-}
-
-button.clicked, .btn-start.clicked {
+button:hover, .btn-start:hover {
   background-color: var(--cream-gold);
   color: var(--maroon-bg);
 }
 
-button:active, .btn:active {
+button:active, .btn-start:active {
   transform: scale(0.95);
-  background-color: #afa36d;
 }
 
-/* Animations (ONLY for text and button) */
+/* Fade-up animation */
 @keyframes fadeUp {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive Adjustments */
+/* Responsive font sizing */
 @media (max-width: 600px) {
   h1, h2 {
     font-size: 1.4rem;
   }
 
-  p {
-    font-size: 0.9rem;
-  }
-
-  button, .btn {
+  button, .btn-start {
     font-size: 0.85rem;
     padding: 8px 20px;
-  }
-
-  .navbar {
-    padding: 16px 20px; /* slightly smaller on mobile */
   }
 }
