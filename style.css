@@ -33,45 +33,58 @@ body {
   justify-content: space-between;
   padding: 0 28px;
   z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-}
-
-/* Navbar Title */
-.navbar-title {
-  color: var(--cream-gold);
-  font-weight: 600;
-  font-size: 1.1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 }
 
 /* Infinity Logo */
 .infinity-logo {
-  width: 60px;
+  width: 100px;
   height: auto;
-  margin-bottom: 25px;
-  animation: fadeInUp 1s ease forwards;
+  margin: 100px auto 20px;
+  display: block;
+  animation: floatLogo 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 6px #C2B280aa);
+}
+
+/* Divider */
+.divider {
+  width: 60px;
+  height: 2px;
+  background-color: var(--cream-gold);
+  margin: 10px auto 40px;
+  opacity: 0.2;
+  border-radius: 10px;
+}
+
+/* Center Layout */
+.center-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 80px 20px 40px;
+  text-align: center;
 }
 
 /* Titles */
-h1 {
+h1, h2 {
   color: var(--cream-gold);
   font-weight: 600;
   font-size: 2rem;
   margin-bottom: 16px;
-  text-align: center;
-  animation: fadeInUp 1.2s ease forwards;
+  animation: fadeInUp 1s ease forwards;
 }
 
-/* Paragraphs */
+/* Paragraph */
 p {
   color: #EAEAEA;
   font-size: 0.95rem;
   line-height: 1.6;
-  text-align: center;
-  margin-bottom: 25px;
-  animation: fadeInUp 1.4s ease forwards;
+  animation: fadeInUp 1.2s ease forwards;
 }
 
-/* Button */
+/* Main Button */
 .btn-start {
   background-color: transparent;
   color: var(--cream-gold);
@@ -80,9 +93,10 @@ p {
   border-radius: 30px;
   padding: 10px 26px;
   font-size: 0.9rem;
+  margin-top: 30px;
   cursor: pointer;
   transition: all 0.3s ease;
-  animation: fadeInUp 1.6s ease forwards;
+  animation: fadeInUp 1.4s ease forwards;
 }
 
 .btn-start:hover {
@@ -95,15 +109,23 @@ p {
   transform: scale(0.95);
 }
 
-/* Centered Section */
-.center-screen {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 100px 20px 40px; /* pushed up, enough spacing from navbar */
-  min-height: 100vh;
+/* Music Button */
+.btn-music {
+  margin-top: 16px;
+  background-color: #2b1f1f;
+  color: var(--cream-gold);
+  border: 1px solid var(--cream-gold);
+  padding: 8px 20px;
+  font-size: 0.85rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: fadeInUp 1.6s ease forwards;
+}
+
+.btn-music:hover {
+  background-color: var(--cream-gold);
+  color: var(--maroon-bg);
 }
 
 /* Animations */
@@ -118,18 +140,29 @@ p {
   }
 }
 
+@keyframes floatLogo {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   h1 {
     font-size: 1.5rem;
   }
 
-  .btn-start {
+  .btn-start,
+  .btn-music {
     font-size: 0.85rem;
     padding: 8px 20px;
   }
 
-  .navbar-title {
-    font-size: 1rem;
+  .navbar {
+    height: 56px;
+    padding: 0 20px;
+  }
+
+  .infinity-logo {
+    width: 80px;
   }
 }
