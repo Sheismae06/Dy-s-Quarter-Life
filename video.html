@@ -2,134 +2,119 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Special Memories</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <title>Special Memories | Dy's Quarter Life</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background-color: #50C878;
       color: white;
+    }
+    h2 {
+      font-size: clamp(2rem, 8vw, 2.5rem);
       text-align: center;
-    }h2 {
-  font-size: 28px;
-  margin: 40px 20px 30px;
-}
-
-.video-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-  padding: 0 20px;
-}
-
-video {
-  width: 100%;
-  max-width: 500px;
-  border-radius: 12px;
-}
-
-#presentBtn {
-  margin-top: 40px;
-  padding: 12px 24px;
-  font-size: 16px;
-  background-color: #1A5E20;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-#presentBtn:hover {
-  background-color: #228B22;
-}
-
-#presentMessage {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(5px);
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#presentMessageBox {
-  background: white;
-  padding: 30px;
-  border-radius: 15px;
-  max-width: 90%;
-  text-align: center;
-  font-size: 16px;
-  color: #1A5E20;
-}
-
-.present-buttons button {
-  margin: 8px;
-  padding: 10px 20px;
-  background-color: #228B22;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.present-buttons button:hover {
-  background-color: #1A5E20;
-}
-
-@media (max-width: 600px) {
-  h2 {
-    font-size: 22px;
-  }
-  video {
-    max-width: 100%;
-  }
-}
-
+      margin: 30px 0;
+    }
+    section {
+      padding: 20px;
+      text-align: center;
+    }
+    video {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 12px;
+    }
+    button {
+      font-size: 1rem;
+      padding: 10px 20px;
+      margin: 20px 10px;
+      border: none;
+      border-radius: 8px;
+      background-color: #1A5E20;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #166c1c;
+    }
+    #presentMessage {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(5px);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #presentMessageBox {
+      background: white;
+      color: #1A5E20;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 90%;
+      text-align: center;
+      font-size: 16px;
+    }
   </style>
 </head>
 <body>
-  <h2>Our Special Memories</h2>  <div class="video-container">
-    <video id="video1" controls>
-      <source src="lv_7484485684783303997_20250712231639_V1.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video><video id="video2" controls>
-  <source src="VIDEO_5230d69f_1481_413f_a495_a82ceb45802c_V1.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+  <section id="video-section">
+    <h2>Our Special Memories</h2>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 30px;">
+      <video id="video1" controls>
+        <source src="lv_7484485684783303997_20250712231639_V1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <video id="video2" controls>
+        <source src="VIDEO_5230d69f_1481_413f_a495_a82ceb45802c_V1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div><button id="presentBtn">🎁 Open Your Present</button>
 
-  </div><button id="presentBtn">🎁 Open Your Present</button>
-
-  <div id="presentMessage">
+  </section>  <!-- Floating Box -->  <div id="presentMessage">
     <div id="presentMessageBox">
       <p>Sana nagustuhan mo regalo ko for you Dy, I love you always po.</p>
-      <audio id="voiceMessage" src="message recorded.mp3"></audio><div class="present-buttons">
-    <button onclick="document.getElementById('voiceMessage').play()">Opened it yet? 🎁 Listen 🎶</button>
-    <button onclick="location.href='index.html'">Start Again</button>
-  </div>
-</div>
-
+      <audio id="voiceMessage" src="message recorded.mp3"></audio>
+      <div style="margin-top: 20px;">
+        <button onclick="document.getElementById('voiceMessage').play()">Opened it yet? 🎁 Listen 🎶</button>
+        <button onclick="location.href='index.html'">Start Again</button>
+      </div>
+    </div>
   </div>  <script>
-    // Ensure videos play at full volume
+    const song3 = new Audio('song3-happy-birthday.mp3');
+    song3.volume = 1;
+
+    // Handle open present button
+    document.getElementById('presentBtn').addEventListener('click', () => {
+      document.getElementById('presentMessage').style.display = 'flex';
+      song3.play();
+    });
+
+    // Set video volume on play
     document.querySelectorAll('video').forEach(video => {
       video.addEventListener('play', () => {
         video.volume = 1;
+        song2.pause();
+      });
+      video.addEventListener('pause', () => {
+        song2.play();
       });
     });
 
-    // Show the present message and play song
-    document.getElementById('presentBtn').addEventListener('click', () => {
-      document.getElementById('presentMessage').style.display = 'flex';
-      const song = new Audio('song3-happy-birthday.mp3');
-      song.play();
-    });
+    // Song triggers from other pages
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('autoplay') === 'song2') {
+      window.song2 = new Audio('song2-until-i-found-you.mp3');
+      song2.volume = 1;
+      song2.loop = true;
+      song2.play();
+    }
   </script></body>
 </html>
