@@ -7,35 +7,29 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Navbar (NO back icon on homepage) -->
+  <!-- Navbar (No back icon on homepage) -->
   <div class="navbar">
-    <!-- Empty space or logo placeholder -->
-    <div></div>
+    <!-- Empty for now, consistent layout -->
   </div>
 
-  <!-- Main Content -->
+  <!-- Main content -->
   <div class="center-screen">
     <h1>Happy 25th, My Love</h1>
     <p>A quarter of a century of your light. Here’s a piece of my love for you.</p>
     <button class="btn-start" id="startBtn">Get Started</button>
   </div>
 
-  <!-- Background Song 1 (Triggered on button click only) -->
-  <audio id="song1" src="song1-kung-tayo.mp3" preload="auto"></audio>
+  <!-- Song -->
+  <audio id="song1" src="song1-kung-tayo.mp3" autoplay loop></audio>
 
   <script>
     const startBtn = document.getElementById('startBtn');
     const song1 = document.getElementById('song1');
 
-    startBtn.addEventListener('click', () => {
-      song1.play().catch(() => {}); // handles autoplay restriction
-      startBtn.classList.add('clicked');
-      setTimeout(() => {
-        window.location.href = "letter.html";
-      }, 800); // small delay for button animation
-    });
+    startBtn.onclick = () => {
+      song1.play();
+      window.location.href = "letter.html";
+    };
   </script>
-
 </body>
 </html>
