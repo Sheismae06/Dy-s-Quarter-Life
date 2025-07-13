@@ -1,108 +1,128 @@
-let currentAudio = null;
-let isPlaying = false;
+document.addEventListener("DOMContentLoaded", function () {
+  const musicToggle = document.querySelector(".music-toggle");
+  const bgMusic = document.getElementById("bg-music");
+  const backBtn = document.querySelector(".back-btn");
 
-// Handle background music (Song 1, 2, 3)
-function playMusic(src, storeKey) {
-  if (currentAudio) currentAudio.pause();
+  // Setup background music toggle
+  if (musicToggle && bgMusic) {
+    const isPlaying = localStorage.getItem("musicPlaying") === "true";
 
-  const audio = new Audio(src);
-  audio.loop = true;
-  audio.volume = 1.0;
-  audio.play();
+    if (isPlaying) {
+      bgMusic.volume = 1.0;
+      bgMusic.play().catch(() => {}); // for autoplay restrictions
+      musicToggle.classList.add("music-on");
+      musicToggle.classList.remove("music-off");
+    } else {
+      bgMusic.pause();
+      musicToggle.classList.add("music-off");
+      musicToggle.classList.remove("music-on");
+    }
 
-  currentAudio = audio;
-  isPlaying = true;
-  sessionStorage.setItem("currentSong", src);
-  sessionStorage.setItem("playing", "true");
-  sessionStorage.setItem("audioTime", "0");
-}
+    musicToggle.addEventListener("click", function () {
+      if (bgMusic.paused) {
+        bgMusic.volume = 1.0;
+        bgMusic.play().catch(() => {});
+        musicToggle.classList.add("music-on");
+        musicToggle.classList.remove("music-off");
+        localStorage.setItem("musicPlaying", "true");
+      } else {
+        bgMusic.pause();
+        musicToggle.classList.add("music-off");
+        musicToggle.classList.remove("music-on");
+        localStorage.setItem("musicPlaying", "false");
+      }
+    });
+  }
 
-// Resume music on page load
-window.addEventListener("load", () => {
-  const saved = sessionStorage.getItem("currentSong");
-  const isStillPlaying = sessionStorage.getItem("playing") === "true";
+  // Back Button
+  if (backBtn) {
+    backBtn.addEventListener("click", function () {
+      history.back();
+    });
+  }
 
-  if (saved && isStillPlaying === true || isStillPlaying === "true") {
-    const audio = new Audio(saved);
-    audio.loop = true;
-    audio.volume = 1.0;
-    audio.play();
-    currentAudio = audio;
-    isPlaying = true;
+  // Slideshow logic (album.html)
+  let slideIndex = 0;
+  const slides = document.querySelectorAll(".slide");
+  const watchBtn = document.getElementById("watch-btn");
+
+  function showSlide(index) {
+    slides.forEach((s, i) => {
+      s.classList.remove("active-slide");
+      if (i === index) {
+        s.classList.add("active-slide");
+      }
+    });
+
+    // Show "Watch" button on last slide
+    if (index === slides.length - 1 && watchBtn) {
+      watchBtn.style.display = "inline-block";
+    } else if (watchBtn) {
+      watchBtn.style.display = "none";
+    }
+  }
+
+  if (slides.length > 0) {
+    showSlide(slideIndex);
+    setInterval(() => {
+      slideIndex = (slideIndex + 1) % slides.length;
+      showSlide(slideIndex);
+    }, 8000); // Change every 8 seconds
+  }
+
+  // Play correct song on button click
+  const getStartedBtn = document.getElementById("get-started");
+  const miniAlbumBtn = document.getElementById("mini-album");
+  const openPresentBtn = document.getElementById("open-present");
+  const messageRecordedBtn = document.getElementById("message-recorded");
+  const soundOfUsBtn = document.getElementById("sound-of-us");
+
+  const song1 = document.getElementById("song1");
+  const song2 = document.getElementById("song2");
+  const song3 = document.getElementById("song3");
+  const meanddy = document.getElementById("meandus");
+  const recorded = document.getElementById("recorded");
+
+  if (getStartedBtn && song1) {
+    getStartedBtn.addEventListener("click", () => {
+      [song2, song3, meanddy, recorded].forEach(a => a && a.pause());
+      song1.volume = 1.0;
+      song1.loop = true;
+      song1.play();
+    });
+  }
+
+  if (miniAlbumBtn && song2) {
+    miniAlbumBtn.addEventListener("click", () => {
+      [song1, song3, meanddy, recorded].forEach(a => a && a.pause());
+      song2.volume = 1.0;
+      song2.loop = true;
+      song2.play();
+    });
+  }
+
+  if (openPresentBtn && song3) {
+    openPresentBtn.addEventListener("click", () => {
+      [song1, song2, meanddy, recorded].forEach(a => a && a.pause());
+      song3.volume = 1.0;
+      song3.loop = true;
+      song3.play();
+    });
+  }
+
+  if (messageRecordedBtn && recorded) {
+    messageRecordedBtn.addEventListener("click", () => {
+      [song1, song2, song3, meanddy].forEach(a => a && a.pause());
+      recorded.volume = 1.0;
+      recorded.play();
+    });
+  }
+
+  if (soundOfUsBtn && meanddy) {
+    soundOfUsBtn.addEventListener("click", () => {
+      [song1, song2, song3, recorded].forEach(a => a && a.pause());
+      meanddy.volume = 1.0;
+      meanddy.play();
+    });
   }
 });
-
-// Sound of Us toggle
-let soundOfUs = null;
-let soundOfUsPlaying = false;
-
-function toggleSoundOfUs() {
-  if (!soundOfUs) {
-    soundOfUs = new Audio("meanddy.mp3");
-    soundOfUs.volume = 1.0;
-  }
-
-  if (!soundOfUsPlaying) {
-    soundOfUs.play();
-    soundOfUsPlaying = true;
-    if (currentAudio) currentAudio.pause(); // Pause background music
-  } else {
-    soundOfUs.pause();
-    soundOfUs.currentTime = 0;
-    soundOfUsPlaying = false;
-    if (currentAudio && sessionStorage.getItem("currentSong")) {
-      currentAudio.play();
-    }
-  }
-}
-
-// Message Recorded toggle
-let recorded = null;
-let recordedPlaying = false;
-
-function toggleMessageRecorded() {
-  if (!recorded) {
-    recorded = new Audio("message.recorded.mp3");
-    recorded.volume = 1.0;
-  }
-
-  if (!recordedPlaying) {
-    recorded.play();
-    recordedPlaying = true;
-    if (currentAudio) currentAudio.pause();
-  } else {
-    recorded.pause();
-    recorded.currentTime = 0;
-    recordedPlaying = false;
-    if (currentAudio && sessionStorage.getItem("currentSong")) {
-      currentAudio.play();
-    }
-  }
-}
-
-// Open Present triggers Song 3
-function openPresent() {
-  playMusic("song3-happy-birthday.mp3", "song3");
-}
-
-// Album: Switch to Song 2
-function goToAlbum() {
-  playMusic("song2-until-i-found-you.mp3", "song2");
-  setTimeout(() => {
-    window.location.href = "album.html";
-  }, 1000);
-}
-
-// Get Started: Switch to Song 1
-function startLetter() {
-  playMusic("song1-kung-tayo.mp3", "song1");
-  setTimeout(() => {
-    window.location.href = "letter.html";
-  }, 1000);
-}
-
-// Return to Home
-function goHome() {
-  sessionStorage.clear();
-  window.location.href = "index.html";
-}
