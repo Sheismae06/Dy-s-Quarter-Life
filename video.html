@@ -1,58 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Snippets</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@400;600&display=swap"
-    rel="stylesheet"
-  />
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="video-page">
-  <nav class="navbar charcoal">
-    <div class="nav-left">
-      <img src="back-icon.svg" alt="Back" class="back-btn" />
-    </div>
-    <div class="nav-right">
-      <img src="piano-icon.svg" alt="Toggle Music" class="music-toggle music-on" />
-    </div>
-  </nav>
+<body>
+  <!-- NAVBAR WITH BACK ICON -->
+  <nav class="navbar">
+    <button id="back-btn" onclick="history.back()">←</button>
+  </nav>  <main class="centered-content">
+    <h2 class="title">Snippets</h2><p class="subtitle" style="max-width: 800px; font-size: 1rem; color: #EAEAEA; line-height: 1.8;">
+  I truly appreciate all your efforts and everything you’ve done for me.
+  In every high and low moment, ikaw at ikaw pa rin ang pipiliin ko.
+  Mahal na mahal kita, and I’m so grateful to have a man like you in my life.
+  I know you’re not perfect kasi no one really is naman talaga but I see how hard you try,
+  even when you're tired and struggling ginagawa mo pa rin ang kaya at best mo.
+  That’s why, love, thank you so much for everything.
+  You mean more to me than words can ever say.
+</p>
 
-  <main class="video-content fade-in">
-    <h2 class="video-title">Snippets</h2>
-    <p class="video-subtitle">
-      Here are two of our precious moments caught on video. Watch, listen, and feel the love again.<br /><br />
-      I truly appreciate all your efforts and everything you’ve done for me. In every high and low moment, ikaw at ikaw pa rin ang pipiliin ko. Mahal na mahal kita, and I’m so grateful to have a man like you in my life. I know you’re not perfect kasi no one really is naman talaga but I see how hard you try, even when you're tired and struggling ginagawa mo pa rin ang kaya at best mo. That’s why, love, thank you so much for everything. You mean more to me than words can ever say.
-    </p>
+<!-- VIDEO SECTION -->
+<div class="video-container">
+  <video id="mainVideo" width="100%" controls>
+    <source src="YouCut_20250713_162158131.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <button id="sound-of-us" class="btn gold-btn">Sound of Us</button>
+</div>
 
-    <div class="video-wrapper">
-      <video
-        id="video1"
-        controls
-        preload="metadata"
-        src="YouCut_20250713_162158131.mp4"
-        volume="1.0"
-      ></video>
-      <button id="sound-of-us-btn" class="audio-control">Sound of Us</button>
-    </div>
+<!-- SURPRISE SECTION -->
+<div id="surprise-container">
+  <button id="open-surprise" class="btn gold-btn">Open Your Present</button>
+</div>
 
-    <button id="open-present-btn" class="open-present">Open Your Present</button>
+<!-- FLOAT BOX SURPRISE MESSAGE -->
+<div id="surprise-box" class="float-box hidden">
+  <p>Sana nagustuhan mo regalo ko for you Dy, I love you always po</p>
+  <div class="float-buttons">
+    <button id="message-recorded" class="btn gold-btn">Message Recorded</button>
+    <button id="go-home" class="btn gold-btn" onclick="window.location.href='index.html'">Home</button>
+  </div>
+</div>
 
-    <div id="present-message" class="present-message hidden">
-      <div class="message-box">
-        <p>Sana nagustuhan mo regalo ko for you Dy, I love you always po</p>
-        <div class="message-buttons">
-          <button id="message-recorded-btn" class="audio-control">Message Recorded</button>
-          <button id="home-btn">Home</button>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <script src="script.js"></script>
-</body>
+  </main>  <script src="script.js"></script></body>
 </html>
