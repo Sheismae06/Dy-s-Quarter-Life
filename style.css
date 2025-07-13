@@ -100,9 +100,9 @@ p {
   align-items: center;
   text-align: center;
 
-  /* ADJUSTED */
-  min-height: calc(100vh - 90px);  /* Raised from 100vh - 72px */
-  padding-top: 90px;  /* Add enough space for navbar + gap */
+  /* RAISED layout */
+  min-height: calc(100vh - 120px); /* raised 48px higher than before */
+  padding-top: 100px; /* space below navbar */
   padding-left: 20px;
   padding-right: 20px;
 }
