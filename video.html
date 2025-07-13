@@ -1,54 +1,135 @@
-<section id="video-section" style="background-color: #50C878; padding: 40px 20px; text-align: center; font-family: 'Poppins', sans-serif;">
-  <h2 style="color: white; font-size: 28px; margin-bottom: 30px;">Our Special Memories</h2>
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Special Memories</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #50C878;
+      color: white;
+      text-align: center;
+    }h2 {
+  font-size: 28px;
+  margin: 40px 20px 30px;
+}
 
-  <div style="display: flex; flex-direction: column; align-items: center; gap: 30px;">
-    
-    <video id="video1" controls style="width: 100%; max-width: 500px; border-radius: 12px;" volume="1">
+.video-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 0 20px;
+}
+
+video {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+}
+
+#presentBtn {
+  margin-top: 40px;
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: #1A5E20;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#presentBtn:hover {
+  background-color: #228B22;
+}
+
+#presentMessage {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#presentMessageBox {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 90%;
+  text-align: center;
+  font-size: 16px;
+  color: #1A5E20;
+}
+
+.present-buttons button {
+  margin: 8px;
+  padding: 10px 20px;
+  background-color: #228B22;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.present-buttons button:hover {
+  background-color: #1A5E20;
+}
+
+@media (max-width: 600px) {
+  h2 {
+    font-size: 22px;
+  }
+  video {
+    max-width: 100%;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <h2>Our Special Memories</h2>  <div class="video-container">
+    <video id="video1" controls>
       <source src="lv_7484485684783303997_20250712231639_V1.mp4" type="video/mp4">
       Your browser does not support the video tag.
-    </video>
+    </video><video id="video2" controls>
+  <source src="VIDEO_5230d69f_1481_413f_a495_a82ceb45802c_V1.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
-    <video id="video2" controls style="width: 100%; max-width: 500px; border-radius: 12px;" volume="1">
-      <source src="VIDEO_5230d69f_1481_413f_a495_a82ceb45802c_V1.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+  </div><button id="presentBtn">🎁 Open Your Present</button>
+
+  <div id="presentMessage">
+    <div id="presentMessageBox">
+      <p>Sana nagustuhan mo regalo ko for you Dy, I love you always po.</p>
+      <audio id="voiceMessage" src="message recorded.mp3"></audio><div class="present-buttons">
+    <button onclick="document.getElementById('voiceMessage').play()">Opened it yet? 🎁 Listen 🎶</button>
+    <button onclick="location.href='index.html'">Start Again</button>
   </div>
+</div>
 
-  <!-- Open Your Present Button -->
-  <button id="presentBtn" style="margin-top: 40px; padding: 12px 24px; font-size: 16px; background-color: #1A5E20; color: white; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s;">
-    🎁 Open Your Present
-  </button>
-
-  <!-- Floating Box -->
-  <div id="presentMessage" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.7); backdrop-filter: blur(5px); z-index: 999; display: flex; align-items: center; justify-content: center;">
-    <div style="background: white; padding: 30px; border-radius: 15px; max-width: 90%; text-align: center; font-size: 16px; color: #1A5E20;">
-      <p style="margin-bottom: 20px;">Sana nagustuhan mo regalo ko for you Dy, I love you always po.</p>
-      <audio id="voiceMessage" src="message recorded.mp3"></audio>
-      
-      <div style="margin-top: 20px;">
-        <button onclick="document.getElementById('voiceMessage').play()" style="margin: 8px; padding: 10px 20px; background-color: #228B22; color: white; border: none; border-radius: 6px; cursor: pointer;">
-          Opened it yet? 🎁 Listen 🎶
-        </button>
-        <button onclick="location.href='index.html'" style="margin: 8px; padding: 10px 20px; background-color: #1A5E20; color: white; border: none; border-radius: 6px; cursor: pointer;">
-          Start Again
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<script>
-  // Set videos to max volume when user clicks play
-  document.querySelectorAll('video').forEach(video => {
-    video.addEventListener('play', () => {
-      video.volume = 1;
+  </div>  <script>
+    // Ensure videos play at full volume
+    document.querySelectorAll('video').forEach(video => {
+      video.addEventListener('play', () => {
+        video.volume = 1;
+      });
     });
-  });
 
-  // Show present message on button click
-  document.getElementById('presentBtn').addEventListener('click', () => {
-    document.getElementById('presentMessage').style.display = 'flex';
-    const song = new Audio('song3-happy-birthday.mp3');
-    song.play();
-  });
-</script>
+    // Show the present message and play song
+    document.getElementById('presentBtn').addEventListener('click', () => {
+      document.getElementById('presentMessage').style.display = 'flex';
+      const song = new Audio('song3-happy-birthday.mp3');
+      song.play();
+    });
+  </script></body>
+</html>
