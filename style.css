@@ -1,25 +1,22 @@
-/* Variables */
+/* Color Variables */
 :root {
   --dark-charcoal: #1F1F1F;
   --cream-gold: #C2B280;
   --maroon-bg: #3D1F1F;
 }
 
-/* Reset */
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body */
 body {
   background-color: var(--maroon-bg);
   color: #EAEAEA;
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
-  margin: 0;
-  padding: 0;
   animation: fadeInPage 1s ease forwards;
 }
 
@@ -34,11 +31,11 @@ body {
   justify-content: space-between;
   padding: 16px 24px;
   z-index: 999;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.4);
   user-select: none;
 }
 
-/* Navbar icons */
+/* Navbar Icons */
 .navbar svg {
   width: 24px;
   height: 24px;
@@ -57,93 +54,88 @@ body {
   opacity: 0.7;
 }
 
-/* Centered layout */
+/* Center Screen Layout */
 .center-screen {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   text-align: center;
-  min-height: calc(100vh - 72px);
-  padding: 100px 20px 20px;
-  animation: fadeUp 1.2s ease forwards;
+  min-height: 100vh;
+  padding: 60px 20px 20px;
+  animation: fadeInPage 1s ease forwards;
 }
 
 /* Titles */
-.center-screen h1,
 h1, h2, h3 {
   color: var(--cream-gold);
   font-weight: 600;
   margin-bottom: 20px;
-  font-size: 2.2rem;
-  animation: fadeUp 1.2s ease forwards;
+  font-size: 2rem;
+  animation: fadeUp 1s ease forwards;
 }
 
 /* Paragraphs */
-.center-screen p,
 p {
   font-size: 0.95rem;
   line-height: 1.6;
   color: #EAEAEA;
-  margin-bottom: 20px;
-  animation: fadeUp 1.4s ease forwards;
+  margin-bottom: 25px;
+  max-width: 700px;
+  animation: fadeUp 1s ease forwards;
 }
 
 /* Buttons */
-button, .btn, .btn-start {
+button, .btn-start, .btn {
   background-color: transparent;
-  border: 2px solid var(--cream-gold);
   color: var(--cream-gold);
+  border: 2px solid var(--cream-gold);
   font-weight: 600;
-  padding: 8px 20px;
   border-radius: 30px;
-  font-size: 0.85rem;
+  padding: 10px 24px;
+  font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  animation: fadeUp 1.6s ease forwards;
+  animation: fadeUp 1s ease forwards;
 }
 
-button.clicked, .btn.clicked, .btn-start.clicked {
+button:hover, .btn:hover {
+  background-color: rgba(194, 178, 128, 0.1);
+}
+
+button.clicked, .btn-start.clicked {
   background-color: var(--cream-gold);
   color: var(--maroon-bg);
-  border-color: var(--cream-gold);
 }
 
-button:hover, .btn:hover, .btn-start:hover {
-  opacity: 0.85;
-}
-
-button:active, .btn:active, .btn-start:active {
+button:active, .btn:active {
   transform: scale(0.95);
+  background-color: #afa36d;
 }
 
-/* Fade Animations */
+/* Fade-in Animations */
 @keyframes fadeInPage {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive */
+/* Responsive Adjustments */
 @media (max-width: 600px) {
   h1, h2 {
     font-size: 1.4rem;
   }
 
   p {
-    font-size: 0.88rem;
+    font-size: 0.9rem;
   }
 
-  button, .btn, .btn-start {
-    font-size: 0.8rem;
-    padding: 7px 18px;
-  }
-
-  .center-screen {
-    padding: 100px 15px 20px;
+  button, .btn {
+    font-size: 0.85rem;
+    padding: 8px 20px;
   }
 }
