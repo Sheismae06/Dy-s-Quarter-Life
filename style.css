@@ -1,15 +1,17 @@
-/* General Reset */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Body */
 body {
   background-color: #3D1F1F;
   color: #EAEAEA;
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
+  font-size: 0.88rem; /* Smaller base size */
 }
 
 /* Navbar */
@@ -17,18 +19,18 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #2B1414;
+  background-color: #1F1F1F;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
+  align-items: center;
+  padding: 8px 16px;
   z-index: 999;
 }
 
 .navbar .back-btn,
 .navbar .music-toggle {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   cursor: pointer;
   fill: white;
   transition: transform 0.3s ease, fill 0.3s ease;
@@ -36,13 +38,13 @@ body {
 
 .navbar .back-btn:hover,
 .navbar .music-toggle:hover {
-  fill: #D4AF37;
-  transform: scale(1.1);
+  fill: #C2A14D;
+  transform: scale(1.05);
 }
 
-/* Music ON Animation */
+/* Music ON/OFF Styles */
 .music-on {
-  fill: #D4AF37;
+  fill: #C2A14D;
   animation: pulse 1.5s infinite ease-in-out;
 }
 
@@ -56,104 +58,85 @@ body {
   position: absolute;
   width: 2px;
   height: 100%;
-  background: #D4AF37;
+  background: #C2A14D;
   transform: rotate(-45deg);
   top: 0;
   left: 50%;
 }
 
-/* Pulse effect for music ON */
+/* Pulse Effect */
 @keyframes pulse {
   0% { transform: scale(1); opacity: 1; }
   50% { transform: scale(1.05); opacity: 0.85; }
   100% { transform: scale(1); opacity: 1; }
 }
 
-/* Buttons */
-button {
-  background-color: #D4AF37;
-  color: #3D1F1F;
-  font-weight: bold;
-  border: none;
-  border-radius: 30px;
-  padding: 10px 20px;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-button:hover {
-  background-color: #c49b3f;
-}
-
-/* Titles */
-h1, h2, h3 {
-  color: #D4AF37;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-/* Paragraphs */
-p {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 15px;
-}
-
-/* Slideshow (album) */
-.slide-container {
-  max-width: 750px;
-  margin: 100px auto 40px;
+/* Centered Layout for Main Page */
+.center-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
   text-align: center;
 }
 
-.slide {
-  display: none;
-  animation: fadeSlide 1s ease;
-}
-
-.active-slide {
-  display: block;
-}
-
-.slide img {
-  max-width: 100%;
-  border-radius: 12px;
+/* Title */
+h1 {
+  font-size: 1.6rem;
+  color: #C2A14D;
   margin-bottom: 10px;
 }
 
-.caption {
-  font-size: 0.9rem;
-  color: #EAEAEA;
-  margin-bottom: 30px;
+/* Paragraph */
+p {
+  max-width: 700px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin-bottom: 25px;
+  padding: 0 10px;
 }
 
-/* Animations */
-@keyframes fadeSlide {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
+/* Button */
+.btn-start {
+  background-color: #C2A14D;
+  color: #3D1F1F;
+  padding: 10px 22px;
+  font-size: 0.88rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-weight: 600;
 }
 
-/* Responsive */
+.btn-start:hover {
+  background-color: #b4933c;
+}
+
+/* Responsive Adjustments */
 @media (max-width: 600px) {
-  h1, h2 {
+  h1 {
     font-size: 1.3rem;
   }
 
-  .navbar {
-    padding: 8px 16px;
-  }
-
-  .slide-container {
-    padding: 0 10px;
-  }
-
   p {
-    font-size: 0.88rem;
+    font-size: 0.85rem;
   }
 
-  button {
-    font-size: 0.9rem;
-    padding: 8px 18px;
+  .btn-start {
+    font-size: 0.85rem;
+    padding: 8px 20px;
+  }
+
+  .navbar {
+    padding: 6px 12px;
+  }
+
+  .navbar .back-btn,
+  .navbar .music-toggle {
+    width: 20px;
+    height: 20px;
   }
 }
