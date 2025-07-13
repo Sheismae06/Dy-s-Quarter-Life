@@ -38,7 +38,6 @@ body {
 
 /* Back Icon */
 .back-icon {
-  display: inline-block;
   width: 24px;
   height: 24px;
   fill: var(--cream-gold);
@@ -50,12 +49,12 @@ body {
   transform: scale(1.1);
 }
 
-/* Hide back icon on homepage only */
+/* Hide back icon on homepage */
 .homepage .back-icon {
   display: none;
 }
 
-/* Logo (if needed) */
+/* Infinity Logo */
 .infinity-logo {
   width: 100px;
   height: auto;
@@ -65,7 +64,7 @@ body {
   filter: drop-shadow(0 0 6px #C2B280aa);
 }
 
-/* Divider (optional) */
+/* Divider */
 .divider {
   width: 60px;
   height: 2px;
@@ -94,6 +93,8 @@ h1, h2 {
   margin-top: 40px;
   margin-bottom: 16px;
   animation: fadeInUp 1s ease forwards;
+  max-width: 90%;
+  text-align: center;
 }
 
 /* Paragraph */
@@ -103,17 +104,30 @@ p {
   line-height: 1.6;
   animation: fadeInUp 1.2s ease forwards;
   margin-bottom: 24px;
+  max-width: 720px;
+  padding: 0 24px;
 }
 
-/* Fix for left and right spacing */
-.center-screen h1,
-.center-screen p {
-  max-width: 600px;
-  padding-left: 20px;
-  padding-right: 20px;
+/* Letter Section */
+.letter {
+  max-width: 720px;
+  padding: 0 24px;
+  text-align: left;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  animation: fadeInUp 1.2s ease forwards;
 }
 
-/* Main Buttons */
+/* Signature */
+.signature {
+  margin-top: 20px;
+  text-align: right;
+  font-style: italic;
+  color: var(--cream-gold);
+}
+
+/* Buttons */
 button, .btn, .btn-start {
   background-color: transparent;
   color: var(--cream-gold);
@@ -122,13 +136,14 @@ button, .btn, .btn-start {
   border-radius: 30px;
   padding: 10px 26px;
   font-size: 0.9rem;
-  margin: 12px;
+  margin: 12px auto;
+  display: block;
   cursor: pointer;
   transition: all 0.3s ease;
   animation: fadeInUp 1.4s ease forwards;
 }
 
-/* Clicked effect */
+/* Button clicked effect */
 button.clicked, .btn.clicked, .btn-start.clicked {
   background-color: var(--cream-gold);
   color: var(--maroon-bg);
@@ -152,18 +167,26 @@ button:active {
 }
 
 @keyframes floatLogo {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
 }
 
-/* Responsive */
+/* Responsive Design */
 @media (max-width: 600px) {
   h1, h2 {
     font-size: 1.5rem;
   }
 
-  .btn,
-  .btn-start {
+  p, .letter {
+    font-size: 0.9rem;
+    padding: 0 16px;
+  }
+
+  .btn, .btn-start {
     font-size: 0.85rem;
     padding: 8px 20px;
   }
