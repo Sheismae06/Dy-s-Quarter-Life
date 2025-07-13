@@ -1,82 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy 25th, My Love</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&family=Montserrat&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #50C878;
-      color: #FFFFFF;
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-    }
-
-    h1 {
-      font-size: 2.8rem;
-      font-family: 'Playfair Display', serif;
-      margin-bottom: 16px;
-    }
-
-    p {
-      font-size: 1.2rem;
-      color: #DDE5DD;
-      margin-bottom: 40px;
-      max-width: 600px;
-    }
-
-    .btn {
-      background-color: #1A5E20;
-      color: #FFFFFF;
-      padding: 12px 28px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .btn:hover {
-      background-color: #145219;
-    }
-
-    audio {
-      display: none;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Happy 25th, My Love</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
-<body>
-  <h1>Happy 25th, My Love</h1>
-  <p>A quarter of a century of your light. Here’s a piece of my love for you.</p>
-  <button class="btn" onclick="startWebsite()">Get Started</button>
+<body style="background-color: #50C878; font-family: 'Poppins', sans-serif; color: #DDE5DD;">
+    <!-- Navbar -->
+    <nav style="background-color: #228B22; padding: 10px; display: flex; justify-content: space-between; align-items: center;">
+        <a href="#" style="color: #FFF; font-size: 1.5em; text-decoration: none;">Logo</a>
+        <div>
+            <button id="music-toggle" style="background: none; border: none; cursor: pointer; color: white; font-size: 24px;">&#127925;</button>
+            <a href="javascript:history.back()" style="color: white; font-size: 24px;">&#8592;</a>
+        </div>
+    </nav>
 
-  <audio id="song1" src="song1-kung-tayo.mp3"></audio>
+    <!-- Main Content -->
+    <div style="text-align: center; margin-top: 20vh;">
+        <h1 style="color: white; font-size: 2.5em;">Happy 25th, My Love</h1>
+        <p style="font-size: 1.2em;">A quarter of a century of your light. Here’s a piece of my love for you.</p>
+        <button id="get-started" onclick="playSong('song1-kung-tayo.mp3')" style="background-color: #1A5E20; color: white; padding: 10px 20px; font-size: 1.2em; border: none; cursor: pointer;">Get Started</button>
+    </div>
 
-  <script>
-    function startWebsite() {
-      const audio = document.getElementById('song1');
-      audio.volume = 1.0;
-      audio.play().catch(() => {
-        // User gesture may be required to play
-        alert('Please tap to allow music playback.');
-      });
-      setTimeout(() => {
-        window.location.href = 'letter.html';
-      }, 3000); // Delay 3 seconds before going to the next page
-    }
-  </script>
+    <!-- Letter Page (Hidden initially) -->
+    <div id="letter-page" style="display: none; text-align: center;">
+        <h2>A Letter to the Man Who Came Back Home to Me</h2>
+        <p>To the one I found, lost, and found again...</p>
+        <p style="font-size: 1.1em; color: #DDE5DD;">I still remember the day we first connected...</p>
+        <button id="mini-album" onclick="playSong('song2-until-i-found-you.mp3')" style="background-color: #1A5E20; color: white; padding: 10px 20px; font-size: 1.2em; border: none; cursor: pointer;">Mini Album</button>
+    </div>
+
+    <!-- Picture Page (Hidden initially) -->
+    <div id="picture-page" style="display: none; text-align: center;">
+        <h2>For Keeps</h2>
+        <img src="FB_IMG_1752122440480.webp" alt="Image 1" style="max-width: 100%; height: auto;">
+        <p>This is my first favorite photo...</p>
+
+        <!-- More images go here -->
+
+        <button onclick="playVideo('lv_7484485684783303997_20250712231639_V1.mp4')" style="background-color: #1A5E20; color: white; padding: 10px 20px; font-size: 1.2em; border: none; cursor: pointer;">Play</button>
+    </div>
+
+    <!-- Surprise Message -->
+    <div id="surprise-message" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.7); color: white; text-align: center; padding: 20px;">
+        <div style="background: rgba(255, 255, 255, 0.2); padding: 20px; border-radius: 10px;">
+            <p>Sana nagustuhan mo regalo ko for you Dy, I love you always po</p>
+            <button onclick="playRecording('message-recorded')" style="background-color: #1A5E20; color: white; padding: 10px 20px; font-size: 1.2em; border: none; cursor: pointer;">Opened it yet? 🎁 Listen 🎶</button>
+            <button onclick="restartPage()" style="background-color: #1A5E20; color: white; padding: 10px 20px; font-size: 1.2em; border: none; cursor: pointer;">Start again</button>
+        </div>
+    </div>
+
+    <!-- Audio & Video Player -->
+    <audio id="audio-player" style="display: none;" controls></audio>
+    <video id="video-player" style="max-width: 100%; height: auto; display: none;" controls></video>
 </body>
 </html>
