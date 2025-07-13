@@ -8,45 +8,51 @@
 </head>
 <body>
 
-  <!-- Fixed Navbar -->
+  <!-- Navbar -->
   <div class="navbar">
-    <a href="index.html">
-      <svg class="back-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M15 18l-6-6 6-6" stroke="#C2B280" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </a>
+    <svg class="back-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" onclick="window.history.back()">
+      <path d="M15 18l-6-6 6-6" stroke="#C2B280" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <svg class="music-toggle music-on" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M9 18V5l12-2v13" stroke="#C2B280" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="6" cy="18" r="3" fill="#C2B280"/>
+      <circle cx="18" cy="16" r="3" fill="#C2B280"/>
+    </svg>
   </div>
 
-  <!-- Spacing below navbar -->
-  <div class="spacer"></div>
-
   <!-- Letter Content -->
-  <div class="letter-container fade-in">
-
-    <h2 class="letter-title">A Letter to the Man Who Came Back Home to Me</h2>
-    <div class="divider"></div>
-
-    <div class="letter-glass">
+  <div class="container" style="padding-top: 90px; padding-left: 24px; padding-right: 24px;">
+    <h2>A Letter to the Man Who Came Back Home to Me</h2>
+    <div class="letter">
       <p>I still remember when we first connected on Neargroup (July 22, 2019). Who would've thought that simple chat would turn into something so meaningful and special?</p>
       <p>July 28, 2019 we made it official. Tuwing kasama kita I felt like home. We laughed, dreamed, fought… for me it’s almost perfect pero March 2020, we broke up. That time, nasa isip ko minadali kasi natin kaya madali lang rin nawala lahat.</p>
       <p>I tried moving on, but no one could fill the space you left. Then fate stepped in (October 2022), we reconnected and December 12, 2022 we chose to try again—not from where we left off, but stronger, wiser, braver.</p>
       <p>Life isn’t easy now kasi adults na tayo, we have responsibilities, more pressures sa life and we need to work to survive. Our dreams is bigger than before at dahil sa pagod nagkakaroon tayo ng misunderstandings but we keep choosing each other. We forgive and understand, kumakapit at kinakaya natin.</p>
       <p>Thank you Dy for being my person. For staying. For being born.</p>
       <p>Happy 25th Birthday, Dy. I’m so proud of you. I’m still rooting for our happy ending and success.</p>
-
       <div class="signature">With all my love,<br>Angela Mae Marco</div>
     </div>
 
     <!-- Mini Album Button -->
-    <button class="btn" id="btn-album">Mini Album</button>
-
+    <div style="text-align:center;">
+      <button class="btn" onclick="goToAlbum()">Mini Album</button>
+    </div>
   </div>
 
-  <!-- Audio Elements -->
+  <!-- Music Tracks -->
   <audio id="song1" src="audio/song1.mp3" autoplay loop></audio>
   <audio id="song2" src="audio/song2.mp3"></audio>
 
-  <!-- Script -->
   <script src="script.js"></script>
+  <script>
+    function goToAlbum() {
+      document.getElementById('song1').pause();
+      const song2 = document.getElementById('song2');
+      song2.volume = 1.0;
+      song2.play();
+      song2.loop = true;
+      window.location.href = 'album.html';
+    }
+  </script>
 </body>
 </html>
