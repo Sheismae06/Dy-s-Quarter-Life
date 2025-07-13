@@ -1,51 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>A Letter to the Man Who Came Back</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body {
+      background-color: #3D1F1F;
+      color: #EAEAEA;
+      font-family: 'Poppins', sans-serif;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 750px;
+      margin: 100px auto 60px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      color: #D4AF37;
+      margin-bottom: 15px;
+    }
+
+    .letter {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #EAEAEA;
+      text-align: justify;
+      padding: 0 10px;
+    }
+
+    .signature {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #D4AF37;
+    }
+
+    .btn {
+      display: block;
+      margin: 40px auto 0;
+      padding: 10px 24px;
+      background-color: #D4AF37;
+      color: #3D1F1F;
+      font-weight: bold;
+      font-size: 0.95rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #c49b3f;
+    }
+  </style>
 </head>
-<body class="letter-page">
-
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="navbar-content">
-      <a href="index.html" class="back-icon" title="Go Back">&#8592;</a>
+<body>
+  <div class="container">
+    <h2>A Letter to the Man Who Came Back Home to Me</h2>
+    <div class="letter">
+      <p>I still remember when we first connected on Neargroup (July 22, 2019). Who would've thought that simple chat would turn into something so meaningful and special?</p>
+      <p>July 28, 2019 we made it official. Tuwing kasama kita I felt like home. We laughed, dreamed, fought… for me it’s almost perfect pero March 2020, we broke up. That time, nasa isip ko minadali kasi natin kaya madali lang rin nawala lahat.</p>
+      <p>I tried moving on, but no one could fill the space you left. Then fate stepped in (October 2022), we reconnected and December 12, 2022 we chose to try again—not from where we left off, but stronger, wiser, braver.</p>
+      <p>Life isn’t easy now kasi adults na tayo, we have responsibilities, more pressures sa life and we need to work to survive. Our dreams is bigger than before and dahil sa pagod nagkakaroon tayo ng misunderstandings but we keep choosing each other. We forgive and understand, kumakapit at kinakaya natin.</p>
+      <p>Thank you Dy for being my person. For staying. For being born.</p>
+      <p>Happy 25th Birthday, Dy. I’m so proud of you. I’m still rooting for our happy ending and success.</p>
+      <div class="signature">With all my love,<br>Angela Mae Marco</div>
     </div>
-  </nav>
+    <button class="btn" onclick="goToAlbum()">Mini Album</button>
+  </div>
 
-  <!-- Song1 still playing from index -->
-  <audio id="song1" src="song1-kung-tayo.mp3" preload="auto" loop></audio>
-  <audio id="song2" src="song2-until-i-found-you.mp3" preload="auto" loop></audio>
+  <audio id="song1" src="song1-kung-tayo.mp3" autoplay loop></audio>
+  <audio id="song2" src="song2-until-i-found-you.mp3"></audio>
 
-  <main class="fade-in">
-    <section class="letter-content">
-      <h2 class="section-title">A Letter to the Man Who Came Back Home to Me</h2>
-      <p class="letter-message">
-        I still remember when we first connected on Neargroup (July 22, 2019). Who would've thought that simple chat would turn into something so meaningful and special?
-        <br><br>
-        July 28, 2019 we made it official. Tuwing kasama kita I felt like home. We laughed, dreamed, fought… for me its almost perfect pero March 2020, we broke up. That time, nasa isip ko minadali kasi natin kaya madali lang rin nawala lahat.
-        <br><br>
-        I tried moving on, but no one could fill the space you left. Then fate stepped in (October 2022) we reconnected and December 12, 2022 we chose to try again—not from where we left off, but stronger, wiser, braver.
-        <br><br>
-        Life isn’t easy now kasi adults na tayo, we have responsibilities, more pressures sa life and we need to work to survive. Our dreams is bigger than before and dahil sa pagod nagkakaroon tayo ng misunderstandings but we keep choosing each other. We forgive and understand, kumakapit at kinakaya natin.
-        <br><br>
-        Thank you Dy for being my person. For staying. For being born.
-        <br><br>
-        Happy 25th Birthday, Dy. I’m so proud of you. I’m still rooting for our happy ending and success.
-        <br><br>
-        With all my love,<br>
-        Angela Mae Marco
-      </p>
+  <script>
+    const song1 = document.getElementById('song1');
+    const song2 = document.getElementById('song2');
 
-      <div class="center-button">
-        <button id="goToAlbumBtn" class="gold-button">Mini Album</button>
-      </div>
-    </section>
-  </main>
-
-  <script src="script.js"></script>
+    function goToAlbum() {
+      song1.pause();
+      song2.play();
+      song2.loop = true;
+      window.location.href = 'album.html';
+    }
+  </script>
 </body>
 </html>
