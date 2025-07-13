@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const musicToggle = document.querySelector(".music-toggle");
-  const bgMusic = document.getElementById("bg-music");
+  const bgMusic = document.getElementById("song1") || document.getElementById("song2") || document.getElementById("song3") || document.getElementById("meandus") || document.getElementById("recorded");
   const backBtn = document.querySelector(".back-btn");
 
   // Setup background music toggle
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (isPlaying) {
       bgMusic.volume = 1.0;
-      bgMusic.play().catch(() => {}); // for autoplay restrictions
+      bgMusic.play().catch(() => {}); // handle autoplay restrictions
       musicToggle.classList.add("music-on");
       musicToggle.classList.remove("music-off");
     } else {
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Slideshow logic (album.html)
+  // Slideshow logic (album.html only)
   let slideIndex = 0;
   const slides = document.querySelectorAll(".slide");
   const watchBtn = document.getElementById("watch-btn");
@@ -67,10 +67,10 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(() => {
       slideIndex = (slideIndex + 1) % slides.length;
       showSlide(slideIndex);
-    }, 8000); // Change every 8 seconds
+    }, 8000);
   }
 
-  // Play correct song on button click
+  // Play specific songs based on button IDs
   const getStartedBtn = document.getElementById("get-started");
   const miniAlbumBtn = document.getElementById("mini-album");
   const openPresentBtn = document.getElementById("open-present");
@@ -83,9 +83,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const meanddy = document.getElementById("meandus");
   const recorded = document.getElementById("recorded");
 
+  function stopOthers(except) {
+    [song1, song2, song3, meanddy, recorded].forEach(a => {
+      if (a && a !== except) a.pause();
+    });
+  }
+
   if (getStartedBtn && song1) {
     getStartedBtn.addEventListener("click", () => {
-      [song2, song3, meanddy, recorded].forEach(a => a && a.pause());
+      stopOthers(song1);
       song1.volume = 1.0;
       song1.loop = true;
       song1.play();
@@ -94,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (miniAlbumBtn && song2) {
     miniAlbumBtn.addEventListener("click", () => {
-      [song1, song3, meanddy, recorded].forEach(a => a && a.pause());
+      stopOthers(song2);
       song2.volume = 1.0;
       song2.loop = true;
       song2.play();
@@ -103,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (openPresentBtn && song3) {
     openPresentBtn.addEventListener("click", () => {
-      [song1, song2, meanddy, recorded].forEach(a => a && a.pause());
+      stopOthers(song3);
       song3.volume = 1.0;
       song3.loop = true;
       song3.play();
@@ -112,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (messageRecordedBtn && recorded) {
     messageRecordedBtn.addEventListener("click", () => {
-      [song1, song2, song3, meanddy].forEach(a => a && a.pause());
+      stopOthers(recorded);
       recorded.volume = 1.0;
       recorded.play();
     });
@@ -120,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (soundOfUsBtn && meanddy) {
     soundOfUsBtn.addEventListener("click", () => {
-      [song1, song2, song3, recorded].forEach(a => a && a.pause());
+      stopOthers(meanddy);
       meanddy.volume = 1.0;
       meanddy.play();
     });
