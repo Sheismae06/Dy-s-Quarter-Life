@@ -8,11 +8,9 @@
 </head>
 <body>
 
-  <!-- Navbar -->
+  <!-- Navbar WITHOUT back icon -->
   <div class="navbar">
-    <svg class="back-btn" onclick="history.back()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-    </svg>
+    <!-- intentionally left empty -->
   </div>
 
   <!-- Main Content -->
@@ -32,10 +30,10 @@
 
     startBtn.onclick = () => {
       song1.play();
-      startBtn.classList.add("clicked"); // turn gold
+      startBtn.classList.add("clicked"); // add gold background
       setTimeout(() => {
         window.location.href = "letter.html";
-      }, 1000); // delay for elegance
+      }, 1000); // smooth transition
     };
   </script>
 
