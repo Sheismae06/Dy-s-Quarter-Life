@@ -1,4 +1,5 @@
-/* Reset & Global */
+/* Angela's Birthday Tribute Website: style.css */
+
 * {
   margin: 0;
   padding: 0;
@@ -6,233 +7,257 @@
 }
 
 body {
+  background-color: #0e0e0e;
+  color: white;
   font-family: 'Poppins', sans-serif;
-  background-color: #000000; /* Elegant black */
-  color: #FFFFFF;
   line-height: 1.6;
+  font-size: 1rem;
   overflow-x: hidden;
-  transition: background 0.3s ease, color 0.3s ease;
-  padding-top: 60px;
+  transition: all 0.3s ease;
 }
 
-/* Navbar */
 .navbar {
-  background-color: #2B2B2B; /* Charcoal gray */
-  height: 60px;
+  background-color: #2b2b2b;
+  height: 55px;
   display: flex;
   align-items: center;
-  padding: 0 15px;
-  justify-content: space-between;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
+  padding: 0 1rem;
+  justify-content: flex-start;
 }
 
 .back-arrow {
-  font-size: 22px;
-  color: white;
   background: none;
   border: none;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.back-arrow:hover {
-  color: #D4AF37;
-}
-
-/* Titles */
-h1 {
-  color: #C9A86A; /* Soft elegant gold */
-  font-size: clamp(2rem, 6vw, 2.5rem);
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-h2, h3 {
-  font-size: 1.3rem;
-  text-align: center;
-  color: #EEEEEE;
-  margin-bottom: 1rem;
-}
-
-.gold-title {
-  color: #C9A86A;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-/* Paragraphs */
-p {
-  font-size: 0.95rem;
-  color: #EAEAEA;
-  margin-bottom: 1.2rem;
-  padding: 0 20px;
-  text-align: justify;
-}
-
-/* Buttons */
-button {
-  font-size: 1rem;
-  padding: 10px 20px;
-  border-radius: 8px;
-  border: none;
-  background-color: #C9A86A; /* Soft gold */
   color: white;
+  font-size: 1.4rem;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease;
+  margin-right: 10px;
 }
 
-button:hover {
-  background-color: #B8965C;
-  transform: scale(1.03);
-}
-
-.center-btn {
-  text-align: center;
-  margin-top: 30px;
-}
-
-/* Hero Section */
 .hero {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 60px);
-  padding: 0 20px;
   text-align: center;
-  animation: fadeIn 1s ease-in-out;
+  padding: 0 20px;
+  gap: 1.2rem;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 6vw, 2.5rem);
+  color: #D4AF37;
 }
 
 .hero p {
-  margin: 1rem 0;
   font-size: 1rem;
-}
-
-/* Album Section */
-.album {
-  padding: 30px 20px;
-  text-align: center;
-}
-
-.album h2 {
-  color: #C9A86A;
-  margin-bottom: 20px;
-}
-
-.album .photo-block {
-  margin-bottom: 30px;
-}
-
-.album img {
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-  border-radius: 12px;
-  margin-bottom: 15px;
-}
-
-.album .caption {
-  background-color: rgba(255, 255, 255, 0.05);
-  padding: 15px;
-  border-radius: 10px;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  transition: transform 0.3s ease;
-  animation: fadeInUp 0.8s ease;
-}
-
-/* Video Section */
-#video-section {
-  background-color: #000000;
-  padding: 40px 20px;
-  text-align: center;
-}
-
-#video-section video {
-  width: 100%;
-  max-width: 500px;
-  border-radius: 12px;
-  margin-bottom: 15px;
-}
-
-/* Present Button & Surprise Box */
-#presentMessage {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(6px);
-  z-index: 9999;
-  justify-content: center;
-  align-items: center;
-}
-
-#presentMessage .box {
-  background-color: white;
-  padding: 25px;
-  border-radius: 15px;
-  text-align: center;
-  color: #1A5E20;
   max-width: 90%;
 }
 
-#presentMessage .box button {
-  margin: 10px;
+.hero button {
+  background-color: #D4AF37;
+  color: black;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero button:hover {
+  opacity: 0.8;
+}
+
+.letter-content {
+  padding: 40px 25px 80px;
+  text-align: left;
+}
+
+.gold-title {
+  font-size: clamp(1.6rem, 5.5vw, 2.2rem);
+  color: #D4AF37;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.letter-content p {
   font-size: 0.95rem;
+  margin-bottom: 18px;
+  text-align: justify;
+  opacity: 0.95;
 }
 
-.listen-button.playing {
-  animation: pulse 0.7s ease-in-out infinite;
+.center-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
 }
 
-/* Blur class on body when present opens */
-.blurred {
-  filter: blur(4px);
+.center-btn button {
+  background-color: #D4AF37;
+  color: black;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-/* Transitions & Animations */
+.album-page {
+  padding: 30px 20px 80px;
+  text-align: center;
+}
+
+.album-page h1 {
+  color: #D4AF37;
+  margin-bottom: 30px;
+}
+
+.album-item {
+  margin-bottom: 50px;
+}
+
+.album-item img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.album-message {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px 18px;
+  border-radius: 12px;
+  display: inline-block;
+  text-align: justify;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.album-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.album-btn button {
+  background-color: #D4AF37;
+  color: black;
+  padding: 10px 22px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.video-page {
+  padding: 30px 20px 80px;
+  text-align: center;
+}
+
+.video-section video {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.video-message {
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.audio-trigger-btn,
+.present-button {
+  background-color: #D4AF37;
+  color: black;
+  padding: 10px 22px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 12px 0;
+}
+
+.floating-message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.message-popup {
+  background: white;
+  color: #1A5E20;
+  padding: 30px 25px;
+  border-radius: 16px;
+  max-width: 90%;
+  text-align: center;
+  font-size: 0.95rem;
+  animation: fadeInScale 0.5s ease forwards;
+}
+
+.popup-buttons {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.popup-buttons button {
+  background-color: #228B22;
+  color: white;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.blur-bg {
+  filter: blur(8px);
+  transition: filter 0.4s ease;
+}
+
 .fade-in {
-  animation: fadeIn 1s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+.fade-in-delay {
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.3s;
 }
 
 @keyframes fadeInUp {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-
-/* Responsive Text */
-@media screen and (max-width: 480px) {
-  h1 {
-    font-size: clamp(1.6rem, 7vw, 2.2rem);
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
   }
-
-  h2, h3 {
-    font-size: 1.1rem;
-  }
-
-  p {
-    font-size: 0.9rem;
-    padding: 0 16px;
-  }
-
-  button {
-    font-size: 0.9rem;
-    padding: 9px 16px;
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
