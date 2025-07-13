@@ -1,4 +1,4 @@
-/* GENERAL STYLING */
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
@@ -6,148 +6,48 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #3D1F1F; /* Dark Maroon */
+  background-color: #3D1F1F;
   color: #EAEAEA;
-  line-height: 1.6;
+  font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* NAVBAR */
-nav {
-  background-color: #228B22; /* Forest Green */
-  color: white;
-  padding: 12px 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* Navbar */
+.navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 100;
-}
-
-.nav-left,
-.nav-right {
+  background-color: #2B1414;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  z-index: 999;
 }
 
-.nav-left svg,
-.nav-right svg {
+.navbar .back-btn,
+.navbar .music-toggle {
+  width: 24px;
+  height: 24px;
   cursor: pointer;
-  transition: transform 0.2s ease;
-  margin-right: 12px;
+  fill: white;
+  transition: transform 0.3s ease, fill 0.3s ease;
 }
 
-.nav-left svg:hover,
-.nav-right svg:hover {
+.navbar .back-btn:hover,
+.navbar .music-toggle:hover {
+  fill: #D4AF37;
   transform: scale(1.1);
 }
 
-nav .logo {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #fff;
-}
-
-/* BUTTONS */
-button {
-  font-family: inherit;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-button:hover {
-  opacity: 0.9;
-}
-
-/* HERO SECTION */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 20px;
-  text-align: center;
-  background-color: #3D1F1F;
-}
-
-.hero h1 {
-  font-size: 2.2rem;
-  color: #D4AF37; /* Antique Gold */
-  margin-bottom: 15px;
-}
-
-.hero p {
-  font-size: 1rem;
-  color: #EAEAEA;
-  margin-bottom: 25px;
-}
-
-.hero button {
-  background-color: #D4AF37;
-  color: #3D1F1F;
-  padding: 12px 30px;
-  font-size: 1rem;
-  border-radius: 30px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 1.8rem;
-  }
-
-  .hero p {
-    font-size: 0.95rem;
-  }
-
-  nav {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .nav-left,
-  .nav-right {
-    justify-content: center;
-  }
-}
-
-/* ANIMATIONS & EFFECTS */
-.fade-in {
-  animation: fadeIn 1s ease-in-out forwards;
-  opacity: 0;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-
-/* ICON TOGGLE EXAMPLE (PIANO SVG) */
-.music-icon {
-  width: 24px;
-  height: 24px;
-  margin-left: 10px;
-  transition: all 0.3s ease;
-}
-
+/* Music ON Animation */
 .music-on {
-  filter: drop-shadow(0 0 5px #D4AF37);
-  animation: pulse 1.5s infinite;
   fill: #D4AF37;
+  animation: pulse 1.5s infinite ease-in-out;
 }
 
 .music-off {
-  fill: #FFFFFF;
+  fill: white;
   position: relative;
 }
 
@@ -156,15 +56,104 @@ button:hover {
   position: absolute;
   width: 2px;
   height: 100%;
-  background-color: #D4AF37;
-  transform: rotate(45deg);
-  left: 50%;
+  background: #D4AF37;
+  transform: rotate(-45deg);
   top: 0;
+  left: 50%;
 }
 
-/* PULSE EFFECT */
+/* Pulse effect for music ON */
 @keyframes pulse {
   0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.05); opacity: 0.8; }
+  50% { transform: scale(1.05); opacity: 0.85; }
   100% { transform: scale(1); opacity: 1; }
+}
+
+/* Buttons */
+button {
+  background-color: #D4AF37;
+  color: #3D1F1F;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #c49b3f;
+}
+
+/* Titles */
+h1, h2, h3 {
+  color: #D4AF37;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Paragraphs */
+p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Slideshow (album) */
+.slide-container {
+  max-width: 750px;
+  margin: 100px auto 40px;
+  text-align: center;
+}
+
+.slide {
+  display: none;
+  animation: fadeSlide 1s ease;
+}
+
+.active-slide {
+  display: block;
+}
+
+.slide img {
+  max-width: 100%;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.caption {
+  font-size: 0.9rem;
+  color: #EAEAEA;
+  margin-bottom: 30px;
+}
+
+/* Animations */
+@keyframes fadeSlide {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  h1, h2 {
+    font-size: 1.3rem;
   }
+
+  .navbar {
+    padding: 8px 16px;
+  }
+
+  .slide-container {
+    padding: 0 10px;
+  }
+
+  p {
+    font-size: 0.88rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 8px 18px;
+  }
+}
