@@ -1,31 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="homepage">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dy's Quarter Life</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <!-- Navbar (No Text) -->
-  <div class="navbar"></div>
+<body class="homepage">
 
-  <!-- Main Section -->
-  <section class="center-screen">
-    
+  <!-- Navbar -->
+  <div class="navbar">
+    <!-- No back icon or text here (for homepage only) -->
+  </div>
+
+  <!-- Content -->
+  <div class="center-screen">
     <!-- Infinity Logo -->
     <img src="infinity.svg" alt="Infinity Logo" class="infinity-logo" />
 
-    <!-- Divider Line -->
+    <!-- Optional Divider -->
     <div class="divider"></div>
 
-    <!-- Title Text -->
+    <!-- Text -->
     <h1>Happy 25th, My Love</h1>
     <p>A quarter of a century of your light. Here’s a piece of my love for you.</p>
 
     <!-- Get Started Button -->
-    <button class="btn-start" onclick="window.location.href='letter.html'">Get Started</button>
+    <button class="btn-start" id="startBtn">Get Started</button>
+  </div>
 
-  </section>
+  <!-- Script -->
+  <script src="script.js"></script>
 </body>
 </html>
