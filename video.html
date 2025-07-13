@@ -4,45 +4,54 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Snippets</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
 </head>
 <body class="video-page">
+
+  <!-- Navbar with back icon -->
   <nav class="navbar">
-    <a href="album.html" class="back-icon">←</a>
+    <div class="navbar-content">
+      <a href="album.html" class="back-icon" title="Go Back">&#8592;</a>
+    </div>
   </nav>
 
-  <main class="video-container">
-    <h2 class="video-title">Snippets</h2>
-    <p class="video-subtitle">
-      I truly appreciate all your efforts and everything you’ve done for me.
-      In every high and low moment, ikaw at ikaw pa rin ang pipiliin ko.
-      Mahal na mahal kita, and I’m so grateful to have a man like you in my life.
-      I know you’re not perfect kasi no one really is naman talaga but I see how hard you try,
-      even when you're tired and struggling ginagawa mo pa rin ang kaya at best mo.
-      That’s why, love, thank you so much for everything. You mean more to me than words can ever say.
-    </p>
+  <main class="fade-in">
+    <h2 class="section-title">Snippets</h2>
+    <p class="video-description">I truly appreciate all your efforts and everything you’ve done for me. In every high and low moment, ikaw at ikaw pa rin ang pipiliin ko. Mahal na mahal kita, and I’m so grateful to have a man like you in my life. I know you’re not perfect kasi no one really is naman talaga but I see how hard you try, even when you're tired and struggling ginagawa mo pa rin ang kaya at best mo. That’s why, love, thank you so much for everything. You mean more to me than words can ever say.</p>
 
-    <video id="main-video" controls playsinline>
-      <source src="YouCut_20250713_162158131.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    <div class="video-wrapper">
+      <video id="mainVideo" controls>
+        <source src="YouCut_20250713_162158131.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
 
-    <button id="sound-of-us" class="gold-button">Sound of Us</button>
-    <button id="open-surprise" class="gold-button">Open Your Present</button>
+    <!-- Sound of Us button -->
+    <div class="center-button">
+      <button id="soundBtn" class="gold-button">Sound of Us 🎵</button>
+    </div>
 
-    <div id="present-float" class="float-box hidden">
-      <p>Sana nagustuhan mo regalo ko for you Dy, I love you always po</p>
+    <!-- Open Your Present button -->
+    <div class="center-button">
+      <button id="presentBtn" class="gold-button">Open Your Present 🎁</button>
+    </div>
+
+    <!-- Surprise Float Box -->
+    <div id="surpriseBox" class="float-box hidden">
+      <p>Sana nagustuhan mo regalo ko for you Dy, I love you always po.</p>
       <div class="float-buttons">
-        <button id="message-btn" class="gold-button">Message Recorded 🎧</button>
-        <button id="go-home" class="gold-button">Home</button>
+        <button id="recordedBtn" class="gold-button">Message Recorded 🎙️</button>
+        <a href="index.html" class="gold-button">Home</a>
       </div>
     </div>
-  </main>
 
-  <!-- Audio Elements -->
-  <audio id="meanddy" src="meanddy.mp3" preload="auto" loop></audio>
-  <audio id="song3" src="song3-happy-birthday.mp3" preload="auto" loop></audio>
-  <audio id="recorded" src="message.recorded.mp3" preload="auto"></audio>
+    <!-- Audio -->
+    <audio id="soundOfUs" src="meanddy.mp3" preload="auto" volume="1"></audio>
+    <audio id="song3" src="song3-happy-birthday.mp3" preload="auto" volume="1"></audio>
+    <audio id="messageAudio" src="message.recorded.mp3" preload="auto" volume="1"></audio>
+
+  </main>
 
   <script src="script.js"></script>
 </body>
