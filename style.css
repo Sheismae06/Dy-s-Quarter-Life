@@ -1,35 +1,139 @@
-/* Root Colors */ :root { --dark-charcoal: #1F1F1F; --cream-gold: #C2B280; --maroon-bg: #3D1F1F; }
+/* Root Colors */
+:root {
+  --dark-charcoal: #1F1F1F;
+  --cream-gold: #C2B280;
+  --maroon-bg: #3D1F1F;
+}
 
 /* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-{ margin: 0; padding: 0; box-sizing: border-box; }
+/* Body */
+body {
+  background-color: var(--maroon-bg);
+  color: #EAEAEA;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
 
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background-color: var(--dark-charcoal);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
 
-/* Body */ body { background-color: var(--maroon-bg); color: #EAEAEA; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+/* Navbar text (logo/title) */
+.navbar span {
+  color: var(--cream-gold);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
 
-/* Navbar / .navbar { position: fixed; top: 0; left: 0; width: 100%; background-color: var(--dark-charcoal); display: flex; align-items: center; justify-content: space-between; padding: 20px 28px; / thicker navbar */ z-index: 1000; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); }
+/* Center Layout */
+.center-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  padding: 100px 20px 40px; /* pushed up spacing */
+}
 
-/* Navbar icon (if any) */ .navbar svg { width: 24px; height: 24px; fill: var(--cream-gold); cursor: pointer; transition: transform 0.2s ease; }
+/* Infinity Logo */
+.infinity-logo {
+  width: 60px;
+  height: auto;
+  margin-bottom: 20px;
+  animation: fadeInUp 1s ease forwards;
+}
 
-.navbar svg:hover { transform: scale(1.1); }
+/* Titles */
+h1, h2, h3 {
+  color: var(--cream-gold);
+  font-weight: 600;
+  font-size: 2rem;
+  margin-bottom: 16px;
+  animation: fadeInUp 1.2s ease forwards;
+}
 
-/* Infinity Icon */ .infinity { width: 60px; height: auto; margin-bottom: 18px; fill: var(--cream-gold); animation: fadeInUp 1s ease forwards; }
+/* Paragraphs */
+p {
+  color: #EAEAEA;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-bottom: 24px;
+  animation: fadeInUp 1.4s ease forwards;
+}
 
-/* Titles */ h1, h2, h3 { color: var(--cream-gold); font-weight: 600; text-align: center; font-size: 2rem; margin-bottom: 20px; animation: fadeInUp 1.2s ease forwards; }
+/* Button */
+.btn-start {
+  background-color: transparent;
+  color: var(--cream-gold);
+  border: 2px solid var(--cream-gold);
+  font-weight: 600;
+  border-radius: 30px;
+  padding: 10px 26px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: fadeInUp 1.6s ease forwards;
+}
 
-/* Paragraphs */ p { color: #EAEAEA; font-size: 0.95rem; line-height: 1.6; text-align: center; margin-bottom: 25px; animation: fadeInUp 1.4s ease forwards; }
+.btn-start:hover {
+  background-color: var(--cream-gold);
+  color: var(--maroon-bg);
+  transform: scale(1.05);
+}
 
-/* Button */ .btn-start { background-color: transparent; color: var(--cream-gold); border: 2px solid var(--cream-gold); font-weight: 600; border-radius: 30px; padding: 10px 26px; font-size: 0.9rem; cursor: pointer; transition: all 0.3s ease; animation: fadeInUp 1.6s ease forwards; }
+.btn-start:active {
+  transform: scale(0.95);
+}
 
-.btn-start:hover { background-color: var(--cream-gold); color: var(--maroon-bg); transform: scale(1.05); }
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-.btn-start:active { transform: scale(0.95); }
+/* Responsive */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem;
+  }
 
-/* Home Page Center Layout / .center-screen { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: 100vh; padding: 90px 20px 20px; / enough space to push text up */ }
+  .btn-start {
+    font-size: 0.85rem;
+    padding: 8px 20px;
+  }
 
-/* Animations */ @keyframes fadeInUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  .navbar {
+    padding: 0 20px;
+    height: 60px;
+  }
 
-/* Responsive */ @media (max-width: 600px) { h1 { font-size: 1.5rem; }
-
-.btn-start { font-size: 0.85rem; padding: 8px 20px; } }
-
+  .infinity-logo {
+    width: 48px;
+  }
+}
