@@ -1,119 +1,101 @@
-// === Global Audio References ===
+// Audio Elements
 const song1 = new Audio('song1-kung-tayo.mp3');
 const song2 = new Audio('song2-until-i-found-you.mp3');
-const song3 = document.getElementById('song3');
-const meanddy = document.getElementById('meanddy');
-const recorded = document.getElementById('recorded');
+const song3 = new Audio('song3-happy-birthday.mp3');
+const soundOfUs = document.getElementById('soundOfUs');
+const messageAudio = document.getElementById('messageAudio');
 
-song1.loop = true;
-song2.loop = true;
-song3.loop = true;
-meanddy.loop = true;
+// States
+let currentSong = null;
+let isSoundOfUsPlaying = false;
+let isMessageAudioPlaying = false;
 
-// === Index: Play Song 1 ===
-const getStartedBtn = document.querySelector('.get-started');
+// Ensure max volume for all
+[song1, song2, song3, soundOfUs, messageAudio].forEach(audio => {
+  audio.volume = 1.0;
+});
+
+// Auto-play song1 when Get Started is clicked
+const getStartedBtn = document.getElementById('getStartedBtn');
 if (getStartedBtn) {
   getStartedBtn.addEventListener('click', () => {
-    song1.volume = 1;
+    stopAllAudio();
+    song1.loop = true;
     song1.play();
+    currentSong = song1;
     window.location.href = 'letter.html';
   });
 }
 
-// === Letter: Transition to Album, Play Song 2 ===
-const miniAlbumBtn = document.getElementById('mini-album');
+// Auto-play song2 when Mini Album is clicked
+const miniAlbumBtn = document.getElementById('miniAlbumBtn');
 if (miniAlbumBtn) {
   miniAlbumBtn.addEventListener('click', () => {
-    song1.pause();
-    song2.volume = 1;
+    stopAllAudio();
+    song2.loop = true;
     song2.play();
+    currentSong = song2;
     window.location.href = 'album.html';
   });
 }
 
-// === Album Slideshow ===
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
-const prevBtn = document.getElementById('prev');
-const nextBtn = document.getElementById('next');
-const toVideoBtn = document.getElementById('to-video');
-
-function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.classList.remove('active');
-    if (i === index) slide.classList.add('active');
-  });
-
-  // Show "Watch" button only on last slide
-  if (index === slides.length - 1) {
-    toVideoBtn.classList.remove('hidden');
-  } else {
-    toVideoBtn.classList.add('hidden');
-  }
-}
-
-if (slides.length > 0) {
-  showSlide(currentSlide);
-  prevBtn.addEventListener('click', () => {
-    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-    showSlide(currentSlide);
-  });
-  nextBtn.addEventListener('click', () => {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-  });
-  toVideoBtn.addEventListener('click', () => {
-    song2.pause();
-    window.location.href = 'video.html';
-  });
-}
-
-// === Video Page Logic ===
-const soundBtn = document.getElementById('sound-of-us');
-const openBtn = document.getElementById('open-surprise');
-const floatBox = document.getElementById('present-float');
-const msgBtn = document.getElementById('message-btn');
-const homeBtn = document.getElementById('go-home');
-
+// Video page: Sound of Us toggle
+const soundBtn = document.getElementById('soundBtn');
 if (soundBtn) {
-  let isMeAndDyPlaying = false;
   soundBtn.addEventListener('click', () => {
-    if (isMeAndDyPlaying) {
-      meanddy.pause();
+    if (isSoundOfUsPlaying) {
+      soundOfUs.pause();
+      soundBtn.classList.remove('playing');
     } else {
-      meanddy.volume = 1;
-      meanddy.play();
+      stopAllAudio();
+      soundOfUs.currentTime = 0;
+      soundOfUs.play();
+      soundBtn.classList.add('playing');
     }
-    isMeAndDyPlaying = !isMeAndDyPlaying;
+    isSoundOfUsPlaying = !isSoundOfUsPlaying;
   });
 }
 
-if (openBtn) {
-  openBtn.addEventListener('click', () => {
-    floatBox.classList.remove('hidden');
-    song3.volume = 1;
+// Open Your Present button logic
+const presentBtn = document.getElementById('presentBtn');
+const surpriseBox = document.getElementById('surpriseBox');
+if (presentBtn && surpriseBox) {
+  presentBtn.addEventListener('click', () => {
+    stopAllAudio();
+    song3.loop = true;
     song3.play();
-    meanddy.pause();
+    surpriseBox.classList.remove('hidden');
+    currentSong = song3;
   });
 }
 
-if (msgBtn) {
-  let isRecordedPlaying = false;
-  msgBtn.addEventListener('click', () => {
-    if (isRecordedPlaying) {
-      recorded.pause();
+// Message Recorded toggle
+const recordedBtn = document.getElementById('recordedBtn');
+if (recordedBtn) {
+  recordedBtn.addEventListener('click', () => {
+    if (isMessageAudioPlaying) {
+      messageAudio.pause();
+      recordedBtn.classList.remove('playing');
     } else {
-      recorded.volume = 1;
-      recorded.play();
+      stopAllAudio();
+      messageAudio.currentTime = 0;
+      messageAudio.play();
+      recordedBtn.classList.add('playing');
     }
-    isRecordedPlaying = !isRecordedPlaying;
+    isMessageAudioPlaying = !isMessageAudioPlaying;
   });
 }
 
-if (homeBtn) {
-  homeBtn.addEventListener('click', () => {
-    song3.pause();
-    recorded.pause();
-    window.location.href = 'index.html';
+// Stop all playing audio
+function stopAllAudio() {
+  [song1, song2, song3, soundOfUs, messageAudio].forEach(audio => {
+    audio.pause();
+    audio.currentTime = 0;
   });
-    }
+  isSoundOfUsPlaying = false;
+  isMessageAudioPlaying = false;
+
+  // Remove active button effects
+  if (soundBtn) soundBtn.classList.remove('playing');
+  if (recordedBtn) recordedBtn.classList.remove('playing');
+}
