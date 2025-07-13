@@ -9,46 +9,53 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <div id="videoBlurWrapper">
-    <nav class="navbar">
-      <div class="nav-left">
-        <button onclick="history.back()" class="back-arrow">&#8592;</button>
-      </div>
-    </nav>
+  <nav class="navbar">
+    <div class="nav-left">
+      <button onclick="history.back()" class="back-arrow">&#8592;</button>
+    </div>
+  </nav>
 
-    <main class="video-page fade-in">
-      <h1 class="gold-title">Our Special Memories</h1>
+  <main class="video-section fade-in">
+    <h1 class="gold-title center-text">Our Special Memories</h1>
 
-      <div class="video-section">
-        <video id="video1" controls>
-          <source src="lv_7484485684783303997_20250712231639_V1.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+    <!-- Video 1 -->
+    <video id="video1" controls style="width: 100%; max-width: 500px; border-radius: 12px; margin-top: 20px;">
+      <source src="lv_7484485684783303997_20250712231639_V1.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
 
-        <p class="video-message fade-in-delay">Your love shows in every little thing you do. Every effort, every act of care, in everything sobrang grateful ako. Mahal na mahal kita Dy.</p>
+    <!-- Message under Video 1 -->
+    <div class="mini-message" style="margin-top: 20px;">
+      Your love shows in every little thing you do. Every effort, every act of care, in everything sobrang grateful ako. Mahal na mahal kita Dy.
+    </div>
 
-        <button id="playSymphony" class="audio-trigger-btn">Our private symphony, unheard by the world</button>
+    <!-- Play Video 2 Audio as Button -->
+    <div style="margin-top: 25px;">
+      <button class="audio-btn" onclick="playVideo2Sound()">Our private symphony, unheard by the world</button>
+    </div>
 
-        <button id="presentBtn" class="present-button">🎁 Open Your Present</button>
-      </div>
-    </main>
+    <!-- Open Your Present Button -->
+    <div style="margin-top: 25px;">
+      <button class="open-present-btn" onclick="showPresent()">🎁 Open Your Present</button>
+    </div>
+  </main>
 
-    <div id="presentMessage" class="floating-message hidden">
-      <div class="message-popup">
-        <p>Sana nagustuhan mo regalo ko for you Dy, I love you always po.</p>
-        <audio id="voiceMessage" src="message recorded.mp3"></audio>
+  <!-- Floating Box -->
+  <div id="presentMessage" class="present-overlay">
+    <div class="present-box">
+      <p>Sana nagustuhan mo regalo ko for you Dy, I love you always po.</p>
+      <audio id="voiceMessage" src="message recorded.mp3"></audio>
 
-        <div class="popup-buttons">
-          <button onclick="playRecordedMessage()">Opened it yet? 🎁 Listen 🎶</button>
-          <button onclick="location.href='index.html'">Start Again</button>
-        </div>
+      <div style="margin-top: 20px;">
+        <button onclick="playVoiceMessage()" class="audio-btn">Opened it yet? 🎁 Listen 🎶</button>
+        <button onclick="location.href='index.html'" class="audio-btn">Start Again</button>
       </div>
     </div>
   </div>
 
-  <audio id="song2" src="song2-sayo.mp3"></audio>
+  <!-- Hidden audio for Video 2 sound -->
+  <audio id="video2Audio" src="VIDEO_5230d69f_1481_413f_a495_a82ceb45802c_V1.mp3"></audio>
   <audio id="song3" src="song3-happy-birthday.mp3"></audio>
-  <audio id="video2audio" src="VIDEO_5230d69f_1481_413f_a495_a82ceb45802c_V1.mp4"></audio>
 
   <script src="script.js"></script>
 </body>
