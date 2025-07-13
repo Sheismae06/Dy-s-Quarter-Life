@@ -1,73 +1,80 @@
-// AUDIO ELEMENTS
-const song1 = document.getElementById("song1");
-const song2 = new Audio("song2-akin-ka-na-lang.mp3");
-const song3 = new Audio("song3-fall-inlove.mp3");
-const video2Audio = new Audio("video2-audio.mp3");
+// script.js
 
-// Ensure max volume
-[song1, song2, song3, video2Audio].forEach(audio => {
-  audio.volume = 1.0;
-});
+let currentSong = null;
 
-// START JOURNEY → PLAY SONG 1 + GO TO LETTER
+function playSong(id) {
+  if (currentSong && currentSong !== id) {
+    document.getElementById(currentSong).pause();
+  }
+  const song = document.getElementById(id);
+  if (song) {
+    song.volume = 1.0;
+    song.play();
+    currentSong = id;
+  }
+}
+
 function startJourney() {
-  song1.play();
-  setTimeout(() => {
-    window.location.href = "letter.html";
-  }, 800);
+  playSong("song1");
+  window.location.href = "letter.html";
 }
 
-// MINI ALBUM BUTTON → PLAY SONG 2 + GO TO ALBUM
 function goToAlbum() {
-  song2.play();
-  setTimeout(() => {
-    window.location.href = "album.html";
-  }, 800);
+  playSong("song2");
+  window.location.href = "album.html";
 }
 
-// WATCH HERE BUTTON → GO TO VIDEO PAGE
 function goToVideo() {
-  setTimeout(() => {
-    window.location.href = "video.html";
-  }, 600);
+  window.location.href = "video.html";
 }
 
-// PLAY VIDEO2 AUDIO WHEN BUTTON PRESSED
-function playVideo2Audio() {
-  video2Audio.play();
-}
-
-// OPEN YOUR PRESENT → BLUR + FLOAT + PLAY SONG 3
-function openSurprise() {
-  song3.play();
-
-  document.getElementById("blurOverlay").style.display = "block";
-  document.getElementById("surpriseBox").style.display = "block";
-}
-
-// STOP SONG 2 IF VIDEO 1 PLAYS
-function stopSong2OnVideoPlay() {
-  const video1 = document.getElementById("video1");
-  if (video1) {
-    video1.addEventListener("play", () => {
-      song2.pause();
-    });
-    video1.addEventListener("pause", () => {
-      if (!song3.paused || !video2Audio.paused) return;
-      song2.play();
-    });
+function playVideo2Sound() {
+  const audio = document.getElementById("video2sound");
+  if (audio) {
+    audio.volume = 1.0;
+    audio.play();
   }
 }
 
-// Hide back arrow on index only
-window.addEventListener("DOMContentLoaded", () => {
-  const backArrow = document.querySelector(".back-arrow");
-  if (window.location.pathname.includes("index.html") || window.location.pathname === "/" || window.location.pathname === "") {
-    if (backArrow) backArrow.style.display = "none";
+function openSurpriseBox() {
+  playSong("song3");
+  const box = document.getElementById("surpriseBox");
+  if (box) {
+    box.classList.remove("hidden");
   }
+}
 
-  // If video page, activate listener for stop
-  if (window.location.pathname.includes("video.html")) {
-    stopSong2OnVideoPlay();
+function playRecordedMessage() {
+  if (currentSong) {
+    const old = document.getElementById(currentSong);
+    if (old) old.pause();
   }
+  const recorder = document.getElementById("recorder");
+  if (recorder) {
+    recorder.volume = 1.0;
+    recorder.play();
+  }
+}
+
+function goHome() {
+  if (currentSong) {
+    const playing = document.getElementById(currentSong);
+    if (playing) playing.pause();
+  }
+  const recorder = document.getElementById("recorder");
+  if (recorder) recorder.pause();
+  window.location.href = "index.html";
+}
+
+function goBack() {
+  window.history.back();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const audio1 = document.getElementById("song1");
+  const audio2 = document.getElementById("song2");
+  const audio3 = document.getElementById("song3");
+  if (audio1) currentSong = "song1";
+  if (audio2) currentSong = "song2";
+  if (audio3) currentSong = "song3";
 });
