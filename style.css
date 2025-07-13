@@ -36,41 +36,22 @@ body {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 }
 
-/* Back Icon */
-.back-icon {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  fill: var(--cream-gold);
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.back-icon:hover {
-  transform: scale(1.1);
-}
-
-/* Hide back icon on homepage only */
-.homepage .back-icon {
-  display: none;
-}
-
-/* Logo (if needed) */
+/* Infinity Logo */
 .infinity-logo {
   width: 100px;
   height: auto;
-  margin: 100px auto 20px;
+  margin: 80px auto 10px;
   display: block;
   animation: floatLogo 4s ease-in-out infinite;
   filter: drop-shadow(0 0 6px #C2B280aa);
 }
 
-/* Divider (optional) */
+/* Divider */
 .divider {
   width: 60px;
   height: 2px;
   background-color: var(--cream-gold);
-  margin: 10px auto 40px;
+  margin: 8px auto 32px;
   opacity: 0.2;
   border-radius: 10px;
 }
@@ -79,10 +60,11 @@ body {
 .center-screen {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   min-height: 100vh;
-  padding: 100px 20px 40px;
+  padding-top: 120px;
+  padding-bottom: 40px;
   text-align: center;
 }
 
@@ -91,7 +73,6 @@ h1, h2 {
   color: var(--cream-gold);
   font-weight: 600;
   font-size: 2rem;
-  margin-top: 40px;
   margin-bottom: 16px;
   animation: fadeInUp 1s ease forwards;
 }
@@ -102,11 +83,10 @@ p {
   font-size: 0.95rem;
   line-height: 1.6;
   animation: fadeInUp 1.2s ease forwards;
-  margin-bottom: 24px;
 }
 
-/* Main Buttons */
-button, .btn, .btn-start {
+/* Main Button */
+.btn-start {
   background-color: transparent;
   color: var(--cream-gold);
   border: 2px solid var(--cream-gold);
@@ -114,20 +94,19 @@ button, .btn, .btn-start {
   border-radius: 30px;
   padding: 10px 26px;
   font-size: 0.9rem;
-  margin: 12px;
+  margin-top: 30px;
   cursor: pointer;
   transition: all 0.3s ease;
   animation: fadeInUp 1.4s ease forwards;
 }
 
-/* Clicked effect */
-button.clicked, .btn.clicked, .btn-start.clicked {
+.btn-start:hover {
   background-color: var(--cream-gold);
   color: var(--maroon-bg);
   transform: scale(1.05);
 }
 
-button:active {
+.btn-start:active {
   transform: scale(0.95);
 }
 
@@ -150,11 +129,10 @@ button:active {
 
 /* Responsive */
 @media (max-width: 600px) {
-  h1, h2 {
+  h1 {
     font-size: 1.5rem;
   }
 
-  .btn,
   .btn-start {
     font-size: 0.85rem;
     padding: 8px 20px;
