@@ -1,50 +1,44 @@
-/* Colors */
+/* Variables */
 :root {
   --dark-charcoal: #1F1F1F;
   --cream-gold: #C2B280;
   --maroon-bg: #3D1F1F;
 }
 
-/* General Reset */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Body */
 body {
   background-color: var(--maroon-bg);
   color: #EAEAEA;
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
   animation: fadeInPage 1s ease forwards;
-}
-
-/* Fade-in animation on page load */
-@keyframes fadeInPage {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Navbar */
 .navbar {
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
+  width: 100%;
   background-color: var(--dark-charcoal);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
   z-index: 999;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.4);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
   user-select: none;
-  animation: fadeInPage 1s ease forwards;
 }
 
-/* Navbar Icons */
+/* Navbar icons (e.g., back icon if needed) */
 .navbar svg {
   width: 24px;
   height: 24px;
@@ -63,129 +57,93 @@ body {
   opacity: 0.7;
 }
 
-/* Music ON Animation */
-.music-on {
-  fill: var(--cream-gold);
-  animation: pulse 1.5s infinite ease-in-out;
+/* Centered screen layout below navbar */
+.center-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: calc(100vh - 60px);
+  padding: 80px 20px 20px;
+  animation: fadeUp 1.2s ease forwards;
 }
 
-.music-off {
-  fill: var(--cream-gold);
-  position: relative;
-}
-
-.music-off::after {
-  content: '';
-  position: absolute;
-  width: 2px;
-  height: 100%;
-  background: var(--cream-gold);
-  transform: rotate(-45deg);
-  top: 0;
-  left: 50%;
-}
-
-/* Pulse effect */
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.05); opacity: 0.85; }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-/* Titles */
+/* Title */
+.center-screen h1,
 h1, h2, h3 {
   color: var(--cream-gold);
   font-weight: 600;
   margin-bottom: 20px;
-  font-size: 1.3rem;
-  animation: fadeInPage 1s ease forwards;
+  font-size: 2.2rem;
+  animation: fadeUp 1.2s ease forwards;
 }
 
 /* Paragraphs */
+.center-screen p,
 p {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   line-height: 1.6;
   color: #EAEAEA;
-  margin-bottom: 15px;
-  animation: fadeInPage 1s ease forwards;
+  margin-bottom: 20px;
+  animation: fadeUp 1.4s ease forwards;
 }
 
-/* Buttons */
-button, .btn-start, .btn {
+/* Button - transparent first, turns gold when clicked */
+button, .btn, .btn-start {
+  background-color: transparent;
+  border: 2px solid var(--cream-gold);
+  color: var(--cream-gold);
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: fadeUp 1.6s ease forwards;
+}
+
+button.clicked, .btn.clicked, .btn-start.clicked {
   background-color: var(--cream-gold);
   color: var(--maroon-bg);
-  font-weight: 600;
-  border: none;
-  border-radius: 30px;
-  padding: 10px 24px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.15s ease;
-  animation: fadeInPage 1s ease forwards;
+  border-color: var(--cream-gold);
 }
 
-button:hover, .btn:hover {
-  background-color: #afa36d; /* elegant matte hover */
+button:hover, .btn:hover, .btn-start:hover {
+  opacity: 0.85;
 }
 
-button:active, .btn:active {
+button:active, .btn:active, .btn-start:active {
   transform: scale(0.95);
 }
 
-/* Slideshow (album) */
-.slide-container {
-  max-width: 750px;
-  margin: 100px auto 40px;
-  text-align: center;
+/* Fade In Animations */
+@keyframes fadeInPage {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.slide {
-  display: none;
-  animation: fadeSlide 1s ease;
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.active-slide {
-  display: block;
-}
-
-.slide img {
-  max-width: 100%;
-  border-radius: 12px;
-  margin-bottom: 10px;
-}
-
-.caption {
-  font-size: 0.9rem;
-  color: #EAEAEA;
-  margin-bottom: 30px;
-}
-
-/* Animations */
-@keyframes fadeSlide {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-/* Responsive font sizing */
+/* Responsive */
 @media (max-width: 600px) {
   h1, h2 {
-    font-size: 1.2rem;
-  }
-
-  .navbar {
-    padding: 8px 16px;
-  }
-
-  .slide-container {
-    padding: 0 10px;
+    font-size: 1.4rem;
   }
 
   p {
-    font-size: 0.85rem;
+    font-size: 0.88rem;
   }
 
-  button, .btn {
-    font-size: 0.85rem;
-    padding: 8px 20px;
+  button, .btn, .btn-start {
+    font-size: 0.8rem;
+    padding: 7px 18px;
+  }
+
+  .center-screen {
+    padding: 100px 15px 20px;
   }
 }
