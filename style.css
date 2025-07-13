@@ -30,7 +30,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 22px 28px; /* Elegant thickness */
+  padding: 22px 28px; /* Slightly thicker for elegance */
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
@@ -100,10 +100,10 @@ p {
   align-items: center;
   text-align: center;
   min-height: 100vh;
-  padding: 60px 20px 20px;
+  padding: 80px 20px 20px;
 }
 
-/* Animations (text and button only) */
+/* Animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
