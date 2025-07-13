@@ -1,161 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Videos</title>
-  <link rel="stylesheet" href="style.css"/>
-  <style>
-    body {
-      background-color: #3D1F1F;
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 20px;
-      color: #EAEAEA;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 80px auto;
-      text-align: center;
-    }
-
-    h2 {
-      font-size: 1.8rem;
-      color: #D4AF37;
-      margin-bottom: 15px;
-    }
-
-    .message-box {
-      background-color: rgba(255, 255, 255, 0.07);
-      padding: 20px;
-      border-radius: 15px;
-      margin-bottom: 30px;
-      box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
-    }
-
-    video {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 10px;
-    }
-
-    .btn {
-      background-color: #D4AF37;
-      color: #3D1F1F;
-      padding: 10px 20px;
-      border: none;
-      font-size: 0.95rem;
-      border-radius: 30px;
-      cursor: pointer;
-      margin: 10px 5px;
-      transition: background 0.3s ease;
-    }
-
-    .btn:hover {
-      background-color: #c49b3f;
-    }
-
-    /* Float Box for Surprise */
-    .overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.7);
-      backdrop-filter: blur(5px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 999;
-    }
-
-    .float-box {
-      background-color: #3D1F1F;
-      color: #EAEAEA;
-      padding: 30px;
-      border-radius: 20px;
-      max-width: 500px;
-      text-align: center;
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
-    }
-
-    .float-box h3 {
-      color: #D4AF37;
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Snippets</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
 </head>
-<body>
-  <div class="container">
-    <h2>Our Memories in Motion</h2>
-    <div class="message-box">
-      <p>Here are two of our precious moments caught on video. Watch, listen, and feel the love again.</p>
+<body class="video-page">
+  <nav class="navbar charcoal">
+    <div class="nav-left">
+      <img src="back-icon.svg" alt="Back" class="back-btn" />
+    </div>
+    <div class="nav-right">
+      <img src="piano-icon.svg" alt="Toggle Music" class="music-toggle music-on" />
+    </div>
+  </nav>
+
+  <main class="video-content fade-in">
+    <h2 class="video-title">Snippets</h2>
+    <p class="video-subtitle">
+      Here are two of our precious moments caught on video. Watch, listen, and feel the love again.<br /><br />
+      I truly appreciate all your efforts and everything you’ve done for me. In every high and low moment, ikaw at ikaw pa rin ang pipiliin ko. Mahal na mahal kita, and I’m so grateful to have a man like you in my life. I know you’re not perfect kasi no one really is naman talaga but I see how hard you try, even when you're tired and struggling ginagawa mo pa rin ang kaya at best mo. That’s why, love, thank you so much for everything. You mean more to me than words can ever say.
+    </p>
+
+    <div class="video-wrapper">
+      <video
+        id="video1"
+        controls
+        preload="metadata"
+        src="YouCut_20250713_162158131.mp4"
+        volume="1.0"
+      ></video>
+      <button id="sound-of-us-btn" class="audio-control">Sound of Us</button>
     </div>
 
-    <!-- Video 1 -->
-    <video id="video1" controls>
-      <source src="lv_7484485684783303997_20250712231639_V1.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    <button id="open-present-btn" class="open-present">Open Your Present</button>
 
-    <!-- Button for Sound of Us (song for video2) -->
-    <button class="btn" onclick="playUs()">Sound of Us</button>
-
-    <!-- Button to open surprise -->
-    <button class="btn" onclick="openSurprise()">Open Your Present</button>
-  </div>
-
-  <!-- Overlay & Float Box -->
-  <div class="overlay" id="overlay">
-    <div class="float-box">
-      <h3>Sana nagustuhan mo regalo ko for you Dy, I love you always po 💛</h3>
-      <button class="btn" onclick="playRecorded()">Message recorded 🎙️</button>
-      <button class="btn" onclick="goHome()">Home</button>
+    <div id="present-message" class="present-message hidden">
+      <div class="message-box">
+        <p>Sana nagustuhan mo regalo ko for you Dy, I love you always po</p>
+        <div class="message-buttons">
+          <button id="message-recorded-btn" class="audio-control">Message Recorded</button>
+          <button id="home-btn">Home</button>
+        </div>
+      </div>
     </div>
-  </div>
+  </main>
 
-  <!-- Audio Setup -->
-  <audio id="song2" src="song2-until-i-found-you.mp3"></audio>
-  <audio id="song3" src="song3-happy-birthday.mp3"></audio>
-  <audio id="meandus" src="meanddy.mp3"></audio>
-  <audio id="recorded" src="message.recorded.mp3"></audio>
-
-  <script>
-    const song2 = document.getElementById('song2');
-    const song3 = document.getElementById('song3');
-    const meandus = document.getElementById('meandus');
-    const recorded = document.getElementById('recorded');
-
-    // Stop song2 from album
-    window.onload = () => {
-      song2.pause();
-    };
-
-    function playUs() {
-      meandus.volume = 1.0;
-      meandus.play();
-    }
-
-    function openSurprise() {
-      document.getElementById('overlay').style.display = 'flex';
-      song3.volume = 1.0;
-      song3.play();
-      song3.loop = true;
-    }
-
-    function playRecorded() {
-      song3.pause();
-      recorded.volume = 1.0;
-      recorded.play();
-    }
-
-    function goHome() {
-      recorded.pause();
-      song3.pause();
-      meandus.pause();
-      window.location.href = 'index.html';
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
