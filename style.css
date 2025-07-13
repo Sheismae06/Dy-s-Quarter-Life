@@ -1,16 +1,12 @@
-/* Global Reset */
-* {
+/* Angela's Birthday Tribute Website: style.css */
+
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
+  background-color: #000000; /* Elegant black */
   font-family: 'Poppins', sans-serif;
-  background-color: #50C878;
-  color: #DDE5DD;
+  color: #ffffff;
   line-height: 1.6;
-  scroll-behavior: smooth;
 }
 
 a {
@@ -18,162 +14,170 @@ a {
   color: inherit;
 }
 
-/* Navbar */
 .navbar {
-  background-color: #228B22;
+  background-color: #2c2c2c; /* Charcoal gray */
   height: 60px;
   display: flex;
   align-items: center;
+  padding: 0 20px;
   justify-content: space-between;
-  padding: 0 16px;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 999;
-}
-
-.nav-left,
-.nav-right {
-  width: 20%;
-  display: flex;
-  align-items: center;
-}
-
-.nav-title {
-  text-align: center;
-  color: white;
-  font-size: 0.95rem;
-  font-weight: 600;
-  width: 60%;
 }
 
 .back-arrow {
+  background: none;
+  border: none;
   font-size: 22px;
-  color: white;
+  color: #ffffff;
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: color 0.3s;
 }
 
 .back-arrow:hover {
-  color: #D4AF37;
+  color: #D4AF37; /* Gold on hover */
 }
 
-/* Hero / Landing Section */
 .hero {
-  height: 100vh;
-  padding-top: 60px;
+  text-align: center;
+  padding: 60px 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
+  gap: 20px;
 }
 
 .hero h1 {
   font-size: clamp(2rem, 8vw, 2.5rem);
-  color: white;
-  margin-bottom: 10px;
+  color: #D4AF37; /* Gold title */
+  margin: 0;
 }
 
 .hero p {
   font-size: 1rem;
-  color: #EAEAEA;
-  margin-bottom: 30px;
-  max-width: 600px;
+  color: #ffffff;
+  margin: 0 0 20px 0;
 }
 
-.hero button {
+button {
   font-size: 1rem;
   padding: 10px 20px;
-  background-color: #1A5E20;
-  color: white;
+  background-color: #D4AF37; /* Rose gold button */
+  color: #000000;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s;
 }
 
-.hero button:hover {
-  background-color: #145218;
-}
-
-/* Section Titles */
-section h2 {
-  font-size: 1.5rem;
-  color: white;
-  margin-bottom: 20px;
-}
-
-/* Album Cards */
-.album {
-  padding: 80px 20px 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  align-items: center;
-}
-
-.album-card {
-  max-width: 500px;
-  background: #1A5E20;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  transition: transform 0.3s;
-}
-
-.album-card:hover {
+button:hover {
+  background-color: #c49a32;
   transform: scale(1.02);
 }
 
-.album-card img {
-  width: 100%;
-  display: block;
+.gold-title {
+  color: #D4AF37;
+  text-align: center;
+  font-size: clamp(1.6rem, 6vw, 2.2rem);
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 
-.album-card p {
-  padding: 15px;
+.subheading {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #dddddd;
+  margin-bottom: 30px;
+}
+
+.letter-content {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
   font-size: 0.95rem;
-  color: #EAEAEA;
-  background-color: #145218;
 }
 
-/* Buttons */
-button {
-  font-family: 'Poppins', sans-serif;
+.letter-content p {
+  margin-bottom: 16px;
 }
 
-button:focus {
-  outline: none;
+.center-btn {
+  text-align: center;
+  margin-top: 40px;
 }
 
-/* Animations */
+.album-section {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.album-photo {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.message-box {
+  background-color: rgba(255, 255, 255, 0.07);
+  padding: 15px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  color: #f0f0f0;
+  max-width: 95%;
+  margin-bottom: 40px;
+  line-height: 1.5;
+  backdrop-filter: blur(2px);
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.1);
+}
+
+.photo-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .fade-in {
-  animation: fade 1s ease-in;
+  animation: fadeIn 1s ease-in-out;
 }
 
-@keyframes fade {
-  0% { opacity: 0; transform: translateY(10px); }
-  100% { opacity: 1; transform: translateY(0); }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Media Queries */
-@media screen and (max-width: 768px) {
-  .nav-title {
-    font-size: 14.5px;
-  }
-  .hero h1 {
-    font-size: clamp(1.6rem, 6vw, 2.2rem);
-  }
-  .hero p {
-    font-size: 0.95rem;
-  }
-  .album-card p {
-    font-size: 0.95rem;
-  }
-  button {
-    font-size: 0.95rem;
-    padding: 9px 16px;
-  }
+#video-section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+video {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+/* Floating message box styles for "Open Your Present" */
+#presentMessage {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(5px);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#presentMessage > div {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 90%;
+  text-align: center;
+  font-size: 16px;
+  color: #1A5E20;
 }
