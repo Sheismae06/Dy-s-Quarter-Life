@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Birthday Surprise – Videos & Message</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: 'Poppins', sans-serif;
+      background-color: #50C878;
+      color: #EAEAEA;
+    }
+    h1 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: #FFFFFF;
+      margin-bottom: 30px;
+    }
+    .video-container {
+      max-width: 900px;
+      margin: 0 auto 30px;
+    }
+    video {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+    .button-container {
+      text-align: center;
+      margin: 30px auto;
+    }
+    .btn {
+      background-color: #1A5E20;
+      color: #FFFFFF;
+      padding: 12px 28px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 10px;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #145219;
+    }
+    .surprise-box {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      backdrop-filter: blur(10px);
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 99;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .message-content {
+      background: #1A5E20;
+      color: #FFFFFF;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      max-width: 600px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Just For You</h1>  <div class="video-container">
+    <video controls>
+      <source src="lv_7484485684783303997_20250712231639_V1.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <video controls>
+      <source src="VIDEO_5230d69f_1481_413f_a495_a82ceb45802c_V1.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>  <div class="button-container">
+    <button class="btn" onclick="showSurprise()">Open Your Present 🎁</button>
+  </div>  <div class="surprise-box" id="surpriseBox">
+    <div class="message-content">
+      <p style="margin-bottom: 20px; font-size: 1.1rem;">Sana nagustuhan mo regalo ko for you Dy, I love you always po</p>
+      <audio id="song3" src="song3-happy-birthday.mp3"></audio>
+      <audio id="voiceMessage" src="message recorded.mp3"></audio>
+      <div class="button-container">
+        <button class="btn" onclick="playVoice()">Opened it yet? 🏰 Listen 🎶</button>
+        <button class="btn" onclick="startOver()">Start again</button>
+      </div>
+    </div>
+  </div>  <script>
+    function showSurprise() {
+      document.getElementById('surpriseBox').style.display = 'flex';
+      document.getElementById('song3').volume = 1.0;
+      document.getElementById('song3').play();
+    }
+
+    function playVoice() {
+      document.getElementById('voiceMessage').volume = 1.0;
+      document.getElementById('voiceMessage').play();
+    }
+
+    function startOver() {
+      window.location.href = 'index.html';
+    }
+  </script></body>
+</html>
