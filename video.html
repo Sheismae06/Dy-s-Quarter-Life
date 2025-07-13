@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Videos</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background-color: #3D1F1F;
+      color: #EAEAEA;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .title {
+      color: #D4AF37;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .message-box {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid #D4AF37;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      font-size: 0.95rem;
+    }
+
+    video {
+      max-width: 90%;
+      border-radius: 12px;
+      margin-top: 20px;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+    }
+
+    .btn {
+      background-color: #D4AF37;
+      color: #3D1F1F;
+      font-weight: bold;
+      padding: 10px 25px;
+      font-size: 0.95rem;
+      margin: 20px 10px 0;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #c49b3f;
+    }
+
+    /* FLOATING BOX STYLE */
+    #presentBox {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(29, 17, 17, 0.95);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+      z-index: 9999;
+      color: #fff;
+      max-width: 90%;
+      width: 400px;
+    }
+
+    #presentBox p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    #presentBox .btn {
+      display: block;
+      margin: 10px auto;
+    }
+
+    .blurred {
+      filter: blur(8px);
+      pointer-events: none;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="videoPage">
+    <div class="title">A Little Surprise</div>
+    <div class="message-box">
+      This is a short video collection that captures some of our favorite moments together.  
+      Watch, listen, and feel the love we’ve built all these years.
+    </div>
+
+    <video id="vid1" controls>
+      <source src="lv_7484485684783303997_20250712231639_V1.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <br/>
+    <button class="btn" onclick="playSound()">Sound of Us</button>
+    <br/>
+    <button class="btn" onclick="openPresent()">Open Your Present</button>
+  </div>
+
+  <!-- 🎁 Surprise Box -->
+  <div id="presentBox">
+    <p>Sana nagustuhan mo regalo ko for you Dy, I love you always po.</p>
+    <button class="btn" onclick="playMessage()">Message Recorded</button>
+    <button class="btn" onclick="goHome()">Home</button>
+  </div>
+
+  <!-- All Audio -->
+  <audio id="song3" src="song3-happy-birthday.mp3" loop></audio>
+  <audio id="meanddy" src="meanddy.mp3"></audio>
+  <audio id="recorded" src="message.recorded.mp3"></audio>
+
+  <script>
+    const song3 = document.getElementById('song3');
+    const recorded = document.getElementById('recorded');
+    const meanddy = document.getElementById('meanddy');
+
+    function playSound() {
+      meanddy.volume = 1;
+      meanddy.play();
+    }
+
+    function openPresent() {
+      song3.volume = 1;
+      song3.play();
+      document.getElementById('videoPage').classList.add('blurred');
+      document.getElementById('presentBox').style.display = 'block';
+    }
+
+    function playMessage() {
+      song3.pause();
+      recorded.volume = 1;
+      recorded.play();
+    }
+
+    function goHome() {
+      recorded.pause();
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>
