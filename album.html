@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For Keeps</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background-color: #3D1F1F;
+      color: #f5f5dc;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .album-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    .title {
+      font-size: 2rem;
+      color: #D4AF37;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .slideshow {
+      position: relative;
+      width: 90%;
+      max-width: 500px;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      box-sizing: border-box;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .slide img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .caption {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .controls {
+      margin: 15px 0;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .controls button {
+      background-color: #1A5E20;
+      color: white;
+      padding: 8px 18px;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .controls button:hover {
+      background-color: #228B22;
+    }
+
+    .watch-button {
+      margin-top: 25px;
+      background-color: #D4AF37;
+      color: #3D1F1F;
+      font-weight: bold;
+      padding: 10px 30px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .watch-button:hover {
+      background-color: #c39b3f;
+    }
+  </style>
+</head>
+<body>
+  <div class="album-container">
+    <div class="title">For Keeps</div>
+
+    <div class="slideshow">
+      <div class="slides" id="slides">
+        <div class="slide">
+          <img src="FB_IMG_1752122440480.webp" alt="Photo 1">
+          <p class="caption">This is my first favorite photo because on this day (December 31, 2022) we traveled to Tanay to celebrate New Year 2023 with my family. It was also the day you reunited with them after a very long time. Cheers to more New Years with you, my love.</p>
+        </div>
+        <div class="slide">
+          <img src="FB_IMG_1752323315519 (1).webp" alt="Photo 2">
+          <p class="caption">This moment was when we went to MOA. Simula naghiwalay tayo, that day nalang ulit tayo nakapunta ulit sa MOA... Thank you for staying.</p>
+        </div>
+        <div class="slide">
+          <img src="FB_IMG_1752243357450.webp" alt="Photo 3">
+          <p class="caption">On this day naman, we went to Manila Ocean Park—first time natin pumunta doon... Sana soon, makabalik tayo ulit doon... kasama na natin ang little ones natin.</p>
+        </div>
+        <div class="slide">
+          <img src="Polish_20250712_212114634.webp" alt="Photo 4">
+          <p class="caption">I love this picture too, kasi ito yung time na nag-bike tayo sa Riverbanks... ang sarap ng feeling—parang ang dami nating nasulit.</p>
+        </div>
+        <div class="slide">
+          <img src="Polish_20250712_212348450.webp" alt="Photo 5">
+          <p class="caption">Naalala mo 'to? Ito yung time na umalis tayo tapos nakalimutan natin magdala ng payong... Tinulungan mo akong kalimutan 'yung sakit at matutunang i-enjoy… at mahalin ang ulan. Thank you, love.</p>
+        </div>
+        <div class="slide">
+          <img src="Polish_20250712_212903018.webp" alt="Photo 6">
+          <p class="caption">I have a lot of favorite pictures—actually, lahat ng photos natin together are my favorites... I can't wait to build a big, happy family with you.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button onclick="moveSlide(-1)">← Prev</button>
+      <button onclick="moveSlide(1)">Next →</button>
+    </div>
+
+    <button class="watch-button" onclick="goToVideo()">Watch</button>
+  </div>
+
+  <script>
+    let currentIndex = 0;
+    const slides = document.getElementById('slides');
+    const totalSlides = slides.children.length;
+
+    function moveSlide(direction) {
+      currentIndex += direction;
+      if (currentIndex < 0) currentIndex = totalSlides - 1;
+      if (currentIndex >= totalSlides) currentIndex = 0;
+      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    function goToVideo() {
+      window.location.href = "video.html";
+    }
+  </script>
+</body>
+</html>
