@@ -1,79 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy 25th, My Love</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      background-color: #3D1F1F;
-      color: #EAEAEA;
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy 25th, My Love</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="index-page">
+    <nav class="navbar charcoal">
+      <div class="nav-left">
+        <img src="back-icon.svg" alt="Back" class="back-btn" />
+      </div>
+      <div class="nav-right">
+        <img
+          src="piano-icon.svg"
+          alt="Toggle Music"
+          class="music-toggle music-off"
+        />
+      </div>
+    </nav>
 
-    .center-screen {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
+    <main class="hero">
+      <div class="hero-content">
+        <h1>Happy 25th, My Love</h1>
+        <p>A quarter of a century of your light. Here’s a piece of my love for you.</p>
+        <button id="get-started" onclick="location.href='letter.html'">Get Started</button>
+      </div>
+    </main>
 
-    h1 {
-      font-size: 2.2rem;
-      color: #D4AF37;
-      margin-bottom: 10px;
-    }
+    <audio id="bg-music" src="song1-kung-tayo.mp3" loop></audio>
+    <audio id="song1" src="song1-kung-tayo.mp3"></audio>
+    <audio id="song2" src="song2-until-i-found-you.mp3"></audio>
+    <audio id="song3" src="song3-happy-birthday.mp3"></audio>
+    <audio id="meandus" src="meanddy.mp3"></audio>
+    <audio id="recorded" src="message.recorded.mp3"></audio>
 
-    p {
-      max-width: 700px;
-      font-size: 1rem;
-      margin-bottom: 30px;
-      line-height: 1.6;
-      padding: 0 10px;
-    }
-
-    .btn-start {
-      background-color: #D4AF37;
-      color: #3D1F1F;
-      padding: 12px 28px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .btn-start:hover {
-      background-color: #c49b3f;
-    }
-  </style>
-</head>
-<body>
-  <div class="center-screen">
-    <h1>Happy 25th, My Love</h1>
-    <p>
-      A quarter of a century of your light. Here’s a piece of my love for you.
-    </p>
-    <button class="btn-start" id="startBtn">Get Started</button>
-  </div>
-
-  <!-- Song 1 Autoplay and Continuous -->
-  <audio id="song1" src="song1-kung-tayo.mp3" autoplay loop></audio>
-
-  <script>
-    const startBtn = document.getElementById('startBtn');
-    const song1 = document.getElementById('song1');
-
-    startBtn.onclick = () => {
-      song1.play();
-      window.location.href = "letter.html";
-    };
-  </script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
