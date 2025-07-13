@@ -1,96 +1,95 @@
-// Audio Elements
-const song1 = document.getElementById("song1");
-const song2 = document.getElementById("song2");
-const song3 = document.getElementById("song3");
-const voiceMessage = document.getElementById("voiceMessage");
-
-// Video Elements
-const video1 = document.getElementById("video1");
-
-// Float Box
-const presentBtn = document.getElementById("presentBtn");
-const presentMessage = document.getElementById("presentMessage");
-
-// Ensure all audio starts at full volume
-if (song1) song1.volume = 1;
-if (song2) song2.volume = 1;
-if (song3) song3.volume = 1;
-if (voiceMessage) voiceMessage.volume = 1;
-
-// --- INDEX PAGE ---
+// Handle start journey button on index.html
 function startJourney() {
+  const song1 = document.getElementById('song1');
   if (song1) {
-    song1.currentTime = 0;
+    song1.volume = 1;
     song1.play();
   }
-  window.location.href = "letter.html";
+  window.location.href = 'letter.html';
 }
 
-// --- LETTER PAGE ---
+// Handle go to album from letter.html
 function goToAlbum() {
+  const song2 = document.getElementById('song2');
   if (song2) {
-    song2.currentTime = 0;
+    song2.volume = 1;
     song2.play();
   }
-  window.location.href = "album.html";
+  window.location.href = 'album.html';
 }
 
-// --- VIDEO PAGE LOGIC ---
-if (video1) {
-  video1.addEventListener("play", () => {
-    if (song2 && !song2.paused) {
-      song2.pause();
-    }
-  });
-
-  video1.addEventListener("pause", () => {
-    if (song2 && song2.paused) {
-      song2.play();
-    }
-  });
+// Handle go to video page from album.html
+function goToVideo() {
+  window.location.href = 'video.html';
 }
 
-// --- VIDEO PAGE: Private Symphony Button ---
-const secretButton = document.getElementById("secretBtn");
-if (secretButton) {
-  secretButton.addEventListener("click", () => {
-    const audio = new Audio("VIDEO_5230d69f_1481_413f_a495_a82ceb45802c_V1.mp4");
-    audio.volume = 1;
-    audio.play();
-  });
+// For playing song3 and showing surprise box
+function openPresent() {
+  const song3 = document.getElementById('song3');
+  if (song3) {
+    song3.volume = 1;
+    song3.play();
+  }
+
+  const floating = document.getElementById('presentMessage');
+  const content = document.getElementById('videoContent');
+  if (floating && content) {
+    floating.classList.remove('hidden');
+    content.classList.add('blur-bg');
+  }
 }
 
-// --- PRESENT BUTTON ---
-if (presentBtn && presentMessage) {
-  presentBtn.addEventListener("click", () => {
-    presentMessage.style.display = "flex";
-    document.body.classList.add("blurred");
-
-    if (song3) {
-      song3.currentTime = 0;
-      song3.play();
-    }
-  });
+// Play audio when "Our private symphony" button is clicked
+function playSymphony() {
+  const symphony = document.getElementById('video2-audio');
+  if (symphony) {
+    symphony.volume = 1;
+    symphony.play();
+  }
 }
 
-// --- LISTEN TO VOICE MESSAGE ---
-function playVoiceMessage() {
-  if (voiceMessage) {
-    voiceMessage.currentTime = 0;
-    voiceMessage.play();
+// Play recorded message in surprise box
+function playRecordedMessage() {
+  const voice = document.getElementById('voiceMessage');
+  if (voice) {
+    voice.volume = 1;
+    voice.play();
 
-    // Add subtle animation to indicate it's playing
-    const listenBtn = document.querySelector(".listen-button");
-    if (listenBtn) {
-      listenBtn.classList.add("playing");
-      setTimeout(() => {
-        listenBtn.classList.remove("playing");
-      }, 3000);
+    // Add subtle animation while playing
+    const button = document.getElementById('listenBtn');
+    if (button) {
+      button.style.animation = 'pulse 1.5s infinite';
+      voice.onended = () => {
+        button.style.animation = 'none';
+      };
     }
   }
 }
 
-// Allow global access for inline HTML button
-window.startJourney = startJourney;
-window.goToAlbum = goToAlbum;
-window.playVoiceMessage = playVoiceMessage;
+// Handle stopping song2 when video starts playing
+document.addEventListener('DOMContentLoaded', () => {
+  const video = document.getElementById('video1');
+  const song2 = document.getElementById('song2');
+  if (video) {
+    video.addEventListener('play', () => {
+      if (song2) {
+        song2.pause();
+      }
+    });
+
+    video.addEventListener('pause', () => {
+      if (song2 && !document.getElementById('presentMessage')?.classList.contains('hidden')) return;
+      if (song2?.paused) {
+        song2.play();
+      }
+    });
+  }
+
+  // Show back arrow only on pages except index.html
+  const backArrow = document.querySelector('.back-arrow');
+  if (backArrow && !location.pathname.endsWith('index.html')) {
+    backArrow.style.display = 'block';
+  } else if (backArrow) {
+    backArrow.style.display = 'none';
+  }
+});
