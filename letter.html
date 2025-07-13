@@ -10,18 +10,17 @@
 
   <!-- Navbar -->
   <div class="navbar">
-    <svg class="back-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <path d="M15 18l-6-6 6-6" stroke="#C2B280" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <svg class="music-toggle music-on" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <path d="M9 18V5l12-2v13" stroke="#C2B280" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="6" cy="18" r="3" fill="#C2B280"/>
-      <circle cx="18" cy="16" r="3" fill="#C2B280"/>
-    </svg>
+    <a href="index.html">
+      <svg class="back-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M15 18l-6-6 6-6" stroke="#C2B280" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
   </div>
 
-  <div class="container" style="padding-top: 80px;">
+  <!-- Main Letter Section -->
+  <section class="center-screen">
     <h2>A Letter to the Man Who Came Back Home to Me</h2>
+    
     <div class="letter">
       <p>I still remember when we first connected on Neargroup (July 22, 2019). Who would've thought that simple chat would turn into something so meaningful and special?</p>
       <p>July 28, 2019 we made it official. Tuwing kasama kita I felt like home. We laughed, dreamed, fought… for me it’s almost perfect pero March 2020, we broke up. That time, nasa isip ko minadali kasi natin kaya madali lang rin nawala lahat.</p>
@@ -31,23 +30,11 @@
       <p>Happy 25th Birthday, Dy. I’m so proud of you. I’m still rooting for our happy ending and success.</p>
       <div class="signature">With all my love,<br>Angela Mae Marco</div>
     </div>
-    <button class="btn" onclick="goToAlbum()">Mini Album</button>
-  </div>
 
-  <!-- Music Tracks -->
-  <audio id="song1" src="song1-kung-tayo.mp3" autoplay loop></audio>
-  <audio id="song2" src="song2-until-i-found-you.mp3"></audio>
+    <!-- Mini Album Button -->
+    <button id="btn-album" class="btn" onclick="window.location.href='album.html'">Mini Album</button>
+  </section>
 
   <script src="script.js"></script>
-  <script>
-    function goToAlbum() {
-      document.getElementById('song1').pause();
-      const song2 = document.getElementById('song2');
-      song2.volume = 1.0;
-      song2.play();
-      song2.loop = true;
-      window.location.href = 'album.html';
-    }
-  </script>
 </body>
 </html>
