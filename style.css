@@ -1,139 +1,123 @@
+/* Color Variables */
 :root {
   --dark-charcoal: #1F1F1F;
   --cream-gold: #C2B280;
   --maroon-bg: #3D1F1F;
 }
 
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* Body */
 body {
   background-color: var(--maroon-bg);
   color: #EAEAEA;
   font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
   overflow-x: hidden;
-  animation: fadeInPage 1s ease forwards;
 }
 
-/* Page fade animation */
-@keyframes fadeInPage {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Fixed, elegant navbar */
+/* Navbar */
 .navbar {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   background-color: var(--dark-charcoal);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 32px;
-  z-index: 999;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.4);
+  padding: 14px 24px;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
-/* Navbar Icons */
-.navbar svg {
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-  fill: var(--cream-gold);
-  transition: transform 0.2s ease, opacity 0.2s ease;
+/* Hide back icon on homepage */
+.navbar .back-btn {
+  display: none;
 }
 
-.navbar svg:hover {
-  transform: scale(1.1);
-  opacity: 0.85;
-}
-
-.navbar svg:active {
-  transform: scale(0.95);
-  opacity: 0.7;
-}
-
-/* Content wrapper (centered with spacing below navbar) */
-.center-screen {
-  min-height: 100vh;
-  padding-top: 100px; /* space below navbar */
-  padding-left: 20px;
-  padding-right: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-/* Titles */
-h1, h2, h3 {
+/* Typography */
+h1, h2 {
   color: var(--cream-gold);
   font-weight: 600;
   font-size: 2.2rem;
-  margin-bottom: 20px;
-  animation: fadeUp 1s ease forwards;
+  margin-bottom: 10px;
+  text-align: center;
+  animation: fadeInText 1.2s ease both;
 }
 
-/* Paragraphs */
 p {
   font-size: 0.95rem;
   line-height: 1.6;
   color: #EAEAEA;
-  margin-bottom: 20px;
-  animation: fadeUp 1s ease forwards;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 30px;
+  padding: 0 16px;
+  animation: fadeInText 1.4s ease both;
 }
 
-/* Button styles */
-button, .btn-start, .btn {
+/* Button */
+.btn-start {
   background-color: transparent;
   color: var(--cream-gold);
-  font-weight: 600;
   border: 2px solid var(--cream-gold);
   border-radius: 30px;
   padding: 10px 24px;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.15s ease, color 0.3s ease;
-  animation: fadeUp 1.2s ease forwards;
+  animation: fadeInText 1.6s ease both;
 }
 
-button:hover, .btn-start:hover {
+.btn-start:hover {
   background-color: var(--cream-gold);
   color: var(--maroon-bg);
 }
 
-button:active, .btn-start:active {
+.btn-start:active {
   transform: scale(0.95);
 }
 
-/* Fade-up animation for elegant text reveal */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Center Content */
+.center-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px); /* Adjust for navbar height */
+  padding-top: 80px; /* So it's not covered by navbar */
+  text-align: center;
 }
 
-/* Mobile responsiveness */
+/* Animations */
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
 @media (max-width: 600px) {
-  h1, h2 {
-    font-size: 1.5rem;
+  h1 {
+    font-size: 1.6rem;
   }
 
-  button, .btn-start {
+  p {
+    font-size: 0.88rem;
+  }
+
+  .btn-start {
     font-size: 0.85rem;
     padding: 8px 20px;
   }
 
   .navbar {
-    padding: 16px 20px;
-  }
-
-  .center-screen {
-    padding-top: 90px;
+    padding: 12px 18px;
   }
 }
