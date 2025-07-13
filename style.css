@@ -105,6 +105,14 @@ p {
   margin-bottom: 24px;
 }
 
+/* Fix for left and right spacing */
+.center-screen h1,
+.center-screen p {
+  max-width: 600px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 /* Main Buttons */
 button, .btn, .btn-start {
   background-color: transparent;
