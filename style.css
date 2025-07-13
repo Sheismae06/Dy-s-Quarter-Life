@@ -1,4 +1,3 @@
-/* Color Variables */
 :root {
   --dark-charcoal: #1F1F1F;
   --cream-gold: #C2B280;
@@ -25,7 +24,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 24px;
+  padding: 16px 28px;
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
@@ -35,16 +34,17 @@ body {
   display: none;
 }
 
-/* Typography */
+/* Titles */
 h1, h2 {
   color: var(--cream-gold);
   font-weight: 600;
   font-size: 2.2rem;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   text-align: center;
-  animation: fadeInText 1.2s ease both;
+  animation: fadeInText 1s ease both;
 }
 
+/* Paragraphs */
 p {
   font-size: 0.95rem;
   line-height: 1.6;
@@ -53,7 +53,7 @@ p {
   max-width: 700px;
   margin: 0 auto 30px;
   padding: 0 16px;
-  animation: fadeInText 1.4s ease both;
+  animation: fadeInText 1.2s ease both;
 }
 
 /* Button */
@@ -67,7 +67,7 @@ p {
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.15s ease, color 0.3s ease;
-  animation: fadeInText 1.6s ease both;
+  animation: fadeInText 1.4s ease both;
 }
 
 .btn-start:hover {
@@ -79,18 +79,18 @@ p {
   transform: scale(0.95);
 }
 
-/* Center Content */
+/* Centered Content */
 .center-screen {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 80px); /* Adjust for navbar height */
-  padding-top: 80px; /* So it's not covered by navbar */
+  min-height: calc(100vh - 80px); /* remove space for navbar */
+  padding-top: 100px;
   text-align: center;
 }
 
-/* Animations */
+/* Fade-in Animation for Text & Button Only */
 @keyframes fadeInText {
   from {
     opacity: 0;
@@ -118,6 +118,6 @@ p {
   }
 
   .navbar {
-    padding: 12px 18px;
+    padding: 14px 18px;
   }
 }
