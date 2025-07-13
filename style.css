@@ -1,26 +1,21 @@
-/* Angela's Birthday Tribute Website: style.css */
+/* Angela's Birthday Tribute - style.css */
 
 body {
   margin: 0;
   padding: 0;
-  background-color: #000000; /* Elegant black */
   font-family: 'Poppins', sans-serif;
+  background-color: #121212;
   color: #ffffff;
-  line-height: 1.6;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .navbar {
-  background-color: #2c2c2c; /* Charcoal gray */
+  background-color: #2C2C2C;
   height: 60px;
   display: flex;
   align-items: center;
-  padding: 0 20px;
   justify-content: space-between;
+  padding: 0 16px;
 }
 
 .back-arrow {
@@ -29,155 +24,218 @@ a {
   font-size: 22px;
   color: #ffffff;
   cursor: pointer;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
-
 .back-arrow:hover {
-  color: #D4AF37; /* Gold on hover */
+  color: #D4AF7F;
 }
 
 .hero {
-  text-align: center;
-  padding: 60px 20px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 20px;
+  min-height: calc(100vh - 60px);
 }
-
 .hero h1 {
+  color: #D4AF7F;
   font-size: clamp(2rem, 8vw, 2.5rem);
-  color: #D4AF37; /* Gold title */
-  margin: 0;
+  margin-bottom: 16px;
 }
-
 .hero p {
   font-size: 1rem;
+  max-width: 90%;
+  margin-bottom: 30px;
   color: #ffffff;
-  margin: 0 0 20px 0;
 }
-
-button {
+.hero button {
   font-size: 1rem;
   padding: 10px 20px;
-  background-color: #D4AF37; /* Rose gold button */
-  color: #000000;
+  background-color: #D4AF7F;
+  color: #121212;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s;
+  transition: background 0.3s ease;
 }
-
-button:hover {
-  background-color: #c49a32;
-  transform: scale(1.02);
-}
-
-.gold-title {
-  color: #D4AF37;
-  text-align: center;
-  font-size: clamp(1.6rem, 6vw, 2.2rem);
-  margin-top: 30px;
-  margin-bottom: 20px;
-}
-
-.subheading {
-  font-size: 1.2rem;
-  text-align: center;
-  color: #dddddd;
-  margin-bottom: 30px;
+.hero button:hover {
+  background-color: #e1c59d;
 }
 
 .letter-content {
-  padding: 20px;
+  padding: 40px 24px;
+  line-height: 1.7;
+  font-size: 0.95rem;
   max-width: 800px;
   margin: auto;
-  font-size: 0.95rem;
 }
-
+.letter-content h1 {
+  text-align: center;
+  font-size: 1.7rem;
+  color: #D4AF7F;
+  margin-bottom: 24px;
+}
 .letter-content p {
-  margin-bottom: 16px;
+  margin-bottom: 18px;
+  text-align: justify;
+  padding: 0 8px;
 }
 
 .center-btn {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 30px;
+}
+.center-btn button {
+  font-size: 1rem;
+  padding: 10px 20px;
+  background-color: #D4AF7F;
+  color: #121212;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.center-btn button:hover {
+  background-color: #e1c59d;
 }
 
-.album-section {
-  padding: 20px;
+/* Album */
+.album-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 30px 16px;
+  gap: 24px;
 }
-
-.album-photo {
+.album-item {
+  max-width: 100%;
+  text-align: center;
+  animation: fadeIn 1s ease;
+}
+.album-item img {
   width: 100%;
-  max-width: 350px;
+  max-width: 360px;
   border-radius: 12px;
-  margin-bottom: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  margin-bottom: 12px;
+}
+.album-item .message-box {
+  background-color: #1d1d1d;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-size: 0.93rem;
+  color: #f5f5f5;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  animation: floatIn 1s ease;
 }
 
-.message-box {
-  background-color: rgba(255, 255, 255, 0.07);
-  padding: 15px;
-  border-radius: 12px;
-  font-size: 0.95rem;
-  color: #f0f0f0;
-  max-width: 95%;
-  margin-bottom: 40px;
-  line-height: 1.5;
-  backdrop-filter: blur(2px);
-  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.1);
+.album-container .watch-btn {
+  margin-top: 30px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #D4AF7F;
+  color: #121212;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.album-container .watch-btn:hover {
+  background-color: #e1c59d;
 }
 
-.photo-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.fade-in {
-  animation: fadeIn 1s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
+/* Video Section */
 #video-section {
-  padding: 40px 20px;
+  padding: 40px 16px;
+  background-color: #121212;
   text-align: center;
 }
-
-video {
+#video-section h2 {
+  font-size: 1.5rem;
+  color: #D4AF7F;
+  margin-bottom: 20px;
+}
+#video-section video {
   width: 100%;
   max-width: 500px;
   border-radius: 12px;
   margin-bottom: 16px;
 }
+#video-section .video-caption {
+  font-size: 0.95rem;
+  color: #ffffff;
+  margin-bottom: 28px;
+  animation: fadeInUp 1s ease;
+}
+#video-section button {
+  font-size: 1rem;
+  padding: 10px 20px;
+  background-color: #D4AF7F;
+  color: #121212;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+#video-section button:hover {
+  background-color: #e1c59d;
+}
 
-/* Floating message box styles for "Open Your Present" */
+/* Surprise Box */
 #presentMessage {
   display: none;
   position: fixed;
   top: 0; left: 0;
-  width: 100vw; height: 100vh;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0,0,0,0.7);
   backdrop-filter: blur(5px);
   z-index: 999;
-  display: flex;
   align-items: center;
   justify-content: center;
 }
-
-#presentMessage > div {
+#presentMessage .message-box {
   background: white;
-  padding: 30px;
-  border-radius: 15px;
+  padding: 24px;
+  border-radius: 12px;
   max-width: 90%;
   text-align: center;
-  font-size: 16px;
-  color: #1A5E20;
+  color: #1A1A1A;
+}
+#presentMessage .message-box p {
+  margin-bottom: 18px;
+}
+#presentMessage .message-box button {
+  font-size: 0.95rem;
+  padding: 9px 16px;
+  margin: 8px;
+  background-color: #2C2C2C;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+#presentMessage .message-box button:hover {
+  background-color: #444;
+}
+#voiceMessage.playing {
+  animation: pulse 1s infinite ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
