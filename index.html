@@ -1,122 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy 25th, My Love</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    /* Extra centering container */
-    .center-screen {
-      max-width: 700px;
-      margin: 140px auto 60px; /* space from navbar top + bottom */
-      padding: 0 20px;
-      text-align: center;
-    }
-
-    /* Override title font size for index */
-    h1 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 15px;
-      line-height: 1.3;
-    }
-
-    p {
-      font-size: 1rem;
-      margin-bottom: 30px;
-      line-height: 1.6;
-      color: #eaeaea;
-    }
-
-    .btn-start {
-      display: inline-block;
-      background-color: #c2b280;
-      color: #3d1f1f;
-      font-weight: 600;
-      border: none;
-      border-radius: 30px;
-      padding: 12px 32px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.15s ease;
-      user-select: none;
-      animation: fadeInPage 1s ease forwards;
-    }
-
-    .btn-start:hover {
-      background-color: #afa36d;
-    }
-
-    .btn-start:active {
-      transform: scale(0.95);
-    }
-  </style>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <!-- Navbar -->
+
+  <!-- ✅ Fixed Top Navbar -->
   <div class="navbar">
-    <svg class="back-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-label="Back">
-      <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <svg class="back-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
-    <svg class="music-toggle music-off" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-label="Toggle Music">
-      <path d="M3 9v6h4l5 5V4L7 9H3z" fill="currentColor" />
+    <svg class="music-toggle music-off" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M3 9v6h4l5 5V4L7 9H3z" fill="currentColor"/>
     </svg>
   </div>
 
-  <!-- Main Content -->
-  <div class="center-screen">
+  <!-- ✅ Centered Main Content -->
+  <div class="center-screen" style="margin-top: 100px; padding: 20px; text-align: center;">
     <h1>Happy 25th, My Love</h1>
     <p>A quarter of a century of your light. Here’s a piece of my love for you.</p>
     <button class="btn-start" id="startBtn">Get Started</button>
   </div>
 
-  <!-- Background Music -->
+  <!-- ✅ Background Music -->
   <audio id="song1" src="song1-kung-tayo.mp3" autoplay loop></audio>
 
+  <!-- ✅ Script for Music + Back Button -->
   <script>
     const startBtn = document.getElementById('startBtn');
     const song1 = document.getElementById('song1');
-    const backBtn = document.querySelector('.back-btn');
-    const musicToggle = document.querySelector('.music-toggle');
 
     startBtn.onclick = () => {
       song1.play();
       window.location.href = "letter.html";
     };
 
+    const backBtn = document.querySelector('.back-btn');
+    const musicToggle = document.querySelector('.music-toggle');
+    const bgMusic = document.getElementById('song1');
+
     if (backBtn) {
-      backBtn.addEventListener('click', () => {
-        history.back();
-      });
+      backBtn.addEventListener("click", () => history.back());
     }
 
-    if (musicToggle && song1) {
-      const isPlaying = localStorage.getItem('musicPlaying') === 'true';
-
+    if (musicToggle && bgMusic) {
+      const isPlaying = localStorage.getItem("musicPlaying") === "true";
       if (isPlaying) {
-        song1.volume = 1.0;
-        song1.play().catch(() => {});
-        musicToggle.classList.add('music-on');
-        musicToggle.classList.remove('music-off');
+        bgMusic.play().catch(() => {});
+        musicToggle.classList.add("music-on");
+        musicToggle.classList.remove("music-off");
       } else {
-        song1.pause();
-        musicToggle.classList.add('music-off');
-        musicToggle.classList.remove('music-on');
+        bgMusic.pause();
+        musicToggle.classList.add("music-off");
+        musicToggle.classList.remove("music-on");
       }
 
-      musicToggle.addEventListener('click', () => {
-        if (song1.paused) {
-          song1.volume = 1.0;
-          song1.play().catch(() => {});
-          musicToggle.classList.add('music-on');
-          musicToggle.classList.remove('music-off');
-          localStorage.setItem('musicPlaying', 'true');
+      musicToggle.addEventListener("click", () => {
+        if (bgMusic.paused) {
+          bgMusic.play().catch(() => {});
+          musicToggle.classList.add("music-on");
+          musicToggle.classList.remove("music-off");
+          localStorage.setItem("musicPlaying", "true");
         } else {
-          song1.pause();
-          musicToggle.classList.add('music-off');
-          musicToggle.classList.remove('music-on');
-          localStorage.setItem('musicPlaying', 'false');
+          bgMusic.pause();
+          musicToggle.classList.add("music-off");
+          musicToggle.classList.remove("music-on");
+          localStorage.setItem("musicPlaying", "false");
         }
       });
     }
