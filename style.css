@@ -30,7 +30,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 30px; /* Slightly thicker for elegance */
+  padding: 20px 32px; /* ⬅ thicker and more elegant */
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
@@ -96,11 +96,11 @@ p {
 .center-screen {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* perfect vertical centering */
+  justify-content: center;
   align-items: center;
   text-align: center;
   min-height: calc(100vh - 80px);
-  padding: 100px 20px 40px;
+  padding: 80px 20px 20px;
 }
 
 /* Animations */
