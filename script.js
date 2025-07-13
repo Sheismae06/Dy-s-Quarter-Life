@@ -1,90 +1,96 @@
-// Elements
+// Audio Elements
 const song1 = document.getElementById("song1");
 const song2 = document.getElementById("song2");
 const song3 = document.getElementById("song3");
 const voiceMessage = document.getElementById("voiceMessage");
+
+// Video Elements
 const video1 = document.getElementById("video1");
-const audioVideo2 = document.getElementById("audioVideo2");
-const video2Btn = document.getElementById("video2Btn");
-const openPresentBtn = document.getElementById("presentBtn");
+
+// Float Box
+const presentBtn = document.getElementById("presentBtn");
 const presentMessage = document.getElementById("presentMessage");
-const listenBtn = document.getElementById("listenBtn");
 
-// Flags
-let hasStartedSong1 = false;
-let hasStartedSong2 = false;
-let hasPlayedSong3 = false;
+// Ensure all audio starts at full volume
+if (song1) song1.volume = 1;
+if (song2) song2.volume = 1;
+if (song3) song3.volume = 1;
+if (voiceMessage) voiceMessage.volume = 1;
 
-// Home page - start journey
+// --- INDEX PAGE ---
 function startJourney() {
-  if (!hasStartedSong1 && song1) {
-    song1.volume = 1;
+  if (song1) {
+    song1.currentTime = 0;
     song1.play();
-    hasStartedSong1 = true;
   }
   window.location.href = "letter.html";
 }
 
-// Letter page - go to mini album
+// --- LETTER PAGE ---
 function goToAlbum() {
-  if (!hasStartedSong2 && song2) {
-    song2.volume = 1;
+  if (song2) {
+    song2.currentTime = 0;
     song2.play();
-    hasStartedSong2 = true;
   }
   window.location.href = "album.html";
 }
 
-// Album page - go to video
-function goToVideo() {
-  window.location.href = "video.html";
-}
-
-// Video1 logic
-if (video1 && song2) {
+// --- VIDEO PAGE LOGIC ---
+if (video1) {
   video1.addEventListener("play", () => {
-    song2.pause();
+    if (song2 && !song2.paused) {
+      song2.pause();
+    }
   });
 
   video1.addEventListener("pause", () => {
-    if (!hasPlayedSong3 && hasStartedSong2) {
+    if (song2 && song2.paused) {
       song2.play();
     }
   });
 }
 
-// Video2 button logic
-if (video2Btn && audioVideo2) {
-  video2Btn.addEventListener("click", () => {
-    audioVideo2.volume = 1;
-    audioVideo2.play();
+// --- VIDEO PAGE: Private Symphony Button ---
+const secretButton = document.getElementById("secretBtn");
+if (secretButton) {
+  secretButton.addEventListener("click", () => {
+    const audio = new Audio("VIDEO_5230d69f_1481_413f_a495_a82ceb45802c_V1.mp4");
+    audio.volume = 1;
+    audio.play();
   });
 }
 
-// Open Your Present logic
-if (openPresentBtn) {
-  openPresentBtn.addEventListener("click", () => {
-    if (!hasPlayedSong3 && song3) {
-      song3.volume = 1;
+// --- PRESENT BUTTON ---
+if (presentBtn && presentMessage) {
+  presentBtn.addEventListener("click", () => {
+    presentMessage.style.display = "flex";
+    document.body.classList.add("blurred");
+
+    if (song3) {
+      song3.currentTime = 0;
       song3.play();
-      hasPlayedSong3 = true;
-    }
-
-    if (presentMessage) {
-      presentMessage.style.display = "flex";
     }
   });
 }
 
-// "Opened it yet?" Listen button
-if (listenBtn && voiceMessage) {
-  listenBtn.addEventListener("click", () => {
-    voiceMessage.volume = 1;
+// --- LISTEN TO VOICE MESSAGE ---
+function playVoiceMessage() {
+  if (voiceMessage) {
+    voiceMessage.currentTime = 0;
     voiceMessage.play();
-    listenBtn.classList.add("playing");
 
-    voiceMessage.addEventListener("ended", () => {
-      listenBtn.classList.remove("playing");
-    });
-  });
+    // Add subtle animation to indicate it's playing
+    const listenBtn = document.querySelector(".listen-button");
+    if (listenBtn) {
+      listenBtn.classList.add("playing");
+      setTimeout(() => {
+        listenBtn.classList.remove("playing");
+      }, 3000);
+    }
+  }
 }
+
+// Allow global access for inline HTML button
+window.startJourney = startJourney;
+window.goToAlbum = goToAlbum;
+window.playVoiceMessage = playVoiceMessage;
