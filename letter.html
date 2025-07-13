@@ -1,0 +1,151 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Letter to My Love</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }body {
+  background-color: #50C878;
+  color: #EAEAEA;
+  line-height: 1.8;
+  padding: 20px;
+}
+
+.navbar {
+  background-color: #228B22;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.navbar svg {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.navbar svg:hover {
+  filter: drop-shadow(0 0 4px #D4AF37);
+}
+
+.back-arrow {
+  fill: white;
+}
+
+.back-arrow:hover {
+  fill: #D4AF37;
+}
+
+.music-icon {
+  fill: white;
+}
+
+.music-on {
+  fill: #D4AF37;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+}
+
+h1 {
+  color: #fff;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 28px;
+}
+
+p {
+  margin-bottom: 16px;
+}
+
+.btn {
+  display: block;
+  width: fit-content;
+  margin: 30px auto 0;
+  padding: 10px 20px;
+  background-color: #1A5E20;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #145417;
+}
+
+  </style>
+</head><body>
+  <div class="navbar">
+    <svg onclick="history.back()" class="back-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+    <svg onclick="toggleMusic()" class="music-icon" id="musicIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M9 19V6l12-2v13" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </div>  <div class="container">
+    <h1>A Letter to the Man Who Came Back Home to Me</h1>
+    <p>To the one I found, lost, and found again</p>
+    <p>I still remember the day we first connected in Neargroup that was on July 22, 2019. We were both broken and just beginning to heal from our past relationships. It’s funny how life brings people together when they least expect it like what happened to us. I never imagined that a simple conversation would turn into something so meaningful and special.</p>
+    <p>July 28, 2019, we took a chance and made our relationship official. Even though we were just starting, it already felt like home because whenever I'm with you, I found comfort and a space where I could truly be myself. We laughed, we dreamed, we argued and everything felt almost perfect… until it wasn’t.</p>
+    <p>On March 2020, you broke up with me. And I carried a kind of pain I had known before na akala ko hindi ko na mararamdaman ulit. You weren’t just a boyfriend to me because for me you were someone I pictured my future with but losing you shattered that image.</p>
+    <p>Months passed and we entered a new relationship in December 2020. For me, deep down, something was missing. Maybe that’s why it didn’t work out because the space you left in my heart was never meant for anyone else.</p>
+    <p>Then, like fate giving us another chance, October 2022 came. We reconnected on Facebook again at nag-usap tayo ulit and same pala tayong single. December 12, 2022 came and we chose to continue what we once had. Not where we left off — but with stronger hearts, older minds, and wiser souls.</p>
+    <p>It hasn’t been easy for us. Life isn't as light as it used to be kasi we’re adult na and we now face grown-up problems, dreams, pressures, and responsibilities. There were moments when we thought about letting go again… but we didn’t. Nagpapatawad, kinakaya at umiintindi tayo. And that’s what love is, right? Not perfect at not always easy. But always worth fighting for.</p>
+    <p>I appreciate your efforts, your patience, your hard work more than I say. I’m proud of the man you are becoming. Hayaan mo Dy when my own breakthroughs come, yung opportunities na pinagpe-pray ko at naging successful? I want only 3 pips with me: my family, my friends, and you.</p>
+    <p>Thank you for being my person, even when it was complicated. Thank you for staying, even when it got hard. And thank you… for being born.</p>
+    <p>Happy 25th Birthday, my love. I pray this year brings you peace, growth, and blessings in ways you never expected. We’re still writing our story and I still believe in our happy ending.</p>
+    <p>With all my love,<br>Angela, your boss</p>
+    <button class="btn" onclick="goToAlbum()">Mini Album</button>
+  </div><audio id="song1" src="media/song1-kung-tayo.mp3" autoplay></audio>
+
+  <script>
+    const audio = document.getElementById("song1");
+    const icon = document.getElementById("musicIcon");
+    let playing = true;
+
+    function toggleMusic() {
+      if (playing) {
+        audio.pause();
+        icon.classList.remove("music-on");
+      } else {
+        audio.play();
+        icon.classList.add("music-on");
+      }
+      playing = !playing;
+    }
+
+    icon.classList.add("music-on");
+
+    function goToAlbum() {
+      window.location.href = "album.html";
+    }
+  </script></body></html>
