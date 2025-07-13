@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Letter</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background-color: #3D1F1F;
+      color: #EAEAEA;
+      margin: 0;
+      padding: 20px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .letter-container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: #D4AF37;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      white-space: pre-line;
+    }
+
+    .btn-album {
+      display: block;
+      margin: 30px auto 0;
+      background-color: #D4AF37;
+      color: #3D1F1F;
+      border: none;
+      padding: 12px 28px;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn-album:hover {
+      background-color: #c49b3f;
+    }
+  </style>
+</head>
+<body>
+  <div class="letter-container">
+    <h2>A Letter to the Man Who Came Back Home to Me</h2>
+    <p>
+I still remember when we first connected on Neargroup (July 22, 2019) Who would've thought that simple chat would turn into something so meaningful and special?
+
+July 28, 2019 we made it official. Tuwing kasama kita I felt like home. We laughed, dreamed, fought… for me its almost perfect pero March 2020, we broke up. That time, nasa isip ko minadali kasi natin kaya madali lanh rin nawala lahat.
+
+I tried moving on, but no one could fill the space you left. Then fate stepped in (October 2022) we reconnected and December 12, 2022 we chose to try again—not from where we left off, but stronger, wiser, braver.
+
+Life isn’t easy now kasi adults na tayo, we have responsibilities, more pressures sa life and we need to work to survive. Our dreams is bigger than before and dahil sa pagod nagkakaroon tayo ng misunderstandings but we keep choosing each other. We forgive and understand, kumakapit at kinakaya natin.
+
+Thank you Dy for being my person. For staying. For being born.
+
+Happy 25th Birthday, Dy. I’m so proud of you. I’m still rooting for our happy ending and success.
+
+With all my love,  
+Angela Mae Marco
+    </p>
+    <button class="btn-album" id="toAlbum">Mini Album</button>
+  </div>
+
+  <audio id="song2" src="song2-until-i-found-you.mp3" autoplay loop></audio>
+
+  <script>
+    document.getElementById('toAlbum').onclick = () => {
+      document.getElementById('song2').play();
+      window.location.href = "album.html";
+    };
+  </script>
+</body>
+</html>
