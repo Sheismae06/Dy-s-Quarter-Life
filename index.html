@@ -3,35 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dy's Quarter Life</title>
-  <link rel="stylesheet" href="style.css"/>
+  <title>Dy’s Quarter Life</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- NAVBAR -->
-  <div class="navbar">
-    <div></div> <!-- Empty placeholder for spacing -->
-    <div class="navbar-title">Dy's Quarter Life</div>
-    <div></div> <!-- No back icon on homepage -->
-  </div>
+  <!-- Navbar -->
+  <div class="navbar"></div>
 
-  <!-- MAIN CENTER CONTENT -->
+  <!-- Main Centered Content -->
   <div class="center-screen">
+    
     <!-- Infinity Logo -->
-    <img src="infinity.svg" alt="Infinity Logo" class="infinity-logo" />
+    <div class="logo-container">
+      <img src="infinity.svg" alt="Infinity Logo" class="infinity-logo"/>
+    </div>
 
-    <!-- Title and Text -->
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <!-- Title & Subtitle -->
     <h1>Happy 25th, My Love</h1>
     <p>A quarter of a century of your light. Here’s a piece of my love for you.</p>
 
-    <!-- Button -->
-    <button class="btn-start" onclick="startExperience()">Get Started</button>
-  </div>
+    <!-- Buttons -->
+    <button class="btn-start" onclick="window.location.href='letter.html'">Get Started</button>
 
-  <!-- JS -->
-  <script>
-    function startExperience() {
-      window.location.href = "letter.html";
-    }
-  </script>
+    <button class="btn-music" onclick="document.getElementById('preview-music').play()">▶ Preview Music</button>
+    <audio id="preview-music" src="song1-kung-tayo.mp3"></audio>
+
+  </div>
 </body>
 </html>
