@@ -4,40 +4,40 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy 25th, My Love</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Navbar (fixed, no animation) -->
+  <!-- Navbar -->
   <div class="navbar">
-    <div></div> <!-- no back icon needed -->
+    <svg class="back-btn" onclick="history.back()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+    </svg>
   </div>
 
   <!-- Main Content -->
   <div class="center-screen">
     <h1>Happy 25th, My Love</h1>
-    <p>
-      A quarter of a century of your light. Here’s a piece of my love for you.
-    </p>
-    <button class="btn-start" id="get-started">Get Started</button>
+    <p>A quarter of a century of your light. Here’s a piece of my love for you.</p>
+    <button class="btn-start" id="startBtn">Get Started</button>
   </div>
 
-  <!-- Background Audio -->
-  <audio id="song1" src="song1-kung-tayo.mp3" preload="auto"></audio>
+  <!-- Music -->
+  <audio id="song1" src="song1-kung-tayo.mp3" loop></audio>
 
-  <!-- JS -->
+  <!-- Script -->
   <script>
-    const startBtn = document.getElementById('get-started');
+    const startBtn = document.getElementById('startBtn');
     const song1 = document.getElementById('song1');
 
     startBtn.onclick = () => {
-      startBtn.classList.add("clicked");
-      song1.volume = 1.0;
       song1.play();
+      startBtn.classList.add("clicked"); // turn gold
       setTimeout(() => {
         window.location.href = "letter.html";
-      }, 400); // small delay so button animates first
+      }, 1000); // delay for elegance
     };
   </script>
+
 </body>
 </html>
