@@ -1,7 +1,15 @@
+/* Root Colors */
 :root {
   --dark-charcoal: #1F1F1F;
   --cream-gold: #C2B280;
   --maroon-bg: #3D1F1F;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* Body */
@@ -9,8 +17,6 @@ body {
   background-color: var(--maroon-bg);
   color: #EAEAEA;
   font-family: 'Poppins', sans-serif;
-  margin: 0;
-  padding: 0;
   overflow-x: hidden;
 }
 
@@ -29,31 +35,37 @@ body {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
-/* Hide back icon on homepage */
-.navbar .back-btn {
-  display: none;
+/* Navbar icon (if any) */
+.navbar svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--cream-gold);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.navbar svg:hover {
+  transform: scale(1.1);
 }
 
 /* Titles */
-h1, h2 {
+h1, h2, h3 {
   color: var(--cream-gold);
   font-weight: 600;
-  font-size: 2.2rem;
-  margin-bottom: 12px;
   text-align: center;
-  animation: fadeInText 1s ease both;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  animation: fadeInUp 1.2s ease forwards;
 }
 
 /* Paragraphs */
 p {
+  color: #EAEAEA;
   font-size: 0.95rem;
   line-height: 1.6;
-  color: #EAEAEA;
   text-align: center;
-  max-width: 700px;
-  margin: 0 auto 30px;
-  padding: 0 16px;
-  animation: fadeInText 1.2s ease both;
+  margin-bottom: 25px;
+  animation: fadeInUp 1.4s ease forwards;
 }
 
 /* Button */
@@ -61,40 +73,41 @@ p {
   background-color: transparent;
   color: var(--cream-gold);
   border: 2px solid var(--cream-gold);
-  border-radius: 30px;
-  padding: 10px 24px;
-  font-size: 0.95rem;
   font-weight: 600;
+  border-radius: 30px;
+  padding: 10px 26px;
+  font-size: 0.9rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.15s ease, color 0.3s ease;
-  animation: fadeInText 1.4s ease both;
+  transition: all 0.3s ease;
+  animation: fadeInUp 1.6s ease forwards;
 }
 
 .btn-start:hover {
   background-color: var(--cream-gold);
   color: var(--maroon-bg);
+  transform: scale(1.05);
 }
 
 .btn-start:active {
   transform: scale(0.95);
 }
 
-/* Centered Content */
+/* Home Page Center Layout */
 .center-screen {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 80px); /* remove space for navbar */
-  padding-top: 100px;
   text-align: center;
+  min-height: 100vh;
+  padding: 60px 20px 20px;
 }
 
-/* Fade-in Animation for Text & Button Only */
-@keyframes fadeInText {
+/* Animations */
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -105,19 +118,11 @@ p {
 /* Responsive */
 @media (max-width: 600px) {
   h1 {
-    font-size: 1.6rem;
-  }
-
-  p {
-    font-size: 0.88rem;
+    font-size: 1.5rem;
   }
 
   .btn-start {
     font-size: 0.85rem;
     padding: 8px 20px;
-  }
-
-  .navbar {
-    padding: 14px 18px;
   }
 }
