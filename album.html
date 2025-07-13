@@ -1,151 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>For Keeps</title>
-  <link rel="stylesheet" href="style.css"/>
-  <style>
-    body {
-      background-color: #3D1F1F;
-      color: #EAEAEA;
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-      overflow-x: hidden;
-    }
-
-    .title {
-      color: #D4AF37;
-      font-size: 2rem;
-      margin: 80px 20px 20px;
-    }
-
-    .slide-container {
-      max-width: 700px;
-      margin: 30px auto;
-      background-color: rgba(255, 255, 255, 0.04);
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
-      position: relative;
-    }
-
-    .slide {
-      display: none;
-      animation: fade 0.6s ease-in-out;
-    }
-
-    .slide img {
-      max-width: 100%;
-      border-radius: 12px;
-      margin-bottom: 15px;
-    }
-
-    .slide p {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      color: #EAEAEA;
-    }
-
-    .slide.active {
-      display: block;
-    }
-
-    .btn {
-      background-color: #D4AF37;
-      color: #3D1F1F;
-      font-weight: bold;
-      padding: 10px 22px;
-      font-size: 0.9rem;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      margin: 15px 10px 0;
-    }
-
-    .btn:hover {
-      background-color: #c49b3f;
-    }
-
-    @keyframes fade {
-      from {opacity: 0;}
-      to {opacity: 1;}
-    }
-  </style>
+  <title>For Keeps - Mini Album</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
 </head>
-<body>
+<body class="album-page">
+  <nav class="navbar charcoal">
+    <div class="nav-left">
+      <img src="back-icon.svg" alt="Back" class="back-btn" />
+    </div>
+    <div class="nav-right">
+      <img src="piano-icon.svg" alt="Toggle Music" class="music-toggle music-on" />
+    </div>
+  </nav>
 
-  <div class="title">For Keeps</div>
+  <main class="album-content fade-in">
+    <h2 class="album-title">For Keeps</h2>
 
-  <div class="slide-container">
+    <div class="slideshow-container">
 
-    <div class="slide active">
-      <img src="FB_IMG_1752122440480.webp" alt="Slide 1" />
-      <p>This is my first favorite photo because on this day (December 31, 2022) we traveled to Tanay to celebrate New Year 2023 with my family. It was also the day you reunited with them after a very long time. Cheers to more New Years with you, my love.</p>
+      <div class="slide active">
+        <img src="FB_IMG_1752122440480.webp" alt="Photo 1" />
+        <p class="caption">This is my first favorite photo because on this day (December 31, 2022) we traveled to Tanay to celebrate New Year 2023 with my family. It was also the day you reunited with them after a very long time. Cheers to more New Years with you, my love.</p>
+      </div>
+
+      <div class="slide">
+        <img src="FB_IMG_1752323315519 (1).webp" alt="Photo 2" />
+        <p class="caption">This moment was when we went to MOA. Simula naghiwalay tayo, that day nalang ulit tayo nakapunta ulit sa MOA.
+
+That day also, we had a misunderstanding but honestly, it’s also the day I truly felt how much you love me.
+
+Even when I kept pushing you away and tried to break up with you, you never left. Tinakbuhan kita and tinaguan, hindi ka napagod hanapin ako.
+
+Despite how annoyed and hurt you must have been because of my attitude that day, you stayed. We still went home together.
+
+I’m really sorry for what happened. I know we were both wrong, but I made things worse with how I acted. Sorry talaga
+
+I’m sorry again, love. I promise I won’t let that happen again. Thank you for staying.</p>
+      </div>
+
+      <div class="slide">
+        <img src="FB_IMG_1752243357450.webp" alt="Photo 3" />
+        <p class="caption">On this day naman, we went to Manila Ocean Park—first time natin pumunta doon (thanks to Concentrix, libre lahat pati food!).
+
+Sobrang saya ko that time kasi we really enjoyed the sightseeing, panonood ng sea lions, at marami pang iba.
+
+Sana soon, makabalik tayo ulit doon... pero this time, kasama na natin ang little ones natin if papalarin at ibibigay na ni Lord.</p>
+      </div>
+
+      <div class="slide">
+        <img src="Polish_20250712_212114634.webp" alt="Photo 4" />
+        <p class="caption">I love this picture too, kasi ito yung time na nag-bike tayo sa Riverbanks after natin lakarin yung PAG-IBIG mo.
+
+Ang init noon, pero sobrang saya kasi we were just enjoying our time. Nagmasid, kumain, at nag-bike.
+
+Hindi man ito yung first time natin pumunta dito, kasi ilang beses na rin tayong nagpunta, pero ewan ko, this one’s one of my favorites.
+
+Konti lang kasi yung tao that day, kaya ang sarap ng feeling—parang ang dami nating nasulit.</p>
+      </div>
+
+      <div class="slide">
+        <img src="Polish_20250712_212348450.webp" alt="Photo 5" />
+        <p class="caption">Naalala mo 'to? Ito yung time na umalis tayo tapos nakalimutan natin magdala ng payong. Ang ginawa mo pa nga noon, humingi ka ng laundry plastic sa laundry shop malapit sa binabaan natin ng jeep.
+
+That day reminded me of our first time na naligo tayo sa ulan, way back 2019.
+
+Para tayong mga bata—takbuhan, tawanan, at enjoy lang sa ulan.
+
+Alam mo naman noon na hindi ko talaga gusto ang ulan, kasi halos lahat ng malungkot na moments sa buhay ko, umuulan. Pero nagbago ‘yon dahil sa’yo.
+
+Tinulungan mo akong kalimutan 'yung sakit at matutunang i-enjoy… at mahalin ang ulan.
+
+Thank you, love.</p>
+      </div>
+
+      <div class="slide">
+        <img src="Polish_20250712_212903018.webp" alt="Photo 6" />
+        <p class="caption">I have a lot of favorite pictures—actually, lahat ng photos natin together are my favorites.
+
+Minsan lang rin tayo nakakakuha ng pictures kasi we’re always so caught up enjoying our moments together.
+
+And for me, that’s enough. Basta tayong dalawa, we laugh, we love, and it always feels like we’re in our own little world.
+
+I can’t wait to capture more memories with you.
+
+And I hope, soon, there’ll be three of us in one picture or even more, when the time is right, and God finally blesses us with our little ones.
+
+I can't wait to build a big, happy family with you.</p>
+      </div>
+
     </div>
 
-    <div class="slide">
-      <img src="FB_IMG_1752323315519 (1).webp" alt="Slide 2" />
-      <p>This moment was when we went to MOA. Simula naghiwalay tayo, that day nalang ulit tayo nakapunta ulit sa MOA. That day also, we had a misunderstanding but honestly, it’s also the day I truly felt how much you love me. Even when I kept pushing you away and tried to break up with you, you never left. Tinakbuhan kita and tinaguan, hindi ka napagod hanapin ako. Despite how annoyed and hurt you must have been because of my attitude that day, you stayed. We still went home together. I’m really sorry for what happened. I know we were both wrong, but I made things worse with how I acted. Sorry talaga. I’m sorry again, love. I promise I won’t let that happen again. Thank you for staying.</p>
+    <div class="slideshow-controls">
+      <button id="prev-slide" aria-label="Previous Slide">‹</button>
+      <button id="next-slide" aria-label="Next Slide">›</button>
     </div>
 
-    <div class="slide">
-      <img src="FB_IMG_1752243357450.webp" alt="Slide 3" />
-      <p>On this day naman, we went to Manila Ocean Park—first time natin pumunta doon (thanks to Concentrix, libre lahat pati food!). Sobrang saya ko that time kasi we really enjoyed the sightseeing, panonood ng sea lions, at marami pang iba. Sana soon, makabalik tayo ulit doon... pero this time, kasama na natin ang little ones natin if papalarin at ibibigay na ni Lord.</p>
+    <div class="album-footer">
+      <button id="watch-videos" onclick="location.href='video.html'">Watch</button>
     </div>
+  </main>
 
-    <div class="slide">
-      <img src="Polish_20250712_212114634.webp" alt="Slide 4" />
-      <p>I love this picture too, kasi ito yung time na nag-bike tayo sa Riverbanks after natin lakarin yung PAG-IBIG mo. Ang init noon, pero sobrang saya kasi we were just enjoying our time. Nagmasid, kumain, at nag-bike. Hindi man ito yung first time natin pumunta dito, kasi ilang beses na rin tayong nagpunta, pero ewan ko, this one’s one of my favorites. Konti lang kasi yung tao that day, kaya ang sarap ng feeling—parang ang dami nating nasulit.</p>
-    </div>
-
-    <div class="slide">
-      <img src="Polish_20250712_212348450.webp" alt="Slide 5" />
-      <p>Naalala mo 'to? Ito yung time na umalis tayo tapos nakalimutan natin magdala ng payong. Ang ginawa mo pa nga noon, humingi ka ng laundry plastic sa laundry shop malapit sa binabaan natin ng jeep. That day reminded me of our first time na naligo tayo sa ulan, way back 2019. Para tayong mga bata—takbuhan, tawanan, at enjoy lang sa ulan. Alam mo naman noon na hindi ko talaga gusto ang ulan, kasi halos lahat ng malungkot na moments sa buhay ko, umuulan. Pero nagbago ‘yon dahil sa’yo. Tinulungan mo akong kalimutan 'yung sakit at matutunang i-enjoy… at mahalin ang ulan. Thank you, love.</p>
-    </div>
-
-    <div class="slide">
-      <img src="Polish_20250712_212903018.webp" alt="Slide 6" />
-      <p>I have a lot of favorite pictures—actually, lahat ng photos natin together are my favorites. Minsan lang rin tayo nakakakuha ng pictures kasi we’re always so caught up enjoying our moments together. And for me, that’s enough. Basta tayong dalawa, we laugh, we love, and it always feels like we’re in our own little world. I can’t wait to capture more memories with you. And I hope, soon, there’ll be three of us in one picture or even more, when the time is right, and God finally blesses us with our little ones. I can't wait to build a big, happy family with you.</p>
-      <button class="btn" onclick="goWatch()">Watch</button>
-    </div>
-
-    <button class="btn" onclick="prevSlide()">Prev</button>
-    <button class="btn" onclick="nextSlide()">Next</button>
-  </div>
-
-  <!-- SONG 2 -->
-  <audio id="song2" src="song2-until-i-found-you.mp3" autoplay loop></audio>
-
-  <script>
-    const slides = document.querySelectorAll('.slide');
-    let current = 0;
-
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.remove('active');
-        if (i === index) slide.classList.add('active');
-      });
-    }
-
-    function nextSlide() {
-      current = (current + 1) % slides.length;
-      showSlide(current);
-    }
-
-    function prevSlide() {
-      current = (current - 1 + slides.length) % slides.length;
-      showSlide(current);
-    }
-
-    function goWatch() {
-      const song2 = document.getElementById('song2');
-      song2.pause();
-      window.location.href = 'video.html';
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
