@@ -1,95 +1,86 @@
-// Handle start journey button on index.html
+// Song references
+const song1 = document.getElementById("song1");
+const song2 = new Audio("song2-dance-with-you.mp3");
+const song3 = new Audio("song3-forevermore.mp3");
+const video2Sound = new Audio("video2-sound.mp3");
+
+// Volume Settings
+song1.volume = 1;
+song2.volume = 1;
+song3.volume = 1;
+video2Sound.volume = 1;
+
+// Ensure only one song plays at a time
+function stopAllSongs() {
+  [song1, song2, song3, video2Sound].forEach((audio) => {
+    audio.pause();
+    audio.currentTime = 0;
+  });
+}
+
+// Get Started → Go to letter + play song1
 function startJourney() {
-  const song1 = document.getElementById('song1');
-  if (song1) {
-    song1.volume = 1;
-    song1.play();
-  }
-  window.location.href = 'letter.html';
+  stopAllSongs();
+  song1.play();
+  window.location.href = "letter.html";
 }
 
-// Handle go to album from letter.html
+// Letter → Go to album + play song2
 function goToAlbum() {
-  const song2 = document.getElementById('song2');
-  if (song2) {
-    song2.volume = 1;
-    song2.play();
-  }
-  window.location.href = 'album.html';
+  stopAllSongs();
+  song2.play();
+  window.location.href = "album.html";
 }
 
-// Handle go to video page from album.html
-function goToVideo() {
-  window.location.href = 'video.html';
+// Album → Go to video + song2 continues
+function goToVideoPage() {
+  window.location.href = "video.html";
 }
 
-// For playing song3 and showing surprise box
-function openPresent() {
-  const song3 = document.getElementById('song3');
-  if (song3) {
-    song3.volume = 1;
-    song3.play();
-  }
-
-  const floating = document.getElementById('presentMessage');
-  const content = document.getElementById('videoContent');
-  if (floating && content) {
-    floating.classList.remove('hidden');
-    content.classList.add('blur-bg');
-  }
-}
-
-// Play audio when "Our private symphony" button is clicked
-function playSymphony() {
-  const symphony = document.getElementById('video2-audio');
-  if (symphony) {
-    symphony.volume = 1;
-    symphony.play();
-  }
-}
-
-// Play recorded message in surprise box
-function playRecordedMessage() {
-  const voice = document.getElementById('voiceMessage');
-  if (voice) {
-    voice.volume = 1;
-    voice.play();
-
-    // Add subtle animation while playing
-    const button = document.getElementById('listenBtn');
-    if (button) {
-      button.style.animation = 'pulse 1.5s infinite';
-      voice.onended = () => {
-        button.style.animation = 'none';
-      };
-    }
-  }
-}
-
-// Handle stopping song2 when video starts playing
-document.addEventListener('DOMContentLoaded', () => {
-  const video = document.getElementById('video1');
-  const song2 = document.getElementById('song2');
+// Play video1 manually + stop song2 while playing
+function playVideo1() {
+  const video = document.getElementById("video1");
   if (video) {
-    video.addEventListener('play', () => {
-      if (song2) {
-        song2.pause();
-      }
-    });
-
-    video.addEventListener('pause', () => {
-      if (song2 && !document.getElementById('presentMessage')?.classList.contains('hidden')) return;
-      if (song2?.paused) {
-        song2.play();
-      }
-    });
+    stopAllSongs();
+    video.play();
+    video.onended = () => {
+      song2.play(); // resume song2 after video ends
+    };
   }
+}
 
-  // Show back arrow only on pages except index.html
-  const backArrow = document.querySelector('.back-arrow');
-  if (backArrow && !location.pathname.endsWith('index.html')) {
-    backArrow.style.display = 'block';
-  } else if (backArrow) {
-    backArrow.style.display = 'none';
+// Play video2 sound (from button)
+function playVideo2Sound() {
+  stopAllSongs();
+  video2Sound.play();
+}
+
+// Open Present → blur + show float box + play song3
+function openPresent() {
+  stopAllSongs();
+  song3.play();
+  document.getElementById("presentMessage").style.display = "flex";
+  document.body.classList.add("blurred");
+}
+
+// Close present box (optional feature)
+function closePresent() {
+  document.getElementById("presentMessage").style.display = "none";
+  document.body.classList.remove("blurred");
+}
+
+// Back arrow control (only show on subpages)
+window.addEventListener("DOMContentLoaded", () => {
+  const showBack = window.location.pathname !== "/index.html" &&
+                   window.location.pathname !== "/" &&
+                   !window.location.href.includes("github.io");
+
+  const navbar = document.querySelector(".navbar");
+  if (showBack && navbar) {
+    const backBtn = document.createElement("button");
+    backBtn.innerHTML = "&#8592;";
+    backBtn.className = "back-arrow";
+    backBtn.onclick = () => history.back();
+    navbar.appendChild(backBtn);
   }
 });
