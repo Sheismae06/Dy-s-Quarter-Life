@@ -30,7 +30,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 22px 28px; /* Slightly thicker for elegance */
+  padding: 20px 28px; /* slightly thicker */
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
@@ -99,8 +99,9 @@ p {
   justify-content: center;
   align-items: center;
   text-align: center;
-  min-height: 100vh;
-  padding: 80px 20px 20px;
+  min-height: calc(100vh - 80px); /* account for navbar height */
+  padding: 40px 20px 20px;
+  margin-top: 60px; /* spacing under fixed navbar */
 }
 
 /* Animations */
