@@ -3,35 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dy's Quarter Life</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Dy’s Quarter-Life</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-  <!-- Navbar (No Back Icon) -->
-  <nav class="navbar">
-    <span style="color: var(--cream-gold); font-weight: bold; font-size: 1.1rem;">Dy's Quarter Life</span>
-  </nav>
+  <!-- Navbar -->
+  <div class="navbar">
+    <span>Dy’s Quarter-Life</span>
+  </div>
 
-  <!-- Main Section with Infinity Logo, Text and Button -->
-  <main class="center-screen">
-    <!-- Infinity Logo -->
-    <img src="infinity-logo.png" alt="Infinity Logo" class="infinity-logo" />
-
-    <!-- Text -->
+  <!-- Main Section -->
+  <div class="center-screen">
+    <img src="infinity-logo.png" alt="Infinity Logo" class="infinity-logo"/>
     <h1>Happy 25th, My Love</h1>
     <p>A quarter of a century of your light. Here’s a piece of my love for you.</p>
+    <button class="btn-start" onclick="start()">Get Started</button>
+  </div>
 
-    <!-- Button -->
-    <button class="btn-start" onclick="goToLetter()">Get Started</button>
-  </main>
+  <!-- Audio (optional if triggered later by button) -->
+  <audio id="song1" src="song1-kung-tayo.mp3"></audio>
 
-  <!-- Script -->
   <script>
-    function goToLetter() {
-      window.location.href = "letter.html";
+    function start() {
+      const audio = document.getElementById('song1');
+      audio.play();
+      window.location.href = 'letter.html';
     }
   </script>
-
+  
 </body>
 </html>
