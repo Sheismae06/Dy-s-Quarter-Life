@@ -1,235 +1,271 @@
-/* Angela's Birthday Tribute - CSS */
+/* Global Styles */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
   background-color: #0d0d0d;
-  color: #ffffff;
+  color: white;
   overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  color: #D4AF37;
+  margin: 0;
+  font-weight: 600;
+  text-align: center;
+}
+
+p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #ffffffd9;
+  padding: 0 20px;
 }
 
 /* Navbar */
 .navbar {
   background-color: #1a1a1a;
-  height: 60px;
+  height: 55px;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   padding: 0 20px;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  top: 0;
 }
 
 .back-arrow {
+  font-size: 22px;
+  color: white;
   background: none;
   border: none;
-  color: #fff;
-  font-size: 24px;
   cursor: pointer;
 }
 
+/* Hero Section */
 .hero {
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  min-height: calc(100vh - 60px);
-  padding: 20px;
+  align-items: center;
   text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .hero h1 {
   font-size: clamp(2rem, 8vw, 2.5rem);
-  color: #d4af7f;
-  margin-bottom: 10px;
 }
 
 .hero p {
   font-size: 1rem;
-  max-width: 90%;
-  margin: 0 auto 20px;
-  color: #eaeaea;
+  margin: 15px 0 30px;
 }
 
 .hero button {
-  font-size: 1rem;
   padding: 10px 20px;
-  background-color: #d4af7f;
+  font-size: 1rem;
+  background-color: #D4AF37;
   border: none;
-  border-radius: 6px;
+  color: black;
+  border-radius: 8px;
   cursor: pointer;
-  color: #000;
-  transition: background 0.3s ease;
 }
 
-.hero button:hover {
-  background-color: #c39b6c;
-}
-
-.gold-title {
-  font-size: clamp(2rem, 6vw, 2.3rem);
-  color: #d4af7f;
-  text-align: center;
-  margin-top: 30px;
-}
-
-.center-text {
-  text-align: center;
-}
-
-/* Letter Page */
+/* Letter Content */
 .letter-content {
-  padding: 20px;
+  padding: 100px 20px 50px;
   max-width: 800px;
   margin: auto;
-  text-align: justify;
 }
 
 .letter-content p {
   font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 16px;
-  color: #dddddd;
+  margin-bottom: 20px;
+  text-align: justify;
+  padding: 0 10px;
 }
 
-.subheading {
-  font-size: 1.25rem;
-  font-weight: normal;
-  margin-top: -10px;
-  color: #999;
-  text-align: center;
-}
-
-.center-btn {
-  text-align: center;
-  margin-top: 30px;
-}
-
-.center-btn button {
-  font-size: 1rem;
-  padding: 10px 20px;
-  background-color: #d4af7f;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  color: #000;
-}
-
+/* Album Page */
 .album-section {
-  padding: 20px;
+  padding: 100px 20px 50px;
   text-align: center;
 }
 
-.album-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  max-width: 600px;
-  margin: auto;
+.album-section h1 {
+  font-size: 2rem;
+  margin-bottom: 30px;
 }
 
-.album-grid img {
-  width: 100%;
-  border-radius: 12px;
+.album-item {
+  margin-bottom: 40px;
 }
 
-.mini-message {
-  background-color: #1f1f1f;
-  padding: 16px;
-  margin-top: 10px;
+.album-item img {
+  max-width: 100%;
   border-radius: 12px;
-  font-size: 0.92rem;
-  color: #eaeaea;
-  animation: fadeInUp 0.6s ease-in-out;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.message-box {
+  margin: 15px auto;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 0.88rem;
+  max-width: 90%;
+  animation: fadeSlideUp 1s ease-in-out;
 }
 
 .album-section button {
-  font-size: 1rem;
-  margin-top: 30px;
   padding: 10px 20px;
-  background-color: #d4af7f;
+  font-size: 1rem;
+  background-color: #D4AF37;
+  color: black;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  color: #000;
+  margin-top: 30px;
 }
 
 /* Video Page */
-.video-section {
-  padding: 20px;
+#video-section {
+  background-color: #1e1e1e;
+  padding: 100px 20px 50px;
   text-align: center;
-  max-width: 600px;
-  margin: auto;
 }
 
-/* Present Overlay */
-.present-overlay {
+#video-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+video {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+}
+
+.video-caption {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 15px;
+  animation: fadeSlideUp 1s ease-in-out;
+}
+
+.video-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.video-buttons button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #D4AF37;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: black;
+}
+
+/* Floating Present Box */
+#presentMessage {
   display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(6px);
-  z-index: 999;
-  display: flex;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
   align-items: center;
   justify-content: center;
 }
 
-.present-box {
-  background: #fff;
-  color: #1a1a1a;
-  padding: 30px;
+#presentMessage .box {
+  background: white;
+  padding: 30px 20px;
   border-radius: 15px;
+  max-width: 90%;
+  color: #1A5E20;
   text-align: center;
-  width: 90%;
-  max-width: 400px;
-  animation: fadeInScale 0.5s ease-in-out;
 }
 
-.audio-btn {
+#presentMessage .box button {
   margin: 8px;
   padding: 10px 20px;
-  background-color: #d4af7f;
-  color: #000;
+  background-color: #228B22;
+  color: white;
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  font-size: 0.9rem;
 }
 
-.open-present-btn {
-  font-size: 1rem;
-  padding: 12px 24px;
-  background-color: #d4af7f;
-  color: #000;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-bottom: 30px;
+#presentMessage .box .playing-effect {
+  animation: pulse-glow 1.5s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
 }
 
-/* Animations */
+/* Button Animation */
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.6); }
+  50% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.9); }
+  100% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.6); }
+}
+
+/* Fade and Slide */
 .fade-in {
-  animation: fadeInUp 0.6s ease;
+  animation: fadeIn 1.2s ease-in-out;
 }
 
-@keyframes fadeInUp {
-  from {
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeSlideUp {
+  0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
-  to {
+  100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.92);
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .letter-content p,
+  .message-box,
+  .video-caption {
+    font-size: 0.88rem;
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  .video-buttons {
+    gap: 12px;
   }
 }
