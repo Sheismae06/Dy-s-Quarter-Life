@@ -15,73 +15,44 @@
     </div>
   </nav>
 
-  <section class="video-section fade-in">
-    <h1 class="gold-title">Our Special Memories</h1>
+  <main class="video-page fade-in">
+    <h2 class="gold-title">Our Special Memories</h2>
 
     <!-- Video 1 -->
-    <video id="video1" controls style="width: 100%; max-width: 500px; border-radius: 12px;">
-      <source src="lv_7484485684783303997_20250712231639_V1.mp4" type="video/mp4">
+    <video id="video1" controls style="width: 100%; max-width: 500px; border-radius: 12px; margin: 20px 0;">
+      <source src="lv_7484485684783303997_20250712231639_V1.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
 
-    <!-- Below video 1 message -->
-    <p style="max-width: 500px; margin: 20px auto; color: white; text-align: center; font-size: 1rem;">
-      Your love shows in every little thing you do. Every effort, every act of care, in everything sobrang grateful ako. Mahal na mahal kita Dy.
-    </p>
+    <!-- Mini message under Video 1 -->
+    <p class="mini-message fade-slide">Your love shows in every little thing you do. Every effort, every act of care, in everything sobrang grateful ako. Mahal na mahal kita Dy.</p>
 
-    <!-- Audio-only button (instead of 2nd video) -->
-    <button onclick="playPrivateAudio()" class="main-btn" style="margin-bottom: 20px;">
-      Our private symphony, unheard by the world 🎶
-    </button>
-    <audio id="privateAudio" src="VIDEO_5230d69f_1481_413f_a495_a82ceb45802c_V1.mp4"></audio>
+    <!-- Hidden audio for "video2" -->
+    <audio id="audioVideo2" src="VIDEO_5230d69f_1481_413f_a495_a82ceb45802c_V1.mp4"></audio>
+
+    <!-- Custom Button instead of second video -->
+    <button id="video2Btn" class="custom-btn">Our private symphony, unheard by the world</button>
 
     <!-- Open Present Button -->
-    <button id="presentBtn" class="main-btn">🎁 Open Your Present</button>
+    <button id="presentBtn" class="present-button">🎁 Open Your Present</button>
+  </main>
 
-    <!-- Floating Message Box -->
-    <div id="presentMessage" class="floating-message">
-      <div class="message-box">
-        <p>Sana nagustuhan mo regalo ko for you Dy, I love you always po.</p>
-        <audio id="voiceMessage" src="message recorded.mp3"></audio>
-
-        <div style="margin-top: 20px;">
-          <button onclick="document.getElementById('voiceMessage').play()" class="main-btn">
-            Opened it yet? 🎁 Listen 🎶
-          </button>
-          <button onclick="location.href='index.html'" class="main-btn">
-            Start Again
-          </button>
-        </div>
+  <!-- Floating Box -->
+  <div id="presentMessage" class="present-message">
+    <div class="present-box">
+      <p>Sana nagustuhan mo regalo ko for you Dy, I love you always po.</p>
+      <audio id="voiceMessage" src="message recorded.mp3"></audio>
+      <div class="btn-row">
+        <button id="listenBtn" class="custom-btn small-btn">Opened it yet? 🎁 Listen 🎶</button>
+        <button onclick="location.href='index.html'" class="custom-btn small-btn">Start Again</button>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- song3 auto triggered by presentBtn -->
-  <script>
-    const video1 = document.getElementById("video1");
-    const song2 = new Audio("song2-until-i-found-you.mp3");
-    const song3 = new Audio("song3-happy-birthday.mp3");
-    song2.volume = 1;
-    song3.volume = 1;
+  <!-- Audio Songs -->
+  <audio id="song2" src="song2-until-i-found-you.mp3"></audio>
+  <audio id="song3" src="song3-happy-birthday.mp3"></audio>
 
-    video1.addEventListener("play", () => song2.pause());
-    video1.addEventListener("pause", () => song2.play());
-
-    window.addEventListener("DOMContentLoaded", () => {
-      song2.play();
-    });
-
-    function playPrivateAudio() {
-      const audio = document.getElementById("privateAudio");
-      audio.volume = 1;
-      audio.play();
-    }
-
-    document.getElementById("presentBtn").addEventListener("click", () => {
-      document.getElementById("presentMessage").style.display = "flex";
-      song2.pause();
-      song3.play();
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
