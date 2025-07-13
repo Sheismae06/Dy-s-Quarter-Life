@@ -30,38 +30,38 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 28px;
+  padding: 18px 28px;
   z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 /* Infinity Logo */
 .infinity-logo {
-  width: 60px;
-  margin-bottom: 25px;
-  opacity: 0;
+  width: 48px;
+  height: auto;
+  margin-bottom: 18px;
+  opacity: 0.85;
   animation: fadeInUp 1.2s ease forwards;
 }
 
 /* Titles */
-h1 {
+h1, h2, h3 {
   color: var(--cream-gold);
   font-weight: 600;
   text-align: center;
   font-size: 2rem;
-  margin-bottom: 12px;
-  opacity: 0;
+  margin-bottom: 14px;
   animation: fadeInUp 1.4s ease forwards;
 }
 
+/* Paragraphs */
 p {
   color: #EAEAEA;
   font-size: 0.95rem;
-  text-align: center;
-  margin-bottom: 28px;
   line-height: 1.6;
-  opacity: 0;
-  animation: fadeInUp 1.6s ease forwards;
+  text-align: center;
+  margin-bottom: 24px;
+  animation: fadeInUp 1.5s ease forwards;
 }
 
 /* Button */
@@ -75,8 +75,7 @@ p {
   font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  opacity: 0;
-  animation: fadeInUp 1.8s ease forwards;
+  animation: fadeInUp 1.6s ease forwards;
 }
 
 .btn-start:hover {
@@ -89,22 +88,22 @@ p {
   transform: scale(0.95);
 }
 
-/* Center layout with spacing from navbar */
+/* Center Screen */
 .center-screen {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
   min-height: 100vh;
-  padding: 160px 20px 60px; /* Increased top padding to separate from navbar */
+  padding: 100px 20px 20px; /* Top space under navbar */
+  text-align: center;
 }
 
-/* Fade-in animation */
+/* Animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -115,7 +114,7 @@ p {
 /* Responsive */
 @media (max-width: 600px) {
   h1 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .btn-start {
@@ -124,6 +123,6 @@ p {
   }
 
   .infinity-logo {
-    width: 48px;
+    width: 40px;
   }
 }
