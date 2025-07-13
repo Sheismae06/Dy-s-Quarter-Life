@@ -30,50 +30,38 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 30px;
+  padding: 20px 28px;
   z-index: 1000;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
-}
-
-/* Navbar icon (if any) */
-.navbar svg {
-  width: 24px;
-  height: 24px;
-  fill: var(--cream-gold);
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.navbar svg:hover {
-  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 /* Infinity Logo */
 .infinity-logo {
-  width: 50px;
-  height: auto;
-  margin-bottom: 20px;
-  animation: fadeInUp 1s ease forwards;
+  width: 60px;
+  margin-bottom: 25px;
+  opacity: 0;
+  animation: fadeInUp 1.2s ease forwards;
 }
 
 /* Titles */
-h1, h2, h3 {
+h1 {
   color: var(--cream-gold);
   font-weight: 600;
   text-align: center;
   font-size: 2rem;
-  margin-bottom: 20px;
-  animation: fadeInUp 1.2s ease forwards;
+  margin-bottom: 12px;
+  opacity: 0;
+  animation: fadeInUp 1.4s ease forwards;
 }
 
-/* Paragraphs */
 p {
   color: #EAEAEA;
   font-size: 0.95rem;
-  line-height: 1.6;
   text-align: center;
-  margin-bottom: 25px;
-  animation: fadeInUp 1.4s ease forwards;
+  margin-bottom: 28px;
+  line-height: 1.6;
+  opacity: 0;
+  animation: fadeInUp 1.6s ease forwards;
 }
 
 /* Button */
@@ -87,7 +75,8 @@ p {
   font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  animation: fadeInUp 1.6s ease forwards;
+  opacity: 0;
+  animation: fadeInUp 1.8s ease forwards;
 }
 
 .btn-start:hover {
@@ -100,20 +89,18 @@ p {
   transform: scale(0.95);
 }
 
-/* Home Page Center Layout */
+/* Center layout with spacing from navbar */
 .center-screen {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   text-align: center;
   min-height: 100vh;
-  padding-top: 130px; /* more top padding to raise content */
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 160px 20px 60px; /* Increased top padding to separate from navbar */
 }
 
-/* Animations */
+/* Fade-in animation */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -128,7 +115,7 @@ p {
 /* Responsive */
 @media (max-width: 600px) {
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 
   .btn-start {
@@ -137,7 +124,6 @@ p {
   }
 
   .infinity-logo {
-    width: 40px;
-    margin-bottom: 16px;
+    width: 48px;
   }
 }
