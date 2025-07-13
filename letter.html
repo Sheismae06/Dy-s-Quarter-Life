@@ -2,36 +2,87 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>A Letter to the Man Who Came Back Home to Me
-To the one I found, lost, and found again</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Letter to You</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #50C878;
+      color: #DDE5DD;
+      padding: 20px;
+    }
+
+    header {
+      background-color: #228B22;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+    }
+
+    header span {
+      font-size: 22px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 7vw, 2.3rem);
+      color: #FFFFFF;
+      margin-bottom: 15px;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      font-weight: 400;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    .next-btn {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #1A5E20;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .next-btn:hover {
+      background-color: #166a1b;
+    }
+  </style>
 </head>
-<body style="margin: 0; background-color: #50C878; font-family: 'Poppins', sans-serif; color: #FFFFFF;">
+<body>
+  <header>
+    <span onclick="history.back()">←</span>
+    <span style="color: white; font-size: 14.5px;">A Letter for You</span>
+    <span></span>
+  </header>
 
-  <!-- Navbar -->
-  <nav style="background-color: #228B22; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center;">
-    <!-- Back Arrow -->
-    <div onclick="history.back()" style="cursor: pointer;">
-      <svg width="24" height="24" fill="#FFFFFF" viewBox="0 0 24 24">
-        <path d="M15 18l-6-6 6-6" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-
-    <!-- Music Icon -->
-    <div id="music-toggle" onclick="toggleMusic()" style="cursor: pointer;">
-      <svg id="music-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M9 18V5l12-2v13" stroke="#FFFFFF" stroke-width="2"/>
-        <line id="music-slash" x1="4" y1="4" x2="20" y2="20" stroke="#D4AF37" stroke-width="2" style="display: none;"/>
-      </svg>
-    </div>
-  </nav>
-
-  <!-- Letter Section -->
-  <section style="padding: 40px 20px; max-width: 800px; margin: auto;">
-    <h1 style="font-size: 26px; margin-bottom: 20px;">A Letter to the Man Who Came Back Home to Me</h1>
-    <h3 style="font-weight: normal; font-size: 18px; margin-bottom: 30px;">To the one I found, lost, and found again</h3>
+  <main class="container">
+    <h1>A Letter to the Man Who Came Back Home to Me</h1>
+    <h3>To the one I found, lost, and found again</h3>
 
     <p>I still remember the day we first connected in Neargroup that was on July 22, 2019. We were both broken and just beginning to heal from our past relationships. It’s funny how life brings people together when they least expect it like what happened to us. I never imagined that a simple conversation would turn into something so meaningful and special.</p>
 
@@ -49,44 +100,22 @@ To the one I found, lost, and found again</title>
 
     <p>Thank you for being my person, even when it was complicated. Thank you for staying, even when it got hard. And thank you… for being born.</p>
 
-    <p style="margin-top: 30px; font-weight: bold;">Happy 25th Birthday, my love. I pray this year brings you peace, growth, and blessings in ways you never expected. We’re still writing our story and I still believe in our happy ending.</p>
+    <p>Happy 25th Birthday, my love. I pray this year brings you peace, growth, and blessings in ways you never expected. We’re still writing our story and I still believe in our happy ending.</p>
 
-    <p style="margin-top: 30px;">With all my love,<br/><strong>Angela, your boss</strong></p>
+    <p>With all my love, <br> Angela, your boss</p>
 
-    <button onclick="goToAlbum()" style="margin-top: 40px; padding: 12px 24px; background-color: #1A5E20; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer;">
-      Mini Album
-    </button>
-  </section>
+    <button class="next-btn" onclick="goToAlbum()">Mini Album</button>
+  </main>
 
-  <!-- Background Music -->
-  <audio id="bg-music" src="song2-until-i-found-you.mp3" preload="auto"></audio>
+  <audio id="song2" src="song2-until-i-found-you.mp3" preload="auto"></audio>
 
   <script>
-    const music = document.getElementById("bg-music");
-    const icon = document.getElementById("music-icon");
-    const slash = document.getElementById("music-slash");
-
-    let isPlaying = true;
-    window.onload = () => {
-      music.play();
-    };
-
-    function toggleMusic() {
-      if (isPlaying) {
-        music.pause();
-        slash.style.display = "block";
-        icon.style.stroke = "#FFFFFF";
-        isPlaying = false;
-      } else {
-        music.play();
-        slash.style.display = "none";
-        icon.style.stroke = "#D4AF37";
-        isPlaying = true;
-      }
-    }
+    const song2 = document.getElementById('song2');
+    song2.volume = 1;
+    song2.play();
 
     function goToAlbum() {
-      music.pause();
+      song2.pause();
       window.location.href = "album.html";
     }
   </script>
