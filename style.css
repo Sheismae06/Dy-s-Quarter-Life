@@ -1,17 +1,25 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Colors */
+:root {
+  --dark-charcoal: #1F1F1F;
+  --cream-gold: #C2B280;
+  --maroon-bg: #3D1F1F;
 }
 
 /* Body */
 body {
-  background-color: #3D1F1F;
+  background-color: var(--maroon-bg);
   color: #EAEAEA;
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
-  font-size: 0.88rem; /* Smaller base size */
+  margin: 0;
+  padding: 0;
+  animation: fadeInPage 1s ease forwards;
+}
+
+/* Fade-in animation on page load */
+@keyframes fadeInPage {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Navbar */
@@ -19,124 +27,85 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #1F1F1F;
+  background-color: var(--dark-charcoal);
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  padding: 8px 16px;
+  padding: 10px 20px;
   z-index: 999;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.4);
+  user-select: none;
+  animation: fadeInPage 1s ease forwards;
 }
 
-.navbar .back-btn,
-.navbar .music-toggle {
-  width: 22px;
-  height: 22px;
+/* Navbar Icons */
+.navbar svg {
+  width: 24px;
+  height: 24px;
   cursor: pointer;
-  fill: white;
-  transition: transform 0.3s ease, fill 0.3s ease;
+  fill: var(--cream-gold);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  user-select: none;
 }
 
-.navbar .back-btn:hover,
-.navbar .music-toggle:hover {
-  fill: #C2A14D;
-  transform: scale(1.05);
+.navbar svg:hover {
+  transform: scale(1.1);
+  opacity: 0.85;
 }
 
-/* Music ON/OFF Styles */
-.music-on {
-  fill: #C2A14D;
-  animation: pulse 1.5s infinite ease-in-out;
+.navbar svg:active {
+  transform: scale(0.95);
+  opacity: 0.7;
 }
 
-.music-off {
-  fill: white;
-  position: relative;
+/* Titles */
+h1, h2, h3 {
+  color: var(--cream-gold);
+  font-weight: 600;
+  margin-bottom: 20px;
+  font-size: smaller; /* smaller but readable */
+  animation: fadeInPage 1s ease forwards;
 }
 
-.music-off::after {
-  content: '';
-  position: absolute;
-  width: 2px;
-  height: 100%;
-  background: #C2A14D;
-  transform: rotate(-45deg);
-  top: 0;
-  left: 50%;
-}
-
-/* Pulse Effect */
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.05); opacity: 0.85; }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-/* Centered Layout for Main Page */
-.center-screen {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 20px;
-  text-align: center;
-}
-
-/* Title */
-h1 {
-  font-size: 1.6rem;
-  color: #C2A14D;
-  margin-bottom: 10px;
-}
-
-/* Paragraph */
+/* Paragraphs */
 p {
-  max-width: 700px;
-  font-size: 0.88rem;
-  line-height: 1.5;
-  margin-bottom: 25px;
-  padding: 0 10px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #EAEAEA;
+  margin-bottom: 15px;
+  animation: fadeInPage 1s ease forwards;
 }
 
-/* Button */
-.btn-start {
-  background-color: #C2A14D;
-  color: #3D1F1F;
-  padding: 10px 22px;
-  font-size: 0.88rem;
+/* Buttons */
+button, .btn-start, .btn {
+  background-color: var(--cream-gold);
+  color: var(--maroon-bg);
+  font-weight: 600;
   border: none;
   border-radius: 30px;
+  padding: 10px 24px;
+  font-size: 0.9rem;
   cursor: pointer;
-  transition: background 0.3s ease;
-  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.15s ease;
+  animation: fadeInPage 1s ease forwards;
 }
 
-.btn-start:hover {
-  background-color: #b4933c;
+button:hover, .btn:hover {
+  background-color: #afa36d; /* slightly darker cream gold */
 }
 
-/* Responsive Adjustments */
+button:active, .btn:active {
+  transform: scale(0.95);
+}
+
+/* Responsive font sizing - smaller on mobile */
 @media (max-width: 600px) {
-  h1 {
-    font-size: 1.3rem;
+  h1, h2 {
+    font-size: 1.2rem;
   }
 
-  p {
-    font-size: 0.85rem;
-  }
-
-  .btn-start {
+  button, .btn {
     font-size: 0.85rem;
     padding: 8px 20px;
-  }
-
-  .navbar {
-    padding: 6px 12px;
-  }
-
-  .navbar .back-btn,
-  .navbar .music-toggle {
-    width: 20px;
-    height: 20px;
   }
 }
