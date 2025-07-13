@@ -3,31 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Quarter Life of Dy</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Dy's Quarter Life</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-
-  <!-- Navbar -->
+  <!-- NAVBAR -->
   <div class="navbar">
-    <!-- No back icon on homepage -->
+    <div></div> <!-- Empty placeholder for spacing -->
+    <div class="navbar-title">Dy's Quarter Life</div>
+    <div></div> <!-- No back icon on homepage -->
   </div>
 
-  <!-- Main Content -->
+  <!-- MAIN CENTER CONTENT -->
   <div class="center-screen">
-    
     <!-- Infinity Logo -->
-    <img src="infinity.svg" alt="Infinity" class="infinity-logo" />
+    <img src="infinity.svg" alt="Infinity Logo" class="infinity-logo" />
 
-    <!-- Title -->
+    <!-- Title and Text -->
     <h1>Happy 25th, My Love</h1>
-
-    <!-- Message -->
     <p>A quarter of a century of your light. Here’s a piece of my love for you.</p>
 
     <!-- Button -->
-    <button class="btn-start" onclick="location.href='letter.html'">Get Started</button>
+    <button class="btn-start" onclick="startExperience()">Get Started</button>
   </div>
 
+  <!-- JS -->
+  <script>
+    function startExperience() {
+      window.location.href = "letter.html";
+    }
+  </script>
 </body>
 </html>
