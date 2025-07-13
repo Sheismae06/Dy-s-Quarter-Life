@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <!-- Navbar -->
+  <!-- Fixed Navbar -->
   <div class="navbar">
     <a href="index.html">
       <svg class="back-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -17,10 +17,13 @@
     </a>
   </div>
 
-  <!-- Main Letter Section -->
-  <div class="letter-container fade-in">
-    <h2 class="letter-title">A Letter to the Man Who Came Back Home to Me</h2>
+  <!-- Spacing below navbar -->
+  <div class="spacer"></div>
 
+  <!-- Letter Content -->
+  <div class="letter-container fade-in">
+
+    <h2 class="letter-title">A Letter to the Man Who Came Back Home to Me</h2>
     <div class="divider"></div>
 
     <div class="letter-glass">
@@ -35,23 +38,15 @@
     </div>
 
     <!-- Mini Album Button -->
-    <button class="btn-start" id="btn-album" onclick="goToAlbum()">Mini Album</button>
+    <button class="btn" id="btn-album">Mini Album</button>
+
   </div>
 
-  <!-- Music Audio -->
+  <!-- Audio Elements -->
   <audio id="song1" src="audio/song1.mp3" autoplay loop></audio>
   <audio id="song2" src="audio/song2.mp3"></audio>
 
+  <!-- Script -->
   <script src="script.js"></script>
-  <script>
-    function goToAlbum() {
-      document.getElementById('song1').pause();
-      const song2 = document.getElementById('song2');
-      song2.volume = 1.0;
-      song2.play();
-      song2.loop = true;
-      window.location.href = 'album.html';
-    }
-  </script>
 </body>
 </html>
