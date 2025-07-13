@@ -1,83 +1,182 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>A Letter to the Man Who Came Back</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mini Album – For Keeps</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
   <style>
-    * {
+    body {
       margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #50C878;
-  color: #DDE5DD;
-  line-height: 1.6;
-  padding: 2rem;
-}
+      padding: 20px;
+      font-family: 'Poppins', sans-serif;
+      background-color: #50C878;
+      color: #EAEAEA;
+    }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
+    h1 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: #FFFFFF;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
 
-h1 {
-  color: #FFFFFF;
-  text-align: center;
-  font-family: 'Playfair Display', serif;
-  margin-bottom: 1rem;
-}
+    .album {
+      max-width: 900px;
+      margin: 0 auto;
+    }
 
-h2 {
-  color: #FFFFFF;
-  font-weight: normal;
-  text-align: center;
-  margin-bottom: 2rem;
-  font-style: italic;
-}
+    .photo-card {
+      background-color: #1A5E20;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      padding: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
 
-p {
-  margin-bottom: 1.5rem;
-}
+    .photo-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
 
-.button {
-  display: block;
-  width: fit-content;
-  margin: 2rem auto 0;
-  background-color: #1A5E20;
-  color: white;
-  border: none;
-  padding: 0.75rem 2rem;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: background 0.3s ease;
-}
+    .caption {
+      font-size: 1rem;
+      white-space: pre-line;
+      color: #DDE5DD;
+    }
 
-.button:hover {
-  background-color: #145019;
-}
+    .button-container {
+      text-align: center;
+      margin-top: 40px;
+    }
 
+    .btn {
+      background-color: #1A5E20;
+      color: #FFFFFF;
+      padding: 12px 28px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #145219;
+    }
+
+    audio {
+      display: none;
+    }
   </style>
-</head><body>
-  <div class="container">
-    <h1>A Letter to the Man Who Came Back Home to Me</h1>
-    <h2>To the one I found, lost, and found again</h2>
-    <p>I still remember the day we first connected in Neargroup that was on July 22, 2019. We were both broken and just beginning to heal from our past relationships. It’s funny how life brings people together when they least expect it like what happened to us. I never imagined that a simple conversation would turn into something so meaningful and special.</p>
-    <p>July 28, 2019, we took a chance and made our relationship official. Even though we were just starting, it already felt like home because whenever I'm with you, I found comfort and a space where I could truly be myself. We laughed, we dreamed, we argued and everything felt almost perfect… until it wasn’t.</p>
-    <p>On March 2020, you broke up with me. And I carried a kind of pain I had known before na akala ko hindi ko na mararamdaman ulit. You weren’t just a boyfriend to me because for me you were someone I pictured my future with but losing you shattered that image.</p>
-    <p>Months passed and we entered a new relationship in December 2020. For me, deep down, something was missing. Maybe that’s why it didn’t work out because the space you left in my heart was never meant for anyone else.</p>
-    <p>Then, like fate giving us another chance, October 2022 came. We reconnected on Facebook again at nag-usap tayo ulit and same pala tayong single. December 12, 2022 came and we chose to continue what we once had. Not where we left off — but with stronger hearts, older minds, and wiser souls.</p>
-    <p>It hasn’t been easy for us. Life isn't as light as it used to be kasi we’re adult na and we now face grown-up problems, dreams, pressures, and responsibilities. There were moments when we thought about letting go again… but we didn’t. Nagpapatawad, kinakaya at umiintindi tayo. And that’s what love is, right? Not perfect at not always easy. But always worth fighting for.</p>
-    <p>I appreciate your efforts, your patience, your hard work more than I say. I’m proud of the man you are becoming. Hayaan mo Dy when my own breakthroughs come, yung opportunities na pinagpe-pray ko at naging successful? I want only 3 pips with me: my family, my friends, and you.</p>
-    <p>Thank you for being my person, even when it was complicated. Thank you for staying, even when it got hard. And thank you… for being born.</p>
-    <p>Happy 25th Birthday, my love. I pray this year brings you peace, growth, and blessings in ways you never expected. We’re still writing our story and I still believe in our happy ending.</p>
-    <p>With all my love,<br />Angela, your boss</p><a href="album.html" class="button">Mini Album</a>
+</head>
+<body onload="playSong()">
+  <h1>For Keeps</h1>
+  <div class="album">
+    <div class="photo-card">
+      <img src="FB_IMG_1752122440480.webp" alt="Image 1">
+      <div class="caption">
+This is my first favorite photo because on this day (December 31, 2022) we traveled to Tanay to celebrate New Year 2023 with my family. It was also the day you reunited with them after a very long time. Cheers to more New Years with you, my love.
+      </div>
+    </div>
 
+    <div class="photo-card">
+      <img src="FB_IMG_1752323315519 (1).webp" alt="Image 2">
+      <div class="caption">
+This moment was when we went to MOA. Simula naghiwalay tayo, that day nalang ulit tayo nakapunta ulit sa MOA.
+
+That day also, we had a misunderstanding but honestly, it’s also the day I truly felt how much you love me.
+
+Even when I kept pushing you away and tried to break up with you, you never left. Tinakbuhan kita and tinaguan, hindi ka napagod hanapin ako.
+
+Despite how annoyed and hurt you must have been because of my attitude that day, you stayed. We still went home together.
+
+I’m really sorry for what happened. I know we were both wrong, but I made things worse with how I acted. Sorry talaga
+
+I’m sorry again, love. I promise I won’t let that happen again. Thank you for staying.
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <img src="FB_IMG_1752243357450.webp" alt="Image 3">
+      <div class="caption">
+On this day naman, we went to Manila Ocean Park—first time natin pumunta doon (thanks to Concentrix, libre lahat pati food!).
+
+Sobrang saya ko that time kasi we really enjoyed the sightseeing, panonood ng sea lions, at marami pang iba.
+
+Sana soon, makabalik tayo ulit doon... pero this time, kasama na natin ang little ones natin if papalarin at ibibigay na ni Lord.
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <img src="Polish_20250712_212114634.webp" alt="Image 4">
+      <div class="caption">
+I love this picture too, kasi ito yung time na nag-bike tayo sa Riverbanks after natin lakarin yung PAG-IBIG mo.
+
+Ang init noon, pero sobrang saya kasi we were just enjoying our time. Nagmasid, kumain, at nag-bike.
+
+Hindi man ito yung first time natin pumunta dito, kasi ilang beses na rin tayong nagpunta, pero ewan ko, this one’s one of my favorites.
+
+Konti lang kasi yung tao that day, kaya ang sarap ng feeling—parang ang dami nating nasulit.
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <img src="Polish_20250712_212348450.webp" alt="Image 5">
+      <div class="caption">
+Naalala mo 'to? Ito yung time na umalis tayo tapos nakalimutan natin magdala ng payong. Ang ginawa mo pa nga noon, humingi ka ng laundry plastic sa laundry shop malapit sa binabaan natin ng jeep.
+
+That day reminded me of our first time na naligo tayo sa ulan, way back 2019.
+
+Para tayong mga bata—takbuhan, tawanan, at enjoy lang sa ulan.
+
+Alam mo naman noon na hindi ko talaga gusto ang ulan, kasi halos lahat ng malungkot na moments sa buhay ko, umuulan. Pero nagbago ‘yon dahil sa’yo.
+
+Tinulungan mo akong kalimutan 'yung sakit at matutunang i-enjoy… at mahalin ang ulan.
+
+Thank you, love.
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <img src="Polish_20250712_212903018.webp" alt="Image 6">
+      <div class="caption">
+I have a lot of favorite pictures—actually, lahat ng photos natin together are my favorites.
+
+Minsan lang rin tayo nakakakuha ng pictures kasi we’re always so caught up enjoying our moments together.
+
+And for me, that’s enough. Basta tayong dalawa, we laugh, we love, and it always feels like we’re in our own little world.
+
+I can’t wait to capture more memories with you.
+
+And I hope, soon, there’ll be three of us in one picture or even more, when the time is right, and God finally blesses us with our little ones.
+
+I can't wait to build a big, happy family with you.
+      </div>
+    </div>
   </div>
-</body></html>
+
+  <div class="button-container">
+    <button class="btn" onclick="goToVideo()">Play</button>
+  </div>
+
+  <audio id="song2" src="song2-until-i-found-you.mp3"></audio>
+
+  <script>
+    function playSong() {
+      const audio = document.getElementById('song2');
+      audio.volume = 1.0;
+      audio.play().catch(() => {
+        console.log("Autoplay blocked. User may need to click first.");
+      });
+    }
+
+    function goToVideo() {
+      window.location.href = 'video.html';
+    }
+  </script>
+</body>
+</html>
