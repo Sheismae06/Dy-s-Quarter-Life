@@ -5,95 +5,155 @@
   box-sizing: border-box;
 }
 
-/* Body Styles */
 body {
+  background-color: #3D1F1F;
+  color: #EAEAEA;
   font-family: 'Poppins', sans-serif;
-  color: #ffffff;
-  background-color: #3e1f1f; /* Dark Maroon */
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  overflow-x: hidden;
 }
 
 /* Navbar */
 .navbar {
-  width: 100%;
-  height: 60px;
-  background-color: #1c1c1c; /* Charcoal */
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
   position: fixed;
   top: 0;
+  width: 100%;
+  background-color: #2B1414;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
   z-index: 999;
 }
 
-/* Hero Section */
-.hero {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 80px;
-  padding-bottom: 60px;
-  text-align: center;
-}
-
-/* Intro Text */
-.intro-text {
-  max-width: 600px;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.15);
-  animation: fadeIn 1.5s ease;
-}
-
-.intro-text h1 {
-  font-size: 2rem;
-  color: #FFD700; /* Antique Gold */
-  margin-bottom: 15px;
-}
-
-.intro-text p {
-  font-size: 1rem;
-  color: #EAEAEA;
-  margin-bottom: 25px;
-  line-height: 1.6;
-}
-
-/* Button */
-button {
-  padding: 10px 20px;
-  background-color: #8B0000; /* Deep maroon/red */
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 1rem;
+.navbar .back-btn,
+.navbar .music-toggle {
+  width: 24px;
+  height: 24px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  fill: white;
+  transition: transform 0.3s ease, fill 0.3s ease;
+}
+
+.navbar .back-btn:hover,
+.navbar .music-toggle:hover {
+  fill: #D4AF37;
+  transform: scale(1.1);
+}
+
+/* Music ON Animation */
+.music-on {
+  fill: #D4AF37;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.music-off {
+  fill: white;
+  position: relative;
+}
+
+.music-off::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background: #D4AF37;
+  transform: rotate(-45deg);
+  top: 0;
+  left: 50%;
+}
+
+/* Pulse effect for music ON */
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.85; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Buttons */
+button {
+  background-color: #D4AF37;
+  color: #3D1F1F;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 button:hover {
-  background-color: #a83232;
-  transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+  background-color: #c49b3f;
+}
+
+/* Titles */
+h1, h2, h3 {
+  color: #D4AF37;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Paragraphs */
+p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Slideshow (album) */
+.slide-container {
+  max-width: 750px;
+  margin: 100px auto 40px;
+  text-align: center;
+}
+
+.slide {
+  display: none;
+  animation: fadeSlide 1s ease;
+}
+
+.active-slide {
+  display: block;
+}
+
+.slide img {
+  max-width: 100%;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.caption {
+  font-size: 0.9rem;
+  color: #EAEAEA;
+  margin-bottom: 30px;
 }
 
 /* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes fadeSlide {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-  .intro-text h1 {
-    font-size: 1.6rem;
+@media (max-width: 600px) {
+  h1, h2 {
+    font-size: 1.3rem;
   }
 
-  .intro-text p {
-    font-size: 0.95rem;
+  .navbar {
+    padding: 8px 16px;
+  }
+
+  .slide-container {
+    padding: 0 10px;
+  }
+
+  p {
+    font-size: 0.88rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 8px 18px;
   }
 }
