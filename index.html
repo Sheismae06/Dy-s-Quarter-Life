@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy 25th, My Love</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Navbar WITHOUT back icon -->
+  <!-- Navbar (NO back icon on homepage) -->
   <div class="navbar">
-    <!-- intentionally left empty -->
+    <!-- Empty space or logo placeholder -->
+    <div></div>
   </div>
 
   <!-- Main Content -->
@@ -20,21 +21,20 @@
     <button class="btn-start" id="startBtn">Get Started</button>
   </div>
 
-  <!-- Music -->
-  <audio id="song1" src="song1-kung-tayo.mp3" loop></audio>
+  <!-- Background Song 1 (Triggered on button click only) -->
+  <audio id="song1" src="song1-kung-tayo.mp3" preload="auto"></audio>
 
-  <!-- Script -->
   <script>
     const startBtn = document.getElementById('startBtn');
     const song1 = document.getElementById('song1');
 
-    startBtn.onclick = () => {
-      song1.play();
-      startBtn.classList.add("clicked"); // add gold background
+    startBtn.addEventListener('click', () => {
+      song1.play().catch(() => {}); // handles autoplay restriction
+      startBtn.classList.add('clicked');
       setTimeout(() => {
         window.location.href = "letter.html";
-      }, 1000); // smooth transition
-    };
+      }, 800); // small delay for button animation
+    });
   </script>
 
 </body>
