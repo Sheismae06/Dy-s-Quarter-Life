@@ -1,146 +1,87 @@
+<!-- Angela's Birthday Tribute Website: video.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Our Special Memories</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <nav class="navbar">
+    <div class="nav-left">
+      <button onclick="history.back()" class="back-arrow">&#8592;</button>
+    </div>
+  </nav>
 
-<!-- Navbar -->
-<nav class="navbar">
-  <div class="nav-left">
-    <a href="#" class="back-arrow" onclick="history.back()">←</a>
-  </div>
-  <div class="nav-title">Our Videos</div>
-  <div class="nav-right"></div>
-</nav>
+  <section class="video-section fade-in">
+    <h1 class="gold-title">Our Special Memories</h1>
 
-<section class="video-section">
-  <h2>Our Special Memories</h2>
-
-  <div class="video-wrapper">
-    <video id="video1" controls>
+    <!-- Video 1 -->
+    <video id="video1" controls style="width: 100%; max-width: 500px; border-radius: 12px;">
       <source src="lv_7484485684783303997_20250712231639_V1.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
 
-    <video id="video2" controls>
-      <source src="VIDEO_5230d69f_1481_413f_a495_a82ceb45802c_V1.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
+    <!-- Below video 1 message -->
+    <p style="max-width: 500px; margin: 20px auto; color: white; text-align: center; font-size: 1rem;">
+      Your love shows in every little thing you do. Every effort, every act of care, in everything sobrang grateful ako. Mahal na mahal kita Dy.
+    </p>
 
-  <button id="openPresentBtn">🎁 Open Your Present</button>
-</section>
+    <!-- Audio-only button (instead of 2nd video) -->
+    <button onclick="playPrivateAudio()" class="main-btn" style="margin-bottom: 20px;">
+      Our private symphony, unheard by the world 🎶
+    </button>
+    <audio id="privateAudio" src="VIDEO_5230d69f_1481_413f_a495_a82ceb45802c_V1.mp4"></audio>
 
-<!-- Floating Surprise Box -->
-<div id="presentMessage" class="float-box">
-  <div class="float-content">
-    <p>Sana nagustuhan mo regalo ko for you Dy, I love you always po.</p>
+    <!-- Open Present Button -->
+    <button id="presentBtn" class="main-btn">🎁 Open Your Present</button>
 
-    <!-- Voice recording -->
-    <audio id="voiceMsg" src="message recorded.mp3"></audio>
+    <!-- Floating Message Box -->
+    <div id="presentMessage" class="floating-message">
+      <div class="message-box">
+        <p>Sana nagustuhan mo regalo ko for you Dy, I love you always po.</p>
+        <audio id="voiceMessage" src="message recorded.mp3"></audio>
 
-    <div class="btn-group">
-      <button onclick="document.getElementById('voiceMsg').play()">Opened it yet? 🎁 Listen 🎶</button>
-      <button onclick="location.href='index.html'">Start Again</button>
+        <div style="margin-top: 20px;">
+          <button onclick="document.getElementById('voiceMessage').play()" class="main-btn">
+            Opened it yet? 🎁 Listen 🎶
+          </button>
+          <button onclick="location.href='index.html'" class="main-btn">
+            Start Again
+          </button>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+  </section>
 
-<!-- Song 3 -->
-<audio id="song3" src="song3-happy-birthday.mp3"></audio>
-
-<script>
-  const video1 = document.getElementById('video1');
-  const video2 = document.getElementById('video2');
-  const openPresentBtn = document.getElementById('openPresentBtn');
-  const floatBox = document.getElementById('presentMessage');
-  const song3 = document.getElementById('song3');
-
-  // Max volume when videos are played
-  [video1, video2].forEach(v => {
-    v.volume = 1;
-
-    // Pause song2 (in case it's still playing from album)
-    v.addEventListener('play', () => {
-      if (!v.dataset.paused) {
-        const s2 = new Audio('song2-until-i-found-you.mp3');
-        s2.pause();
-        v.dataset.paused = true;
-      }
-    });
-  });
-
-  // Show float box & play song 3 only when button is clicked
-  openPresentBtn.addEventListener('click', () => {
-    floatBox.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
+  <!-- song3 auto triggered by presentBtn -->
+  <script>
+    const video1 = document.getElementById("video1");
+    const song2 = new Audio("song2-until-i-found-you.mp3");
+    const song3 = new Audio("song3-happy-birthday.mp3");
+    song2.volume = 1;
     song3.volume = 1;
-    song3.play();
-  });
-</script>
 
-<style>
-  /* Floating Box Style */
-  .float-box {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(5px);
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    padding: 20px;
-  }
-  .float-content {
-    background: white;
-    padding: 30px 20px;
-    border-radius: 12px;
-    max-width: 90%;
-    text-align: center;
-    color: #1A5E20;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-  }
-  .float-content .btn-group button {
-    margin: 10px;
-    padding: 10px 20px;
-    background: #1A5E20;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  .video-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    padding: 20px;
-  }
-  video {
-    width: 100%;
-    max-width: 480px;
-    border-radius: 12px;
-  }
-  #openPresentBtn {
-    margin-top: 40px;
-    padding: 12px 24px;
-    font-size: 16px;
-    background-color: #1A5E20;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-</style>
+    video1.addEventListener("play", () => song2.pause());
+    video1.addEventListener("pause", () => song2.play());
 
+    window.addEventListener("DOMContentLoaded", () => {
+      song2.play();
+    });
+
+    function playPrivateAudio() {
+      const audio = document.getElementById("privateAudio");
+      audio.volume = 1;
+      audio.play();
+    }
+
+    document.getElementById("presentBtn").addEventListener("click", () => {
+      document.getElementById("presentMessage").style.display = "flex";
+      song2.pause();
+      song3.play();
+    });
+  </script>
 </body>
 </html>
