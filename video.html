@@ -15,43 +15,45 @@
     </div>
   </nav>
 
-  <main class="video-page fade-in">
-    <h2 class="gold-title">Our Special Memories</h2>
+  <main class="video-section fade-in">
+    <h1 class="gold-title center">Our Special Memories</h1>
 
-    <!-- Video 1 -->
-    <video id="video1" controls style="width: 100%; max-width: 500px; border-radius: 12px; margin: 20px 0;">
+    <video id="video1" controls style="width: 100%; max-width: 500px; border-radius: 12px;" preload="none">
       <source src="lv_7484485684783303997_20250712231639_V1.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
 
-    <!-- Mini message under Video 1 -->
-    <p class="mini-message fade-slide">Your love shows in every little thing you do. Every effort, every act of care, in everything sobrang grateful ako. Mahal na mahal kita Dy.</p>
+    <p class="video-message fade-in">Your love shows in every little thing you do. Every effort, every act of care, in everything sobrang grateful ako. Mahal na mahal kita Dy.</p>
 
-    <!-- Hidden audio for "video2" -->
-    <audio id="audioVideo2" src="VIDEO_5230d69f_1481_413f_a495_a82ceb45802c_V1.mp4"></audio>
+    <button id="audioBtn" class="gold-button">
+      🎵 Our private symphony, unheard by the world
+    </button>
 
-    <!-- Custom Button instead of second video -->
-    <button id="video2Btn" class="custom-btn">Our private symphony, unheard by the world</button>
+    <button id="presentBtn" class="gold-button">
+      🎁 Open Your Present
+    </button>
 
-    <!-- Open Present Button -->
-    <button id="presentBtn" class="present-button">🎁 Open Your Present</button>
-  </main>
+    <div id="presentMessage" class="floating-box">
+      <div class="message-content">
+        <p>Sana nagustuhan mo regalo ko for you Dy, I love you always po.</p>
+        <audio id="voiceMessage" src="message recorded.mp3"></audio>
 
-  <!-- Floating Box -->
-  <div id="presentMessage" class="present-message">
-    <div class="present-box">
-      <p>Sana nagustuhan mo regalo ko for you Dy, I love you always po.</p>
-      <audio id="voiceMessage" src="message recorded.mp3"></audio>
-      <div class="btn-row">
-        <button id="listenBtn" class="custom-btn small-btn">Opened it yet? 🎁 Listen 🎶</button>
-        <button onclick="location.href='index.html'" class="custom-btn small-btn">Start Again</button>
+        <div class="surprise-buttons">
+          <button id="listenBtn" class="listen-button">
+            Opened it yet? 🎁 Listen 🎶
+          </button>
+          <button onclick="location.href='index.html'" class="restart-button">
+            Start Again
+          </button>
+        </div>
       </div>
     </div>
-  </div>
+  </main>
 
-  <!-- Audio Songs -->
-  <audio id="song2" src="song2-until-i-found-you.mp3"></audio>
+  <!-- Audio Elements -->
+  <audio id="song2" src="song2-bawat-daan.mp3" loop></audio>
   <audio id="song3" src="song3-happy-birthday.mp3"></audio>
+  <audio id="video2audio" src="VIDEO_5230d69f_1481_413f_a495_a82ceb45802c_V1.mp4"></audio>
 
   <script src="script.js"></script>
 </body>
