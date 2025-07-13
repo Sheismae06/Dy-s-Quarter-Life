@@ -26,7 +26,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 64px;
+  height: 64px; /* Elegant thickness */
   background-color: var(--dark-charcoal);
   display: flex;
   align-items: center;
@@ -34,6 +34,19 @@ body {
   padding: 0 28px;
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Navbar Icon (optional) */
+.navbar svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--cream-gold);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.navbar svg:hover {
+  transform: scale(1.1);
 }
 
 /* Titles */
@@ -80,7 +93,7 @@ p {
   transform: scale(0.95);
 }
 
-/* Centered layout (below fixed navbar) */
+/* Centered Layout (for Home Page) */
 .center-screen {
   display: flex;
   flex-direction: column;
@@ -88,7 +101,7 @@ p {
   align-items: center;
   text-align: center;
   min-height: calc(100vh - 64px);
-  padding: 80px 20px 20px; /* raised top spacing */
+  padding: 90px 20px 20px; /* adjusted top space */
 }
 
 /* Animations */
