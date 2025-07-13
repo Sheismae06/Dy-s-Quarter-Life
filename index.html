@@ -3,7 +3,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy 25th, My Love</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     * {
       margin: 0;
@@ -13,73 +13,38 @@
     body {
       font-family: 'Poppins', sans-serif;
       background-color: #50C878;
-      color: #fff;
+      color: #FFFFFF;
       display: flex;
-      flex-direction: column;
-      min-height: 100vh;
       justify-content: center;
       align-items: center;
+      height: 100vh;
       text-align: center;
-      padding: 2rem;
+      padding: 20px;
     }
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background-color: #228B22;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 10;
-    }
-    .arrow-back {
-      font-size: 24px;
-      color: white;
-      cursor: pointer;
-      transition: 0.3s ease;
-    }
-    .arrow-back:hover {
-      color: #D4AF37;
-      transform: translateX(-5px);
-    }
-    .music-icon {
-      width: 24px;
-      height: 24px;
-      cursor: pointer;
-      transition: 0.3s ease;
-    }
-    .music-icon.playing {
-      filter: drop-shadow(0 0 5px #D4AF37);
-      animation: pulse 1.5s infinite;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
+    .container {
+      max-width: 800px;
     }
     h1 {
-      font-family: 'Playfair Display', serif;
       font-size: 2.5rem;
       margin-bottom: 1rem;
     }
-    p.tagline {
-      font-size: 1.2rem;
-      color: #EAEAEA;
+    p {
+      font-size: 1.25rem;
       margin-bottom: 2rem;
+      color: #DDE5DD;
     }
     button {
-      background-color: #1A5E20;
-      color: #fff;
-      padding: 0.8rem 2rem;
-      border: none;
+      padding: 0.75rem 2rem;
       font-size: 1rem;
-      border-radius: 6px;
+      background-color: #1A5E20;
+      color: white;
+      border: none;
+      border-radius: 8px;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: background-color 0.3s ease;
     }
     button:hover {
-      background-color: #145117;
+      background-color: #145418;
     }
     audio {
       display: none;
@@ -87,46 +52,19 @@
   </style>
 </head>
 <body>
-  <nav>
-    <div class="arrow-back" onclick="goBack()">&#8592;</div>
-    <div class="music-toggle" onclick="toggleMusic()">
-      <img id="musicIcon" src="music-off.svg" alt="Music Icon" class="music-icon" />
-    </div>
-  </nav>  <main>
+  <div class="container">
     <h1>Happy 25th, My Love</h1>
-    <p class="tagline">A quarter of a century of your light. Here’s a piece of my love for you.</p>
-    <button onclick="startLoveStory()">Get Started</button>
-  </main><audio id="song1" src="song1-kung-tayo.mp3"></audio>
-
+    <p>A quarter of a century of your light. Here’s a piece of my love for you.</p>
+    <button onclick="startExperience()">Get Started</button>
+    <audio id="bg-music" src="song1-kung-tayo.mp3"></audio>
+  </div>
   <script>
-    const audio = document.getElementById('song1');
-    const musicIcon = document.getElementById('musicIcon');
-    let isPlaying = false;
-
-    function toggleMusic() {
-      if (isPlaying) {
-        audio.pause();
-        isPlaying = false;
-        musicIcon.src = 'music-off.svg';
-        musicIcon.classList.remove('playing');
-      } else {
-        audio.play();
-        isPlaying = true;
-        musicIcon.src = 'music-on.svg';
-        musicIcon.classList.add('playing');
-      }
-    }
-
-    function goBack() {
-      window.history.back();
-    }
-
-    function startLoveStory() {
-      audio.play();
-      isPlaying = true;
-      musicIcon.src = 'music-on.svg';
-      musicIcon.classList.add('playing');
+    function startExperience() {
+      const music = document.getElementById('bg-music');
+      music.volume = 1.0;
+      music.play();
       window.location.href = 'letter.html';
     }
-  </script></body>
+  </script>
+</body>
 </html>
