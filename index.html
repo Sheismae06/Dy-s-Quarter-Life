@@ -1,38 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy 25th, My Love</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background-color: #3D1F1F;
+      color: #EAEAEA;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .center-screen {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      color: #D4AF37;
+      margin-bottom: 10px;
+    }
+
+    p {
+      max-width: 700px;
+      font-size: 1rem;
+      margin-bottom: 30px;
+      line-height: 1.6;
+      padding: 0 10px;
+    }
+
+    .btn-start {
+      background-color: #D4AF37;
+      color: #3D1F1F;
+      padding: 12px 28px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn-start:hover {
+      background-color: #c49b3f;
+    }
+  </style>
 </head>
-<body class="home">
-  <nav class="navbar">
-    <!-- No back icon on home page -->
-  </nav>
+<body>
+  <div class="center-screen">
+    <h1>Happy 25th, My Love</h1>
+    <p>
+      A quarter of a century of your light. Here’s a piece of my love for you.
+    </p>
+    <button class="btn-start" id="startBtn">Get Started</button>
+  </div>
 
-  <main class="hero">
-    <div class="intro-text">
-      <h1>Happy 25th, My Love</h1>
-      <p>A quarter of a century of your light. Here’s a piece of my love for you.</p>
-      <button id="getStarted">Get Started</button>
-    </div>
-  </main>
-
-  <audio id="bgMusic" src="song1-kung-tayo.mp3" preload="auto"></audio>
+  <!-- Song 1 Autoplay and Continuous -->
+  <audio id="song1" src="song1-kung-tayo.mp3" autoplay loop></audio>
 
   <script>
-    const getStarted = document.getElementById('getStarted');
-    const bgMusic = document.getElementById('bgMusic');
+    const startBtn = document.getElementById('startBtn');
+    const song1 = document.getElementById('song1');
 
-    getStarted.addEventListener('click', () => {
-      bgMusic.volume = 1.0;
-      bgMusic.play();
-      sessionStorage.setItem("currentSong", "song1");
-      setTimeout(() => {
-        window.location.href = "letter.html";
-      }, 1000);
-    });
+    startBtn.onclick = () => {
+      song1.play();
+      window.location.href = "letter.html";
+    };
   </script>
 </body>
 </html>
