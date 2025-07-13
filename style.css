@@ -4,7 +4,7 @@
   --maroon-bg: #3D1F1F;
 }
 
-/* Global Reset */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -19,13 +19,13 @@ body {
   animation: fadeInPage 1s ease forwards;
 }
 
-/* Fade-in animation on page load */
+/* Page fade animation */
 @keyframes fadeInPage {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Navbar */
+/* Fixed, elegant navbar */
 .navbar {
   position: fixed;
   top: 0;
@@ -34,10 +34,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 28px;
+  padding: 20px 32px;
   z-index: 999;
   box-shadow: 0 1px 6px rgba(0,0,0,0.4);
-  user-select: none;
 }
 
 /* Navbar Icons */
@@ -47,7 +46,6 @@ body {
   cursor: pointer;
   fill: var(--cream-gold);
   transition: transform 0.2s ease, opacity 0.2s ease;
-  user-select: none;
 }
 
 .navbar svg:hover {
@@ -60,24 +58,25 @@ body {
   opacity: 0.7;
 }
 
-/* Centered content */
+/* Content wrapper (centered with spacing below navbar) */
 .center-screen {
   min-height: 100vh;
+  padding-top: 100px; /* space below navbar */
+  padding-left: 20px;
+  padding-right: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 30px;
-  margin-top: 80px;
 }
 
 /* Titles */
 h1, h2, h3 {
   color: var(--cream-gold);
   font-weight: 600;
-  margin-bottom: 20px;
   font-size: 2.2rem;
+  margin-bottom: 20px;
   animation: fadeUp 1s ease forwards;
 }
 
@@ -90,7 +89,7 @@ p {
   animation: fadeUp 1s ease forwards;
 }
 
-/* Buttons */
+/* Button styles */
 button, .btn-start, .btn {
   background-color: transparent;
   color: var(--cream-gold);
@@ -113,20 +112,28 @@ button:active, .btn-start:active {
   transform: scale(0.95);
 }
 
-/* Fade-up animation */
+/* Fade-up animation for elegant text reveal */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(15px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive font sizing */
+/* Mobile responsiveness */
 @media (max-width: 600px) {
   h1, h2 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 
   button, .btn-start {
     font-size: 0.85rem;
     padding: 8px 20px;
+  }
+
+  .navbar {
+    padding: 16px 20px;
+  }
+
+  .center-screen {
+    padding-top: 90px;
   }
 }
