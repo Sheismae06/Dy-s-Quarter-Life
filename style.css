@@ -100,7 +100,7 @@ p {
   align-items: center;
   text-align: center;
   min-height: 100vh;
-  padding: 80px 20px 40px; /* Adjusted here */
+  padding: 60px 20px 40px; /* Adjusted top padding */
 }
 
 /* Animations */
