@@ -1,69 +1,81 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy 25th, My Love</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&family=Montserrat&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       font-family: 'Poppins', sans-serif;
       background-color: #50C878;
       color: #FFFFFF;
       display: flex;
+      flex-direction: column;
+      height: 100vh;
       justify-content: center;
       align-items: center;
-      height: 100vh;
       text-align: center;
       padding: 20px;
     }
-    .container {
-      max-width: 800px;
-    }
+
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+      font-size: 2.8rem;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 16px;
     }
+
     p {
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
+      font-size: 1.2rem;
       color: #DDE5DD;
+      margin-bottom: 40px;
+      max-width: 600px;
     }
-    button {
-      padding: 0.75rem 2rem;
-      font-size: 1rem;
+
+    .btn {
       background-color: #1A5E20;
-      color: white;
+      color: #FFFFFF;
+      padding: 12px 28px;
+      font-size: 1rem;
       border: none;
       border-radius: 8px;
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
-    button:hover {
-      background-color: #145418;
+
+    .btn:hover {
+      background-color: #145219;
     }
+
     audio {
       display: none;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Happy 25th, My Love</h1>
-    <p>A quarter of a century of your light. Here’s a piece of my love for you.</p>
-    <button onclick="startExperience()">Get Started</button>
-    <audio id="bg-music" src="song1-kung-tayo.mp3"></audio>
-  </div>
+  <h1>Happy 25th, My Love</h1>
+  <p>A quarter of a century of your light. Here’s a piece of my love for you.</p>
+  <button class="btn" onclick="startWebsite()">Get Started</button>
+
+  <audio id="song1" src="song1-kung-tayo.mp3"></audio>
+
   <script>
-    function startExperience() {
-      const music = document.getElementById('bg-music');
-      music.volume = 1.0;
-      music.play();
-      window.location.href = 'letter.html';
+    function startWebsite() {
+      const audio = document.getElementById('song1');
+      audio.volume = 1.0;
+      audio.play().catch(() => {
+        // User gesture may be required to play
+        alert('Please tap to allow music playback.');
+      });
+      setTimeout(() => {
+        window.location.href = 'letter.html';
+      }, 3000); // Delay 3 seconds before going to the next page
     }
   </script>
 </body>
