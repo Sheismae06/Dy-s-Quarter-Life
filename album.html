@@ -5,74 +5,132 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>For Keeps</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <script defer src="script.js"></script>
+  <style>
+    .slideshow-container {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 1.5rem;
+      max-width: 90%;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      backdrop-filter: blur(5px);
+      color: #fff;
+    }
+    .slide {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      animation: fade 0.8s ease-in-out;
+    }
+    .slide img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+    .slide p {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .nav-btns {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .nav-btns button {
+      flex: 1;
+      padding: 0.5rem 1rem;
+      background-color: #D4AF37;
+      border: none;
+      border-radius: 8px;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .nav-btns button:hover {
+      background-color: #b99425;
+    }
+    @keyframes fade {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
 </head>
-<body class="album-page">
-
-  <!-- Navbar -->
+<body>
   <nav class="navbar">
-    <div class="navbar-content">
-      <a href="letter.html" class="back-icon" title="Go Back">&#8592;</a>
-    </div>
+    <a href="javascript:history.back()" class="back-icon" title="Go Back">&#8592;</a>
   </nav>
 
-  <!-- Song2 still playing -->
-  <audio id="song2" src="song2-until-i-found-you.mp3" preload="auto" loop></audio>
+  <main class="slideshow-container">
+    <h1 style="color: #D4AF37; margin-bottom: 1rem;">For Keeps</h1>
 
-  <main class="fade-in">
-    <h2 class="section-title">For Keeps</h2>
+    <div class="slide active">
+      <img src="FB_IMG_1752122440480.webp" alt="Slide 1">
+      <p>This is my first favorite photo because on this day (December 31, 2022)...</p>
+    </div>
 
-    <div class="slideshow-container">
+    <div class="slide">
+      <img src="FB_IMG_1752323315519 (1).webp" alt="Slide 2">
+      <p>This moment was when we went to MOA... You stayed. We still went home together.</p>
+    </div>
 
-      <!-- Slide 1 -->
-      <div class="slide-card fade-slide active">
-        <img src="FB_IMG_1752122440480.webp" alt="Slide 1" class="album-img">
-        <p class="slide-text">This is my first favorite photo because on this day (December 31, 2022) we traveled to Tanay to celebrate New Year 2023 with my family. It was also the day you reunited with them after a very long time. Cheers to more New Years with you, my love.</p>
-      </div>
+    <div class="slide">
+      <img src="FB_IMG_1752243357450.webp" alt="Slide 3">
+      <p>We went to Manila Ocean Park—first time natin pumunta doon... Sana soon, makabalik tayo ulit doon...</p>
+    </div>
 
-      <!-- Slide 2 -->
-      <div class="slide-card fade-slide">
-        <img src="FB_IMG_1752323315519 (1).webp" alt="Slide 2" class="album-img">
-        <p class="slide-text">This moment was when we went to MOA. Simula naghiwalay tayo, that day nalang ulit tayo nakapunta ulit sa MOA. That day also, we had a misunderstanding but honestly, it’s also the day I truly felt how much you love me. Even when I kept pushing you away and tried to break up with you, you never left. Tinakbuhan kita and tinaguan, hindi ka napagod hanapin ako. Despite how annoyed and hurt you must have been because of my attitude that day, you stayed. We still went home together. I’m sorry again, love. I promise I won’t let that happen again. Thank you for staying.</p>
-      </div>
+    <div class="slide">
+      <img src="Polish_20250712_212114634.webp" alt="Slide 4">
+      <p>I love this picture too, kasi ito yung time na nag-bike tayo sa Riverbanks... one of my favorites.</p>
+    </div>
 
-      <!-- Slide 3 -->
-      <div class="slide-card fade-slide">
-        <img src="FB_IMG_1752243357450.webp" alt="Slide 3" class="album-img">
-        <p class="slide-text">On this day naman, we went to Manila Ocean Park—first time natin pumunta doon (thanks to Concentrix, libre lahat pati food!). Sobrang saya ko that time kasi we really enjoyed the sightseeing, panonood ng sea lions, at marami pang iba. Sana soon, makabalik tayo ulit doon... pero this time, kasama na natin ang little ones natin if papalarin at ibibigay na ni Lord.</p>
-      </div>
+    <div class="slide">
+      <img src="Polish_20250712_212348450.webp" alt="Slide 5">
+      <p>Naalala mo 'to? Ito yung time na umalis tayo tapos nakalimutan natin magdala ng payong... mahalin ang ulan.</p>
+    </div>
 
-      <!-- Slide 4 -->
-      <div class="slide-card fade-slide">
-        <img src="Polish_20250712_212114634.webp" alt="Slide 4" class="album-img">
-        <p class="slide-text">I love this picture too, kasi ito yung time na nag-bike tayo sa Riverbanks after natin lakarin yung PAG-IBIG mo. Ang init noon, pero sobrang saya kasi we were just enjoying our time. Nagmasid, kumain, at nag-bike. Hindi man ito yung first time natin pumunta dito, kasi ilang beses na rin tayong nagpunta, pero ewan ko, this one’s one of my favorites. Konti lang kasi yung tao that day, kaya ang sarap ng feeling—parang ang dami nating nasulit.</p>
-      </div>
-
-      <!-- Slide 5 -->
-      <div class="slide-card fade-slide">
-        <img src="Polish_20250712_212348450.webp" alt="Slide 5" class="album-img">
-        <p class="slide-text">Naalala mo 'to? Ito yung time na umalis tayo tapos nakalimutan natin magdala ng payong. Ang ginawa mo pa nga noon, humingi ka ng laundry plastic sa laundry shop malapit sa binabaan natin ng jeep. That day reminded me of our first time na naligo tayo sa ulan, way back 2019. Para tayong mga bata—takbuhan, tawanan, at enjoy lang sa ulan. Alam mo naman noon na hindi ko talaga gusto ang ulan, kasi halos lahat ng malungkot na moments sa buhay ko, umuulan. Pero nagbago ‘yon dahil sa’yo. Tinulungan mo akong kalimutan 'yung sakit at matutunang i-enjoy… at mahalin ang ulan. Thank you, love.</p>
-      </div>
-
-      <!-- Slide 6 -->
-      <div class="slide-card fade-slide">
-        <img src="Polish_20250712_212903018.webp" alt="Slide 6" class="album-img">
-        <p class="slide-text">I have a lot of favorite pictures—actually, lahat ng photos natin together are my favorites. Minsan lang rin tayo nakakakuha ng pictures kasi we’re always so caught up enjoying our moments together. And for me, that’s enough. Basta tayong dalawa, we laugh, we love, and it always feels like we’re in our own little world. I can’t wait to capture more memories with you. And I hope, soon, there’ll be three of us in one picture or even more, when the time is right, and God finally blesses us with our little ones. I can't wait to build a big, happy family with you.</p>
+    <div class="slide">
+      <img src="Polish_20250712_212903018.webp" alt="Slide 6">
+      <p>I have a lot of favorite pictures—actually, lahat ng photos natin together are my favorites... I can't wait to build a big, happy family with you.</p>
+      <div class="centered-btn">
+        <button onclick="window.location.href='video.html'">Watch</button>
       </div>
     </div>
 
-    <!-- Slideshow Controls -->
-    <div class="slideshow-controls">
-      <button class="nav-arrow" id="prevSlide">&#10094;</button>
-      <button class="nav-arrow" id="nextSlide">&#10095;</button>
-    </div>
-
-    <!-- Watch button (only shows on last slide) -->
-    <div class="center-button" id="watchBtnContainer" style="display: none;">
-      <a href="video.html" class="gold-button">Watch</a>
+    <div class="nav-btns">
+      <button onclick="prevSlide()">Previous</button>
+      <button onclick="nextSlide()">Next</button>
     </div>
   </main>
 
-  <script src="script.js"></script>
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    showSlide(currentSlide);
+  </script>
 </body>
 </html>
