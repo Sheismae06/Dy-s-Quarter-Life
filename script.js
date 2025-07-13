@@ -1,62 +1,76 @@
-// Get started button (plays song 1, shows letter.html)
-document.getElementById('startBtn')?.addEventListener('click', () => {
-  const audio = new Audio('song1-kung-tayo.mp3');
-  audio.volume = 1;
-  audio.play();
-  setTimeout(() => {
-    window.location.href = 'letter.html';
-  }, 1000); // allow time to start audio
-});
+// SONGS
+const song1 = document.getElementById("song1") || null;
+const song2 = new Audio("song2-until-i-found-you.mp3");
+const song3 = new Audio("song3-happy-birthday.mp3");
+const voiceMessage = document.getElementById("voiceMessage") || new Audio("message recorded.mp3");
 
-// Mini Album button (plays song 2, goes to album.html)
-document.getElementById('albumBtn')?.addEventListener('click', () => {
-  const song2 = new Audio('song2-until-i-found-you.mp3');
-  song2.volume = 1;
-  song2.loop = true;
+song2.volume = 1;
+song3.volume = 1;
+voiceMessage.volume = 1;
+
+// PAGE NAVIGATION
+function startJourney() {
+  if (song1) song1.play();
+  window.location.href = "letter.html";
+}
+
+function goToAlbum() {
+  song2.currentTime = 0;
   song2.play();
+  window.location.href = "album.html";
+}
 
-  // Pause song when any video starts
-  const pauseSongOnVideo = () => song2.pause();
-  const resumeSongAfterVideo = () => song2.play();
+// MINI ALBUM STOP/RESUME LOGIC
+document.addEventListener("DOMContentLoaded", () => {
+  const videos = document.querySelectorAll("video");
+  videos.forEach(video => {
+    video.volume = 1;
 
-  localStorage.setItem('song2Playing', 'true'); // pass info across page
-  window.location.href = 'album.html';
-});
-
-// Handle song 2 in album.html
-window.addEventListener('DOMContentLoaded', () => {
-  if (window.location.pathname.includes('album.html') && localStorage.getItem('song2Playing') === 'true') {
-    const song2 = new Audio('song2-until-i-found-you.mp3');
-    song2.volume = 1;
-    song2.loop = true;
-    song2.play();
-
-    // Pause when video plays
-    const videos = document.querySelectorAll('video');
-    videos.forEach(video => {
-      video.addEventListener('play', () => song2.pause());
-      video.addEventListener('pause', () => song2.play());
+    video.addEventListener("play", () => {
+      if (!video.dataset.manual) {
+        song2.pause();
+      }
     });
 
-    // Clear on navigation
-    window.addEventListener('beforeunload', () => {
-      localStorage.removeItem('song2Playing');
+    video.addEventListener("pause", () => {
+      if (!video.dataset.manual) {
+        song2.play();
+      }
+    });
+  });
+
+  const playHiddenSoundBtn = document.getElementById("playHiddenSoundBtn");
+  if (playHiddenSoundBtn) {
+    playHiddenSoundBtn.addEventListener("click", () => {
+      const hiddenAudio = new Audio("VIDEO_5230d69f_1481_413f_a495_a82ceb45802c_V1.mp4");
+      hiddenAudio.volume = 1;
+      hiddenAudio.play();
     });
   }
-});
 
-// Show floating box on Open Present button in video.html
-document.getElementById('presentBtn')?.addEventListener('click', () => {
-  const floatBox = document.getElementById('presentMessage');
-  const song3 = new Audio('song3-happy-birthday.mp3');
-  song3.volume = 1;
-  floatBox.style.display = 'flex';
-  song3.play();
-});
+  const presentBtn = document.getElementById("presentBtn");
+  if (presentBtn) {
+    presentBtn.addEventListener("click", () => {
+      const box = document.getElementById("presentMessage");
+      if (box) box.style.display = "flex";
+      song2.pause();
+      song3.currentTime = 0;
+      song3.play();
+    });
+  }
 
-// Play voice message only when clicked
-document.getElementById('listenBtn')?.addEventListener('click', () => {
-  const voice = new Audio('message recorded.mp3');
-  voice.volume = 1;
-  voice.play();
+  const voiceBtn = document.getElementById("voiceBtn");
+  if (voiceBtn) {
+    voiceBtn.addEventListener("click", () => {
+      voiceMessage.currentTime = 0;
+      voiceMessage.play();
+    });
+  }
+
+  const restartBtn = document.getElementById("restartBtn");
+  if (restartBtn) {
+    restartBtn.addEventListener("click", () => {
+      location.href = "index.html";
+    });
+  }
 });
