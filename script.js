@@ -1,134 +1,83 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const musicToggle = document.querySelector(".music-toggle");
-  const bgMusic = document.getElementById("song1") || document.getElementById("song2") || document.getElementById("song3") || document.getElementById("meandus") || document.getElementById("recorded");
-  const backBtn = document.querySelector(".back-btn");
+// Define all audio sources
+const audios = {
+  song1: new Audio('audio/song1.mp3'),
+  song2: new Audio('audio/song2.mp3'),
+  song3: new Audio('audio/song3.mp3'),
+  meanddy: new Audio('audio/meanddy.mp3'),
+  message: new Audio('audio/message-recorded.mp3')
+};
 
-  // Setup background music toggle
-  if (musicToggle && bgMusic) {
-    const isPlaying = localStorage.getItem("musicPlaying") === "true";
+// Volume & loop
+Object.values(audios).forEach(audio => {
+  audio.volume = 1.0;
+  audio.loop = true;
+});
 
-    if (isPlaying) {
-      bgMusic.volume = 1.0;
-      bgMusic.play().catch(() => {}); // handle autoplay restrictions
-      musicToggle.classList.add("music-on");
-      musicToggle.classList.remove("music-off");
-    } else {
-      bgMusic.pause();
-      musicToggle.classList.add("music-off");
-      musicToggle.classList.remove("music-on");
-    }
+// Get stored song
+const currentTrack = sessionStorage.getItem('playingTrack');
+if (currentTrack && audios[currentTrack]) {
+  audios[currentTrack].play().catch(() => {});
+}
 
-    musicToggle.addEventListener("click", function () {
-      if (bgMusic.paused) {
-        bgMusic.volume = 1.0;
-        bgMusic.play().catch(() => {});
-        musicToggle.classList.add("music-on");
-        musicToggle.classList.remove("music-off");
-        localStorage.setItem("musicPlaying", "true");
-      } else {
-        bgMusic.pause();
-        musicToggle.classList.add("music-off");
-        musicToggle.classList.remove("music-on");
-        localStorage.setItem("musicPlaying", "false");
-      }
-    });
+// Stop all songs
+function stopAllAudio() {
+  Object.values(audios).forEach(audio => {
+    audio.pause();
+    audio.currentTime = 0;
+  });
+  sessionStorage.removeItem('playingTrack');
+}
+
+// Set and play track
+function playTrack(name) {
+  stopAllAudio();
+  if (audios[name]) {
+    audios[name].play();
+    sessionStorage.setItem('playingTrack', name);
   }
+}
 
-  // Back Button
-  if (backBtn) {
-    backBtn.addEventListener("click", function () {
-      history.back();
-    });
+// Toggle function for meanddy and message buttons
+function togglePlay(name) {
+  const audio = audios[name];
+  if (audio.paused) {
+    stopAllAudio();
+    audio.play();
+    sessionStorage.setItem('playingTrack', name);
+  } else {
+    audio.pause();
+    audio.currentTime = 0;
+    sessionStorage.removeItem('playingTrack');
   }
+}
 
-  // Slideshow logic (album.html only)
-  let slideIndex = 0;
-  const slides = document.querySelectorAll(".slide");
-  const watchBtn = document.getElementById("watch-btn");
+// Button click events
+document.getElementById('btn-start')?.addEventListener('click', e => {
+  playTrack('song1');
+  e.target.classList.add('clicked');
+});
 
-  function showSlide(index) {
-    slides.forEach((s, i) => {
-      s.classList.remove("active-slide");
-      if (i === index) {
-        s.classList.add("active-slide");
-      }
-    });
+document.getElementById('btn-album')?.addEventListener('click', e => {
+  playTrack('song2');
+  e.target.classList.add('clicked');
+});
 
-    // Show "Watch" button on last slide
-    if (index === slides.length - 1 && watchBtn) {
-      watchBtn.style.display = "inline-block";
-    } else if (watchBtn) {
-      watchBtn.style.display = "none";
-    }
-  }
+document.getElementById('btn-video')?.addEventListener('click', e => {
+  stopAllAudio();
+  e.target.classList.add('clicked');
+});
 
-  if (slides.length > 0) {
-    showSlide(slideIndex);
-    setInterval(() => {
-      slideIndex = (slideIndex + 1) % slides.length;
-      showSlide(slideIndex);
-    }, 8000);
-  }
+document.getElementById('btn-present')?.addEventListener('click', e => {
+  playTrack('song3');
+  e.target.classList.add('clicked');
+});
 
-  // Play specific songs based on button IDs
-  const getStartedBtn = document.getElementById("get-started");
-  const miniAlbumBtn = document.getElementById("mini-album");
-  const openPresentBtn = document.getElementById("open-present");
-  const messageRecordedBtn = document.getElementById("message-recorded");
-  const soundOfUsBtn = document.getElementById("sound-of-us");
+document.getElementById('btn-soundus')?.addEventListener('click', e => {
+  togglePlay('meanddy');
+  e.target.classList.toggle('clicked');
+});
 
-  const song1 = document.getElementById("song1");
-  const song2 = document.getElementById("song2");
-  const song3 = document.getElementById("song3");
-  const meanddy = document.getElementById("meandus");
-  const recorded = document.getElementById("recorded");
-
-  function stopOthers(except) {
-    [song1, song2, song3, meanddy, recorded].forEach(a => {
-      if (a && a !== except) a.pause();
-    });
-  }
-
-  if (getStartedBtn && song1) {
-    getStartedBtn.addEventListener("click", () => {
-      stopOthers(song1);
-      song1.volume = 1.0;
-      song1.loop = true;
-      song1.play();
-    });
-  }
-
-  if (miniAlbumBtn && song2) {
-    miniAlbumBtn.addEventListener("click", () => {
-      stopOthers(song2);
-      song2.volume = 1.0;
-      song2.loop = true;
-      song2.play();
-    });
-  }
-
-  if (openPresentBtn && song3) {
-    openPresentBtn.addEventListener("click", () => {
-      stopOthers(song3);
-      song3.volume = 1.0;
-      song3.loop = true;
-      song3.play();
-    });
-  }
-
-  if (messageRecordedBtn && recorded) {
-    messageRecordedBtn.addEventListener("click", () => {
-      stopOthers(recorded);
-      recorded.volume = 1.0;
-      recorded.play();
-    });
-  }
-
-  if (soundOfUsBtn && meanddy) {
-    soundOfUsBtn.addEventListener("click", () => {
-      stopOthers(meanddy);
-      meanddy.volume = 1.0;
-      meanddy.play();
-    });
-  }
+document.getElementById('btn-message')?.addEventListener('click', e => {
+  togglePlay('message');
+  e.target.classList.toggle('clicked');
 });
