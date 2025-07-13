@@ -1,250 +1,222 @@
-/* Angela's Birthday Tribute Website: style.css */
-
-* {
+/* Angela's Birthday Tribute - CSS */
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background-color: #0e0e0e;
-  color: white;
   font-family: 'Poppins', sans-serif;
-  line-height: 1.6;
-  font-size: 1rem;
+  background-color: #0d0d0d;
+  color: #ffffff;
   overflow-x: hidden;
-  transition: all 0.3s ease;
 }
 
+/* Navbar */
 .navbar {
-  background-color: #2b2b2b;
-  height: 55px;
+  background-color: #1a1a1a;
+  height: 60px;
   display: flex;
   align-items: center;
-  padding: 0 1rem;
-  justify-content: flex-start;
+  padding: 0 20px;
 }
 
 .back-arrow {
   background: none;
   border: none;
-  color: white;
-  font-size: 1.4rem;
+  color: #fff;
+  font-size: 24px;
   cursor: pointer;
-  margin-right: 10px;
 }
 
 .hero {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 60px);
+  padding: 20px;
   text-align: center;
-  padding: 0 20px;
-  gap: 1.2rem;
 }
 
 .hero h1 {
-  font-size: clamp(2rem, 6vw, 2.5rem);
-  color: #D4AF37;
+  font-size: clamp(2rem, 8vw, 2.5rem);
+  color: #d4af7f;
+  margin-bottom: 10px;
 }
 
 .hero p {
   font-size: 1rem;
   max-width: 90%;
+  margin: 0 auto 20px;
+  color: #eaeaea;
 }
 
 .hero button {
-  background-color: #D4AF37;
-  color: black;
-  padding: 10px 20px;
   font-size: 1rem;
+  padding: 10px 20px;
+  background-color: #d4af7f;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: 0.3s;
+  color: #000;
+  transition: background 0.3s ease;
 }
 
 .hero button:hover {
-  opacity: 0.8;
-}
-
-.letter-content {
-  padding: 40px 25px 80px;
-  text-align: left;
+  background-color: #c39b6c;
 }
 
 .gold-title {
-  font-size: clamp(1.6rem, 5.5vw, 2.2rem);
-  color: #D4AF37;
+  font-size: clamp(2rem, 6vw, 2.3rem);
+  color: #d4af7f;
   text-align: center;
-  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+.center-text {
+  text-align: center;
+}
+
+/* Letter Page */
+.letter-content {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+  text-align: justify;
 }
 
 .letter-content p {
   font-size: 0.95rem;
-  margin-bottom: 18px;
-  text-align: justify;
-  opacity: 0.95;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  color: #dddddd;
+}
+
+.subheading {
+  font-size: 1.25rem;
+  font-weight: normal;
+  margin-top: -10px;
+  color: #999;
+  text-align: center;
 }
 
 .center-btn {
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
+  text-align: center;
+  margin-top: 30px;
 }
 
 .center-btn button {
-  background-color: #D4AF37;
-  color: black;
+  font-size: 1rem;
   padding: 10px 20px;
-  font-size: 1rem;
+  background-color: #d4af7f;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
+  color: #000;
 }
 
-.album-page {
-  padding: 30px 20px 80px;
+.album-section {
+  padding: 20px;
   text-align: center;
 }
 
-.album-page h1 {
-  color: #D4AF37;
-  margin-bottom: 30px;
-}
-
-.album-item {
-  margin-bottom: 50px;
-}
-
-.album-item img {
-  max-width: 100%;
-  border-radius: 10px;
-}
-
-.album-message {
-  margin-top: 15px;
-  font-size: 0.9rem;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 12px 18px;
-  border-radius: 12px;
-  display: inline-block;
-  text-align: justify;
-  animation: fadeInUp 0.6s ease forwards;
-}
-
-.album-btn {
+.album-grid {
   display: flex;
-  justify-content: center;
-  margin-top: 40px;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 600px;
+  margin: auto;
 }
 
-.album-btn button {
-  background-color: #D4AF37;
-  color: black;
-  padding: 10px 22px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.video-page {
-  padding: 30px 20px 80px;
-  text-align: center;
-}
-
-.video-section video {
+.album-grid img {
   width: 100%;
-  max-width: 500px;
   border-radius: 12px;
-  margin-bottom: 20px;
 }
 
-.video-message {
-  font-size: 0.95rem;
-  margin-bottom: 25px;
-  animation: fadeInUp 0.6s ease forwards;
+.mini-message {
+  background-color: #1f1f1f;
+  padding: 16px;
+  margin-top: 10px;
+  border-radius: 12px;
+  font-size: 0.92rem;
+  color: #eaeaea;
+  animation: fadeInUp 0.6s ease-in-out;
 }
 
-.audio-trigger-btn,
-.present-button {
-  background-color: #D4AF37;
-  color: black;
-  padding: 10px 22px;
+.album-section button {
   font-size: 1rem;
+  margin-top: 30px;
+  padding: 10px 20px;
+  background-color: #d4af7f;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
-  margin: 12px 0;
+  color: #000;
 }
 
-.floating-message {
+/* Video Page */
+.video-section {
+  padding: 20px;
+  text-align: center;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* Present Overlay */
+.present-overlay {
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(6px);
+  z-index: 999;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 999;
 }
 
-.message-popup {
-  background: white;
-  color: #1A5E20;
-  padding: 30px 25px;
-  border-radius: 16px;
-  max-width: 90%;
+.present-box {
+  background: #fff;
+  color: #1a1a1a;
+  padding: 30px;
+  border-radius: 15px;
   text-align: center;
-  font-size: 0.95rem;
-  animation: fadeInScale 0.5s ease forwards;
+  width: 90%;
+  max-width: 400px;
+  animation: fadeInScale 0.5s ease-in-out;
 }
 
-.popup-buttons {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.popup-buttons button {
-  background-color: #228B22;
-  color: white;
+.audio-btn {
+  margin: 8px;
   padding: 10px 20px;
-  font-size: 0.95rem;
+  background-color: #d4af7f;
+  color: #000;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
 }
 
-.hidden {
-  display: none;
+.open-present-btn {
+  font-size: 1rem;
+  padding: 12px 24px;
+  background-color: #d4af7f;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 30px;
 }
 
-.blur-bg {
-  filter: blur(8px);
-  transition: filter 0.4s ease;
-}
-
+/* Animations */
 .fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease forwards;
-}
-
-.fade-in-delay {
-  opacity: 0;
-  animation: fadeInUp 1s ease forwards;
-  animation-delay: 0.3s;
+  animation: fadeInUp 0.6s ease;
 }
 
 @keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
   to {
     opacity: 1;
     transform: translateY(0);
@@ -252,11 +224,11 @@ body {
 }
 
 @keyframes fadeInScale {
-  0% {
+  from {
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale(0.92);
   }
-  100% {
+  to {
     opacity: 1;
     transform: scale(1);
   }
