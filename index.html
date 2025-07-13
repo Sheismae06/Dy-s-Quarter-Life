@@ -3,33 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy 25th, My Love</title>
+  <title>Dy's Quarter Life</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Elegant Navbar without Back Icon -->
-  <div class="navbar">
-    <!-- No icons on homepage -->
-  </div>
 
-  <!-- Centered Main Content -->
-  <div class="center-screen">
+  <!-- Navbar (No Back Icon) -->
+  <nav class="navbar">
+    <span style="color: var(--cream-gold); font-weight: bold; font-size: 1.1rem;">Dy's Quarter Life</span>
+  </nav>
+
+  <!-- Main Section with Infinity Logo, Text and Button -->
+  <main class="center-screen">
+    <!-- Infinity Logo -->
+    <img src="infinity-logo.png" alt="Infinity Logo" class="infinity-logo" />
+
+    <!-- Text -->
     <h1>Happy 25th, My Love</h1>
     <p>A quarter of a century of your light. Here’s a piece of my love for you.</p>
-    <button class="btn-start" id="startBtn">Get Started</button>
-  </div>
 
-  <!-- Music: Plays on button click -->
-  <audio id="song1" src="song1-kung-tayo.mp3" autoplay loop></audio>
+    <!-- Button -->
+    <button class="btn-start" onclick="goToLetter()">Get Started</button>
+  </main>
 
+  <!-- Script -->
   <script>
-    const startBtn = document.getElementById('startBtn');
-    const song1 = document.getElementById('song1');
-
-    startBtn.onclick = () => {
-      song1.play();
+    function goToLetter() {
       window.location.href = "letter.html";
-    };
+    }
   </script>
+
 </body>
 </html>
