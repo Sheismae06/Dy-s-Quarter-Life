@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Special Memories</title>
+  <title>Our Private Symphony</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 </head>
@@ -15,47 +15,41 @@
     </div>
   </nav>
 
-  <main class="video-section fade-in">
-    <h1 class="gold-title center-text">Our Special Memories</h1>
+  <main class="video-page fade-in">
+    <div class="video-container">
+      <video id="mainVideo" controls onplay="pauseSong2()" onended="showBlur()" poster="preview.jpg">
+        <source src="video1.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
 
-    <!-- Video 1 -->
-    <video id="video1" controls style="width: 100%; max-width: 500px; border-radius: 12px; margin-top: 20px;">
-      <source src="lv_7484485684783303997_20250712231639_V1.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-
-    <!-- Message under Video 1 -->
-    <div class="mini-message" style="margin-top: 20px;">
+    <p class="mini-message-box">
       Your love shows in every little thing you do. Every effort, every act of care, in everything sobrang grateful ako. Mahal na mahal kita Dy.
+    </p>
+
+    <div class="center-btn">
+      <button onclick="playSymphony()" class="gold-button">Our Private Symphony, Unheard by the World</button>
     </div>
 
-    <!-- Play Video 2 Audio as Button -->
-    <div style="margin-top: 25px;">
-      <button class="audio-btn" onclick="playVideo2Sound()">Our private symphony, unheard by the world</button>
+    <div class="center-btn">
+      <button onclick="openPresent()" class="gold-button">Open Your Present</button>
     </div>
 
-    <!-- Open Your Present Button -->
-    <div style="margin-top: 25px;">
-      <button class="open-present-btn" onclick="showPresent()">🎁 Open Your Present</button>
+    <div class="blur-overlay" id="blurOverlay"></div>
+
+    <div class="surprise-box" id="surpriseBox">
+      <h2>🎁 Your Surprise Message 🎁</h2>
+      <p>Surprise! This is your special gift of love, played from the heart. I hope this made you feel how much you are cherished and loved. 💛</p>
+      <div class="center-btn">
+        <button onclick="replayPresent()" class="small-button">Play Again</button>
+        <button onclick="closePresent()" class="small-button">Close</button>
+      </div>
     </div>
   </main>
 
-  <!-- Floating Box -->
-  <div id="presentMessage" class="present-overlay">
-    <div class="present-box">
-      <p>Sana nagustuhan mo regalo ko for you Dy, I love you always po.</p>
-      <audio id="voiceMessage" src="message recorded.mp3"></audio>
-
-      <div style="margin-top: 20px;">
-        <button onclick="playVoiceMessage()" class="audio-btn">Opened it yet? 🎁 Listen 🎶</button>
-        <button onclick="location.href='index.html'" class="audio-btn">Start Again</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Hidden audio for Video 2 sound -->
-  <audio id="video2Audio" src="VIDEO_5230d69f_1481_413f_a495_a82ceb45802c_V1.mp3"></audio>
-  <audio id="song3" src="song3-happy-birthday.mp3"></audio>
+  <audio id="song2" src="song2-dati.mp3"></audio>
+  <audio id="song3" src="song3-surprise.mp3"></audio>
+  <audio id="video2Sound" src="video2-symphony.mp3"></audio>
 
   <script src="script.js"></script>
 </body>
