@@ -3,34 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dy's Quarter Life</title>
+  <title>Quarter Life of Dy</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- NAVBAR -->
+  <!-- Navbar -->
   <div class="navbar">
-    <!-- No back icon on homepage -->
-    <div></div> <!-- Spacer to center if needed -->
+    <!-- No back icon for homepage -->
   </div>
 
-  <!-- MAIN CONTENT -->
+  <!-- Main Content -->
   <div class="center-screen">
-    <!-- Infinity Logo (make sure infinity-logo.png exists in the same folder) -->
-    <img src="infinity-logo.png" alt="Infinity Logo" class="infinity-logo" />
+    <!-- Infinity Logo -->
+    <img src="infinity.svg" alt="Infinity" class="infinity-logo" />
 
+    <!-- Title -->
     <h1>Happy 25th, My Love</h1>
-    <p>A quarter of a century of your light.<br>Here’s a piece of my love for you.</p>
-    
-    <!-- START BUTTON -->
-    <button class="btn-start" onclick="goToLetter()">Get Started</button>
+
+    <!-- Message -->
+    <p>A quarter of a century of your light. Here’s a piece of my love for you.</p>
+
+    <!-- Button -->
+    <button class="btn-start" onclick="location.href='letter.html'">Get Started</button>
   </div>
 
-  <!-- SCRIPT -->
-  <script>
-    function goToLetter() {
-      window.location.href = "letter.html";
-    }
-  </script>
 </body>
 </html>
