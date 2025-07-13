@@ -1,45 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- Angela's Birthday Tribute Website: index.html --><!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy 25th, My Love</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-
-  <!-- Navbar -->
   <nav class="navbar">
     <div class="nav-left">
-      <a href="#" class="back-arrow" onclick="history.back()">←</a>
+      <button onclick="history.back()" class="back-arrow">&#8592;</button>
     </div>
-    <div class="nav-title">Agape Aeterna</div>
-    <div class="nav-right">
-      <!-- No music icon here as per request -->
-    </div>
-  </nav>
+  </nav>  <main class="hero">
+    <h1>Happy 25th, My Love</h1>
+    <p>A quarter of a century of your light. Here’s a piece of my love for you.</p>
+    <button onclick="startJourney()">Get Started</button>
+  </main><audio id="song1" src="song1-kung-tayo.mp3"></audio>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Happy 25th, My Love</h1>
-      <p>A quarter of a century of your light. Here’s a piece of my love for you.</p>
-      <button class="main-btn" onclick="startLove()">Get Started</button>
-    </div>
-  </section>
-
-  <!-- Hidden Audio (Plays when Get Started is clicked) -->
-  <audio id="song1" src="song1-kung-tayo.mp3"></audio>
-
-  <script>
-    function startLove() {
-      const song = document.getElementById('song1');
-      song.volume = 1;
-      song.play();
-      window.location.href = 'letter.html';
-    }
-  </script>
-
-</body>
+  <script src="script.js"></script></body>
 </html>
