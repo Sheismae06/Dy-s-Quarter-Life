@@ -2,30 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy 25th, My Love</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 </head>
-<body class="index-page">
-
-  <!-- Music (song1) -->
-  <audio id="song1" src="song1-kung-tayo.mp3" preload="auto" loop></audio>
-
-  <!-- Navbar -->
+<body class="home">
   <nav class="navbar">
-    <div class="navbar-content">
-      <!-- No back button on index -->
-    </div>
+    <!-- No back icon on home page -->
   </nav>
 
-  <!-- Main Content -->
-  <main class="center-container fade-in">
-    <h1 class="main-title">Happy 25th, My Love</h1>
-    <p class="main-subtitle">A quarter of a century of your light. Here’s a piece of my love for you.</p>
-    <button id="getStartedBtn" class="gold-button">Get Started</button>
+  <main class="hero">
+    <div class="intro-text">
+      <h1>Happy 25th, My Love</h1>
+      <p>A quarter of a century of your light. Here’s a piece of my love for you.</p>
+      <button id="getStarted">Get Started</button>
+    </div>
   </main>
 
-  <script src="script.js"></script>
+  <audio id="bgMusic" src="song1-kung-tayo.mp3" preload="auto"></audio>
+
+  <script>
+    const getStarted = document.getElementById('getStarted');
+    const bgMusic = document.getElementById('bgMusic');
+
+    getStarted.addEventListener('click', () => {
+      bgMusic.volume = 1.0;
+      bgMusic.play();
+      sessionStorage.setItem("currentSong", "song1");
+      setTimeout(() => {
+        window.location.href = "letter.html";
+      }, 1000);
+    });
+  </script>
 </body>
 </html>
