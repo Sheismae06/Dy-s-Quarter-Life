@@ -4,107 +4,70 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>For Keeps</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
-<body style="margin: 0; background-color: #50C878; font-family: 'Poppins', sans-serif; color: #FFFFFF;">
+<body>
 
   <!-- Navbar -->
-  <nav style="background-color: #228B22; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center;">
-    <!-- Back Arrow -->
-    <div onclick="history.back()" style="cursor: pointer;">
-      <svg width="24" height="24" fill="#FFFFFF" viewBox="0 0 24 24">
-        <path d="M15 18l-6-6 6-6" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="#" class="back-arrow" onclick="history.back()">←</a>
     </div>
-
-    <!-- Music Icon -->
-    <div id="music-toggle" onclick="toggleMusic()" style="cursor: pointer;">
-      <svg id="music-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M9 18V5l12-2v13" stroke="#FFFFFF" stroke-width="2"/>
-        <line id="music-slash" x1="4" y1="4" x2="20" y2="20" stroke="#D4AF37" stroke-width="2" style="display: none;"/>
-      </svg>
-    </div>
+    <div class="nav-title">Mini Album</div>
+    <div class="nav-right"></div>
   </nav>
 
-  <!-- Album Content -->
-  <section style="padding: 30px 20px; max-width: 800px; margin: auto;">
-    <h1 style="text-align: center; margin-bottom: 30px;">For Keeps</h1>
+  <!-- Album Section -->
+  <section class="album-section">
+    <div class="album-container">
+      <h2>For Keeps</h2>
 
-    <!-- Image 1 -->
-    <div style="margin-bottom: 40px;">
-      <img src="FB_IMG_1752122440480.webp" alt="Image 1" style="width: 100%; border-radius: 12px;">
-      <p style="margin-top: 15px;">This is my first favorite photo because on this day (December 31, 2022) we traveled to Tanay to celebrate New Year 2023 with my family. It was also the day you reunited with them after a very long time. Cheers to more New Years with you, my love.</p>
-    </div>
+      <div class="photo-entry">
+        <img src="FB_IMG_1752122440480.webp" alt="Tanay New Year" />
+        <p>This is my first favorite photo because on this day (December 31, 2022) we traveled to Tanay to celebrate New Year 2023 with my family. It was also the day you reunited with them after a very long time. Cheers to more New Years with you, my love.</p>
+      </div>
 
-    <!-- Image 2 -->
-    <div style="margin-bottom: 40px;">
-      <img src="FB_IMG_1752323315519 (1).webp" alt="Image 2" style="width: 100%; border-radius: 12px;">
-      <p style="margin-top: 15px;">This moment was when we went to MOA. Simula naghiwalay tayo, that day nalang ulit tayo nakapunta ulit sa MOA. That day also, we had a misunderstanding but honestly, it’s also the day I truly felt how much you love me. Even when I kept pushing you away and tried to break up with you, you never left. Tinakbuhan kita and tinaguan, hindi ka napagod hanapin ako. Despite how annoyed and hurt you must have been because of my attitude that day, you stayed. We still went home together. I’m really sorry for what happened. I know we were both wrong, but I made things worse with how I acted. Sorry talaga. I’m sorry again, love. I promise I won’t let that happen again. Thank you for staying.</p>
-    </div>
+      <div class="photo-entry">
+        <img src="FB_IMG_1752323315519 (1).webp" alt="MOA Memory" />
+        <p>This moment was when we went to MOA. Simula naghiwalay tayo, that day nalang ulit tayo nakapunta ulit sa MOA. That day also, we had a misunderstanding but honestly, it’s also the day I truly felt how much you love me. Even when I kept pushing you away and tried to break up with you, you never left. Tinakbuhan kita and tinaguan, hindi ka napagod hanapin ako. Despite how annoyed and hurt you must have been because of my attitude that day, you stayed. We still went home together. I’m really sorry for what happened. I know we were both wrong, but I made things worse with how I acted. Sorry talaga. I’m sorry again, love. I promise I won’t let that happen again. Thank you for staying.</p>
+      </div>
 
-    <!-- Image 3 -->
-    <div style="margin-bottom: 40px;">
-      <img src="FB_IMG_1752243357450.webp" alt="Image 3" style="width: 100%; border-radius: 12px;">
-      <p style="margin-top: 15px;">On this day naman, we went to Manila Ocean Park—first time natin pumunta doon (thanks to Concentrix, libre lahat pati food!). Sobrang saya ko that time kasi we really enjoyed the sightseeing, panonood ng sea lions, at marami pang iba. Sana soon, makabalik tayo ulit doon... pero this time, kasama na natin ang little ones natin if papalarin at ibibigay na ni Lord.</p>
-    </div>
+      <div class="photo-entry">
+        <img src="FB_IMG_1752243357450.webp" alt="Ocean Park" />
+        <p>On this day naman, we went to Manila Ocean Park—first time natin pumunta doon (thanks to Concentrix, libre lahat pati food!). Sobrang saya ko that time kasi we really enjoyed the sightseeing, panonood ng sea lions, at marami pang iba. Sana soon, makabalik tayo ulit doon... pero this time, kasama na natin ang little ones natin if papalarin at ibibigay na ni Lord.</p>
+      </div>
 
-    <!-- Image 4 -->
-    <div style="margin-bottom: 40px;">
-      <img src="Polish_20250712_212114634.webp" alt="Image 4" style="width: 100%; border-radius: 12px;">
-      <p style="margin-top: 15px;">I love this picture too, kasi ito yung time na nag-bike tayo sa Riverbanks after natin lakarin yung PAG-IBIG mo. Ang init noon, pero sobrang saya kasi we were just enjoying our time. Nagmasid, kumain, at nag-bike. Hindi man ito yung first time natin pumunta dito, kasi ilang beses na rin tayong nagpunta, pero ewan ko, this one’s one of my favorites. Konti lang kasi yung tao that day, kaya ang sarap ng feeling—parang ang dami nating nasulit.</p>
-    </div>
+      <div class="photo-entry">
+        <img src="Polish_20250712_212114634.webp" alt="Riverbanks Bike" />
+        <p>I love this picture too, kasi ito yung time na nag-bike tayo sa Riverbanks after natin lakarin yung PAG-IBIG mo. Ang init noon, pero sobrang saya kasi we were just enjoying our time. Nagmasid, kumain, at nag-bike. Hindi man ito yung first time natin pumunta dito, kasi ilang beses na rin tayong nagpunta, pero ewan ko, this one’s one of my favorites. Konti lang kasi yung tao that day, kaya ang sarap ng feeling—parang ang dami nating nasulit.</p>
+      </div>
 
-    <!-- Image 5 -->
-    <div style="margin-bottom: 40px;">
-      <img src="Polish_20250712_212348450.webp" alt="Image 5" style="width: 100%; border-radius: 12px;">
-      <p style="margin-top: 15px;">Naalala mo 'to? Ito yung time na umalis tayo tapos nakalimutan natin magdala ng payong. Ang ginawa mo pa nga noon, humingi ka ng laundry plastic sa laundry shop malapit sa binabaan natin ng jeep. That day reminded me of our first time na naligo tayo sa ulan, way back 2019. Para tayong mga bata—takbuhan, tawanan, at enjoy lang sa ulan. Alam mo naman noon na hindi ko talaga gusto ang ulan, kasi halos lahat ng malungkot na moments sa buhay ko, umuulan. Pero nagbago ‘yon dahil sa’yo. Tinulungan mo akong kalimutan 'yung sakit at matutunang i-enjoy… at mahalin ang ulan. Thank you, love.</p>
-    </div>
+      <div class="photo-entry">
+        <img src="Polish_20250712_212348450.webp" alt="Ulan Memory" />
+        <p>Naalala mo 'to? Ito yung time na umalis tayo tapos nakalimutan natin magdala ng payong. Ang ginawa mo pa nga noon, humingi ka ng laundry plastic sa laundry shop malapit sa binabaan natin ng jeep. That day reminded me of our first time na naligo tayo sa ulan, way back 2019. Para tayong mga bata—takbuhan, tawanan, at enjoy lang sa ulan. Alam mo naman noon na hindi ko talaga gusto ang ulan, kasi halos lahat ng malungkot na moments sa buhay ko, umuulan. Pero nagbago ‘yon dahil sa’yo. Tinulungan mo akong kalimutan 'yung sakit at matutunang i-enjoy… at mahalin ang ulan. Thank you, love.</p>
+      </div>
 
-    <!-- Image 6 -->
-    <div style="margin-bottom: 40px;">
-      <img src="Polish_20250712_212903018.webp" alt="Image 6" style="width: 100%; border-radius: 12px;">
-      <p style="margin-top: 15px;">I have a lot of favorite pictures—actually, lahat ng photos natin together are my favorites. Minsan lang rin tayo nakakakuha ng pictures kasi we’re always so caught up enjoying our moments together. And for me, that’s enough. Basta tayong dalawa, we laugh, we love, and it always feels like we’re in our own little world. I can’t wait to capture more memories with you. And I hope, soon, there’ll be three of us in one picture or even more, when the time is right, and God finally blesses us with our little ones. I can't wait to build a big, happy family with you.</p>
-    </div>
+      <div class="photo-entry">
+        <img src="Polish_20250712_212903018.webp" alt="Captured Memories" />
+        <p>I have a lot of favorite pictures—actually, lahat ng photos natin together are my favorites. Minsan lang rin tayo nakakakuha ng pictures kasi we’re always so caught up enjoying our moments together. And for me, that’s enough. Basta tayong dalawa, we laugh, we love, and it always feels like we’re in our own little world. I can’t wait to capture more memories with you. And I hope, soon, there’ll be three of us in one picture or even more, when the time is right, and God finally blesses us with our little ones. I can't wait to build a big, happy family with you.</p>
+      </div>
 
-    <!-- Button to go to video -->
-    <div style="text-align: center;">
-      <button onclick="goToVideo()" style="margin-top: 30px; padding: 12px 24px; background-color: #1A5E20; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer;">
-        Play 🎥
-      </button>
+      <!-- Go to Video Page -->
+      <button class="main-btn" onclick="goToVideo()">Play</button>
     </div>
   </section>
 
-  <!-- Background music -->
-  <audio id="bg-music" src="song2-until-i-found-you.mp3" preload="auto"></audio>
+  <!-- Song 2 -->
+  <audio id="song2" src="song2-until-i-found-you.mp3" autoplay></audio>
 
   <script>
-    const music = document.getElementById("bg-music");
-    const icon = document.getElementById("music-icon");
-    const slash = document.getElementById("music-slash");
-
-    let isPlaying = true;
-    window.onload = () => {
-      music.play();
-    };
-
-    function toggleMusic() {
-      if (isPlaying) {
-        music.pause();
-        slash.style.display = "block";
-        icon.style.stroke = "#FFFFFF";
-        isPlaying = false;
-      } else {
-        music.play();
-        slash.style.display = "none";
-        icon.style.stroke = "#D4AF37";
-        isPlaying = true;
-      }
-    }
+    const song2 = document.getElementById('song2');
+    song2.volume = 1;
 
     function goToVideo() {
-      music.pause();
-      window.location.href = "video.html";
+      song2.pause();
+      window.location.href = 'video.html';
     }
   </script>
 </body>
