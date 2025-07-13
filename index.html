@@ -8,13 +8,13 @@
 </head>
 <body>
 
-  <!-- Navbar (No Music Icon) -->
+  <!-- Navbar (fixed, no animation) -->
   <div class="navbar">
-    <div></div> <!-- Placeholder for alignment -->
+    <div></div> <!-- no back icon needed -->
   </div>
 
-  <!-- Centered Content Below Navbar -->
-  <div class="center-screen" style="min-height: calc(100vh - 60px); padding-top: 80px;">
+  <!-- Main Content -->
+  <div class="center-screen">
     <h1>Happy 25th, My Love</h1>
     <p>
       A quarter of a century of your light. Here’s a piece of my love for you.
@@ -22,19 +22,21 @@
     <button class="btn-start" id="get-started">Get Started</button>
   </div>
 
-  <!-- Audio -->
+  <!-- Background Audio -->
   <audio id="song1" src="song1-kung-tayo.mp3" preload="auto"></audio>
 
   <!-- JS -->
-  <script src="script.js"></script>
   <script>
     const startBtn = document.getElementById('get-started');
     const song1 = document.getElementById('song1');
 
     startBtn.onclick = () => {
+      startBtn.classList.add("clicked");
       song1.volume = 1.0;
       song1.play();
-      window.location.href = "letter.html";
+      setTimeout(() => {
+        window.location.href = "letter.html";
+      }, 400); // small delay so button animates first
     };
   </script>
 </body>
