@@ -8,70 +8,34 @@
 </head>
 <body>
 
-  <!-- ✅ Fixed Top Navbar -->
+  <!-- Navbar (No Music Icon) -->
   <div class="navbar">
-    <svg class="back-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <svg class="music-toggle music-off" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <path d="M3 9v6h4l5 5V4L7 9H3z" fill="currentColor"/>
-    </svg>
+    <div></div> <!-- Placeholder for alignment -->
   </div>
 
-  <!-- ✅ Centered Main Content -->
-  <div class="center-screen" style="margin-top: 100px; padding: 20px; text-align: center;">
+  <!-- Centered Content Below Navbar -->
+  <div class="center-screen" style="min-height: calc(100vh - 60px); padding-top: 80px;">
     <h1>Happy 25th, My Love</h1>
-    <p>A quarter of a century of your light. Here’s a piece of my love for you.</p>
-    <button class="btn-start" id="startBtn">Get Started</button>
+    <p>
+      A quarter of a century of your light. Here’s a piece of my love for you.
+    </p>
+    <button class="btn-start" id="get-started">Get Started</button>
   </div>
 
-  <!-- ✅ Background Music -->
-  <audio id="song1" src="song1-kung-tayo.mp3" autoplay loop></audio>
+  <!-- Audio -->
+  <audio id="song1" src="song1-kung-tayo.mp3" preload="auto"></audio>
 
-  <!-- ✅ Script for Music + Back Button -->
+  <!-- JS -->
+  <script src="script.js"></script>
   <script>
-    const startBtn = document.getElementById('startBtn');
+    const startBtn = document.getElementById('get-started');
     const song1 = document.getElementById('song1');
 
     startBtn.onclick = () => {
+      song1.volume = 1.0;
       song1.play();
       window.location.href = "letter.html";
     };
-
-    const backBtn = document.querySelector('.back-btn');
-    const musicToggle = document.querySelector('.music-toggle');
-    const bgMusic = document.getElementById('song1');
-
-    if (backBtn) {
-      backBtn.addEventListener("click", () => history.back());
-    }
-
-    if (musicToggle && bgMusic) {
-      const isPlaying = localStorage.getItem("musicPlaying") === "true";
-      if (isPlaying) {
-        bgMusic.play().catch(() => {});
-        musicToggle.classList.add("music-on");
-        musicToggle.classList.remove("music-off");
-      } else {
-        bgMusic.pause();
-        musicToggle.classList.add("music-off");
-        musicToggle.classList.remove("music-on");
-      }
-
-      musicToggle.addEventListener("click", () => {
-        if (bgMusic.paused) {
-          bgMusic.play().catch(() => {});
-          musicToggle.classList.add("music-on");
-          musicToggle.classList.remove("music-off");
-          localStorage.setItem("musicPlaying", "true");
-        } else {
-          bgMusic.pause();
-          musicToggle.classList.add("music-off");
-          musicToggle.classList.remove("music-on");
-          localStorage.setItem("musicPlaying", "false");
-        }
-      });
-    }
   </script>
 </body>
 </html>
