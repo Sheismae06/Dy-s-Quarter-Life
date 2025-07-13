@@ -40,7 +40,7 @@ body {
 .infinity-logo {
   width: 100px;
   height: auto;
-  margin: 40px auto 10px; /* pulled up */
+  margin: 80px auto 10px;
   display: block;
   animation: floatLogo 4s ease-in-out infinite;
   filter: drop-shadow(0 0 6px #C2B280aa);
@@ -51,7 +51,7 @@ body {
   width: 60px;
   height: 2px;
   background-color: var(--cream-gold);
-  margin: 10px auto 30px;
+  margin: 8px auto 32px;
   opacity: 0.2;
   border-radius: 10px;
 }
@@ -63,9 +63,9 @@ body {
   justify-content: flex-start;
   align-items: center;
   min-height: 100vh;
-  padding: 80px 20px 40px; /* tighter top space */
+  padding-top: 120px;
+  padding-bottom: 40px;
   text-align: center;
-  gap: 14px;
 }
 
 /* Titles */
@@ -73,7 +73,7 @@ h1, h2 {
   color: var(--cream-gold);
   font-weight: 600;
   font-size: 2rem;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   animation: fadeInUp 1s ease forwards;
 }
 
@@ -94,7 +94,7 @@ p {
   border-radius: 30px;
   padding: 10px 26px;
   font-size: 0.9rem;
-  margin-top: 20px;
+  margin-top: 30px;
   cursor: pointer;
   transition: all 0.3s ease;
   animation: fadeInUp 1.4s ease forwards;
