@@ -7,11 +7,12 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Navbar -->
+  <!-- Navbar (No Text) -->
   <div class="navbar"></div>
 
   <!-- Main Section -->
   <section class="center-screen">
+    
     <!-- Infinity Logo -->
     <img src="infinity.svg" alt="Infinity Logo" class="infinity-logo" />
 
@@ -22,14 +23,15 @@
     <h1>Happy 25th, My Love</h1>
     <p>A quarter of a century of your light. Here’s a piece of my love for you.</p>
 
-    <!-- ✅ ID added here -->
+    <!-- Get Started Button with ID -->
     <button class="btn-start" id="btn-start">Get Started</button>
+
   </section>
 
-  <!-- ✅ Script loaded here -->
+  <!-- JS Scripts -->
   <script src="script.js"></script>
   <script>
-    // Optional: smoother redirect to next page
+    // Smooth redirect to letter.html after slight delay
     document.getElementById("btn-start").addEventListener("click", function () {
       this.classList.add("clicked");
       setTimeout(() => {
