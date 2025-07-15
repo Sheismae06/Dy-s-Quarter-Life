@@ -11,13 +11,11 @@
       font-family: 'Poppins', sans-serif;
       background-color: #3D1F1F;
       color: #EAEAEA;
-      overflow-x: hidden;
     }
 
     .navbar {
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       width: 100%;
       height: 64px;
       background-color: #1F1F1F;
@@ -25,66 +23,66 @@
       align-items: center;
       padding: 0 20px;
       z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
     }
 
     .navbar a svg {
-      width: 24px;
-      height: 24px;
+      width: 28px;
+      height: 28px;
       fill: none;
       stroke: #C2B280;
       stroke-width: 2;
     }
 
     .title {
-      color: #D4AF37;
+      color: #C2B280;
       font-size: 2rem;
-      margin: 100px 20px 10px;
       text-align: center;
+      margin: 100px 20px 20px;
       text-transform: uppercase;
     }
 
-    .video-container {
+    .video-box {
       max-width: 700px;
-      margin: 20px auto 10px;
-      padding: 0 15px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
     }
 
     video {
       width: 100%;
-      border-radius: 14px;
-      box-shadow: 0 0 8px rgba(212, 175, 55, 0.2);
+      border-radius: 12px;
     }
 
-    .description {
-      max-width: 700px;
-      margin: 20px auto;
-      padding: 0 20px;
+    .message {
       font-size: 0.9rem;
-      line-height: 1.6;
-      text-align: justify;
+      max-width: 700px;
+      margin: 30px auto;
+      background-color: rgba(255,255,255,0.05);
+      padding: 18px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(194, 178, 128, 0.2);
     }
 
-    .button-group {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin: 25px 0 40px;
+    .btn-group {
+      text-align: center;
+      margin-top: 20px;
     }
 
     .btn {
-      background: transparent;
-      border: 2px solid #D4AF37;
-      color: #D4AF37;
+      background-color: transparent;
+      color: #C2B280;
       padding: 10px 22px;
-      border-radius: 30px;
       font-size: 0.9rem;
+      border-radius: 30px;
+      border: 2px solid #C2B280;
+      margin: 5px;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: all 0.3s;
     }
 
+    .btn.active,
     .btn:hover {
-      background: #D4AF37;
+      background-color: #C2B280;
       color: #3D1F1F;
     }
 
@@ -97,141 +95,124 @@
       display: none;
       align-items: center;
       justify-content: center;
-      z-index: 999;
-      padding: 20px;
+      z-index: 2000;
     }
 
     .float-box {
       background-color: #3D1F1F;
       color: white;
-      padding: 30px 20px;
+      padding: 24px;
       border-radius: 20px;
-      max-width: 500px;
       text-align: center;
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
-      animation: fadeIn 0.5s ease-in-out;
-    }
-
-    .float-box p {
+      max-width: 500px;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
       font-size: 0.75rem;
-      line-height: 1.6;
-      margin-bottom: 20px;
     }
 
-    .float-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .float-box .btn {
+      font-size: 0.75rem;
+      padding: 8px 20px;
+      margin-top: 12px;
     }
   </style>
 </head>
 <body>
-
-  <!-- Navbar -->
   <div class="navbar">
     <a href="index.html">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M15 18l-6-6 6-6" stroke="#C2B280" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </a>
   </div>
 
-  <!-- Title -->
   <div class="title">SNIPPET OF US</div>
 
-  <!-- Video -->
-  <div class="video-container">
-    <video id="mainVideo" controls>
-      <source src="YouCut_20250713_162158131.mp4" type="video/mp4">
+  <div class="video-box">
+    <video id="clip" controls preload="metadata">
+      <source src="YouCut_20250713_162158131.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
   </div>
 
-  <!-- Message -->
-  <div class="description">
+  <div class="message">
     These are just a few short clips I compiled. We have so many more videos together, I feel genuinely happy and safe whenever I’m with you. It’s wild how we become our truest, silliest selves when we’re together, like we’re living in a world that exists only for us.<br><br>
     We can’t predict what the future holds, and we trust God to unfold His best plan for us. But as long as we have each other, let’s continue to protect what we have, help each other grow, and do our best to hold on.<br><br>
     This love is real. And I’m choosing it, every single day.
   </div>
 
-  <!-- Buttons -->
-  <div class="button-group">
-    <button class="btn" id="rhythmBtn">OUR RHYTHM</button>
-    <button class="btn" onclick="openPresent()">OPEN IT NOW</button>
+  <div class="btn-group">
+    <button id="btnUs" class="btn">OUR RHYTHM</button>
+    <button id="btnOpen" class="btn">OPEN IT NOW</button>
   </div>
 
-  <!-- Overlay / Floating Box -->
-  <div class="overlay" id="overlay">
+  <!-- FLOAT BOX -->
+  <div id="overlay" class="overlay">
     <div class="float-box">
-      <p>
-        Open your present Dy, sana magustuhan mo po. Mahal na mahal kita, alam ko po na you deserve more than that pero for now ayan po muna. Below is my recorded message, it's up to you before or after you open your gift mo po pakinggan. Kilala mo ako madaldal kaya this site is halos puro message. hahaha I LOVE YOU PO
-      </p>
-      <div class="float-buttons">
-        <button class="btn" onclick="playRecorded()">MESSAGE RECORDED</button>
-        <button class="btn" onclick="goHome()">BACK TO HOME</button>
+      <p>Open your present Dy, sana magustuhan mo po. Mahal na mahal kita, alam ko po na you deserve more than that pero for now ayan po muna. Below is my recorded message, its up to you before or after you open your gift mo po pakinggan. Kilala mo ako madaldal kaya this site is halos puro message. hahaha I LOVE YOU PO</p>
+      <div class="btn-group">
+        <button id="btnRecorded" class="btn">MESSAGE RECORDED</button>
+        <button id="btnHome" class="btn">BACK TO HOME</button>
       </div>
     </div>
   </div>
 
-  <!-- Audios -->
+  <!-- AUDIO FILES -->
   <audio id="meandus" src="meanddy.mp3"></audio>
   <audio id="song3" src="song3-happy-birthday.mp3" loop></audio>
   <audio id="recorded" src="message.recorded.mp3"></audio>
-  <audio id="song1" src="audio/song1.mp3" loop></audio>
+  <audio id="song1" src="song1-kung-tayo.mp3"></audio>
 
-  <!-- Script -->
   <script>
-    const rhythmBtn = document.getElementById("rhythmBtn");
-    const meandus = document.getElementById("meandus");
-    const recorded = document.getElementById("recorded");
-    const song3 = document.getElementById("song3");
-    const song1 = document.getElementById("song1");
-    const overlay = document.getElementById("overlay");
+    const btnUs = document.getElementById('btnUs');
+    const btnOpen = document.getElementById('btnOpen');
+    const btnRecorded = document.getElementById('btnRecorded');
+    const btnHome = document.getElementById('btnHome');
+    const overlay = document.getElementById('overlay');
 
-    let isRhythmPlaying = false;
+    const song1 = document.getElementById('song1');
+    const song3 = document.getElementById('song3');
+    const meandus = document.getElementById('meandus');
+    const recorded = document.getElementById('recorded');
 
-    rhythmBtn.addEventListener("click", () => {
-      if (!isRhythmPlaying) {
-        meandus.volume = 1.0;
-        meandus.play();
-        recorded.pause();
-        song3.pause();
-        isRhythmPlaying = true;
-      } else {
-        meandus.pause();
-        isRhythmPlaying = false;
-      }
-    });
+    let usPlaying = false;
+    let recordedPlaying = false;
 
-    function openPresent() {
-      overlay.style.display = "flex";
-      song3.volume = 1.0;
+    btnUs.onclick = () => {
+      usPlaying = !usPlaying;
+      btnUs.classList.toggle('active', usPlaying);
+      meandus[usPlaying ? 'play' : 'pause']();
+      recorded.pause();
+      recordedPlaying = false;
+      btnRecorded.classList.remove('active');
+    };
+
+    btnOpen.onclick = () => {
+      overlay.style.display = 'flex';
       song3.play();
-      recorded.pause();
       meandus.pause();
-    }
+      usPlaying = false;
+      btnUs.classList.remove('active');
+      recorded.pause();
+      recordedPlaying = false;
+      btnRecorded.classList.remove('active');
+    };
 
-    function playRecorded() {
-      recorded.volume = 1.0;
-      recorded.play();
+    btnRecorded.onclick = () => {
+      recordedPlaying = !recordedPlaying;
+      btnRecorded.classList.toggle('active', recordedPlaying);
+      recorded[recordedPlaying ? 'play' : 'pause']();
+      meandus.pause();
+      usPlaying = false;
+      btnUs.classList.remove('active');
+    };
+
+    btnHome.onclick = () => {
+      recorded.pause();
       song3.pause();
       meandus.pause();
-    }
-
-    function goHome() {
-      recorded.pause();
-      meandus.pause();
-      song3.pause();
-      song1.volume = 1.0;
       song1.play();
-      window.location.href = "index.html";
-    }
+      window.location.href = 'index.html';
+    };
   </script>
-
 </body>
 </html>
