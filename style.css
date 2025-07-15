@@ -1,15 +1,18 @@
-/* Core Reset and Layout */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
-  background-color: #3D1F1F;
-  color: #EAEAEA;
-  overflow-x: hidden;
-}
-
-/* Navbar */
-.navbar {
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FOR KEEPS</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background-color: #3D1F1F;
+      color: #EAEAEA;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }.navbar {
   position: fixed;
   top: 0;
   left: 0;
@@ -32,7 +35,6 @@ body {
   stroke-width: 2;
 }
 
-/* Titles */
 .title {
   color: #C2B280;
   font-size: 2rem;
@@ -41,7 +43,6 @@ body {
   text-transform: uppercase;
 }
 
-/* Slide Section */
 .slide-container {
   max-width: 700px;
   margin: 30px auto;
@@ -67,7 +68,6 @@ body {
   box-shadow: 0 0 8px rgba(212, 175, 55, 0.2);
 }
 
-/* Messages */
 .message-box {
   background-color: rgba(0, 0, 0, 0.3);
   padding: 16px;
@@ -76,10 +76,14 @@ body {
   max-width: 660px;
   font-size: 0.78rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  color: #fff;
 }
 
-/* Arrows */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
 .arrow {
   background: transparent;
   color: #fff;
@@ -102,80 +106,81 @@ body {
   right: 10px;
 }
 
-/* Buttons — Unified Style */
-button,
-.watch-button,
-.music-toggle,
-.audio-control,
-.float-button,
-.back-button {
+.watch-button {
+  margin-top: 20px;
   background-color: transparent;
   color: #C2B280;
   font-weight: bold;
-  border: 2px solid #C2B280;
   padding: 8px 20px;
   font-size: 0.85rem;
+  border: 2px solid #C2B280;
   border-radius: 30px;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
-  margin: 6px;
 }
 
-button:hover,
-button.active,
-.watch-button:hover,
 .watch-button.active,
-.music-toggle:hover,
-.music-toggle.active,
-.audio-control:hover,
-.audio-control.active,
-.float-button:hover,
-.float-button.active,
-.back-button:hover,
-.back-button.active {
+.watch-button:hover {
   background-color: #C2B280;
   color: #3D1F1F;
 }
 
-/* Float Box */
-.float-box {
-  background-color: rgba(0, 0, 0, 0.85);
-  border-radius: 20px;
-  padding: 20px;
-  max-width: 600px;
-  margin: 40px auto;
-  text-align: center;
-  color: #fff;
-  font-size: 0.78rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-  animation: fadeInUp 0.5s ease-in-out;
-}
-
-/* Video */
-video {
-  display: block;
-  max-width: 90%;
-  margin: 20px auto;
-  border-radius: 14px;
-  box-shadow: 0 0 10px rgba(255,255,255,0.1);
-}
-
-/* Video Message */
-.video-message {
-  text-align: center;
-  font-size: 0.85rem;
-  max-width: 720px;
-  margin: 20px auto;
-  color: #EAEAEA;
-}
-
-/* Animations */
 @keyframes slideIn {
-  from { transform: translateX(30px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+  from {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
-@keyframes fadeInUp {
-  from { transform: translateY(30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-  }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <a href="index.html">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M15 18l-6-6 6-6" stroke="#C2B280" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+  <div class="title">FOR KEEPS</div>
+  <div class="slide-container">
+    <button class="arrow left" onclick="prevSlide()">◀</button>
+    <!-- Slides here unchanged -->
+    <button class="arrow right" onclick="nextSlide()">▶</button>
+  </div>
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.remove('active');
+    if (i === index) slide.classList.add('active');
+  });
+}
+
+function nextSlide() {
+  current = (current + 1) % slides.length;
+  showSlide(current);
+}
+
+function prevSlide() {
+  current = (current - 1 + slides.length) % slides.length;
+  showSlide(current);
+}
+
+function goWatch() {
+  window.location.href = 'video.html';
+}
+
+document.querySelectorAll('.watch-button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('active');
+  });
+});
+
+  </script>
+</body>
+</html>
