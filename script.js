@@ -1,4 +1,3 @@
-// Audio Map with correct file names
 const audios = {
   song1: new Audio('audio/song1-kung-tayo.mp3'),
   song2: new Audio('audio/song2-until-i-found-you.mp3'),
@@ -7,19 +6,16 @@ const audios = {
   message: new Audio('audio/message.recorded.mp3'),
 };
 
-// Always max volume + loop
 Object.values(audios).forEach(audio => {
   audio.loop = true;
-  audio.volume = 1.0; // max volume
+  audio.volume = 1.0;
 });
 
-// Restore track from session
 let currentTrack = sessionStorage.getItem('playingTrack');
 if (currentTrack && audios[currentTrack]) {
   audios[currentTrack].play().catch(() => {});
 }
 
-// Stop all tracks
 function stopAllAudio() {
   Object.values(audios).forEach(audio => {
     audio.pause();
@@ -29,7 +25,6 @@ function stopAllAudio() {
   currentTrack = null;
 }
 
-// Play track & remember it
 function playTrack(name) {
   stopAllAudio();
   if (audios[name]) {
@@ -40,7 +35,6 @@ function playTrack(name) {
   }
 }
 
-// Toggle audio (used in buttons like OUR RHYTHM, MESSAGE RECORDED)
 function toggleAudio(name) {
   const audio = audios[name];
   if (!audio) return;
@@ -59,7 +53,6 @@ function toggleAudio(name) {
   }
 }
 
-// Button event bindings
 document.getElementById('btn-start')?.addEventListener('click', e => {
   playTrack('song1');
   e.target.classList.add('clicked');
@@ -72,7 +65,7 @@ document.getElementById('btn-album')?.addEventListener('click', e => {
 });
 
 document.getElementById('btn-video')?.addEventListener('click', e => {
-  stopAllAudio(); // stop song2
+  stopAllAudio();
   e.target.classList.add('clicked');
 });
 
