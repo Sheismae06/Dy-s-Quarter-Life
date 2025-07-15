@@ -7,10 +7,11 @@
   <link rel="stylesheet" href="style.css"/>
   <style>
     body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
       background-color: #3D1F1F;
       color: #EAEAEA;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
       overflow-x: hidden;
     }
 
@@ -23,6 +24,7 @@
       background-color: #1F1F1F;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       padding: 0 28px;
       z-index: 1000;
     }
@@ -38,47 +40,49 @@
     .title {
       color: #C2B280;
       font-size: 2rem;
-      margin-top: 100px;
+      margin: 100px 20px 20px;
       text-align: center;
       text-transform: uppercase;
     }
 
     .video-container {
-      max-width: 800px;
-      margin: 30px auto 20px;
-      padding: 0 20px;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 10px;
     }
 
     video {
       width: 100%;
-      border-radius: 14px;
+      border-radius: 12px;
+      margin-top: 20px;
     }
 
-    .message {
-      font-size: 0.85rem;
-      margin-top: 20px;
-      line-height: 1.6;
-      text-align: justify;
+    .message-box {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 15px;
+      font-size: 0.9rem;
+      margin: 20px auto;
+      max-width: 700px;
+      color: #EAEAEA;
+      text-align: center;
     }
 
     .btn-group {
-      margin: 30px auto;
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
+      text-align: center;
+      margin-top: 20px;
     }
 
     .btn {
       background-color: transparent;
-      border: 2px solid #C2B280;
       color: #C2B280;
+      border: 2px solid #C2B280;
       padding: 10px 22px;
+      margin: 10px;
+      font-size: 0.9rem;
       border-radius: 30px;
-      font-size: 0.85rem;
-      font-weight: 600;
       cursor: pointer;
-      transition: all 0.3s;
+      transition: background 0.3s, color 0.3s;
     }
 
     .btn.active,
@@ -91,36 +95,38 @@
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0,0,0,0.7);
       backdrop-filter: blur(5px);
       display: none;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       z-index: 999;
     }
 
     .float-box {
       background-color: #3D1F1F;
-      padding: 25px;
-      border-radius: 16px;
-      max-width: 500px;
-      color: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 600px;
       text-align: center;
-      font-size: 0.72rem;
-      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+      color: white;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+    }
+
+    .float-box p {
+      font-size: 0.8rem;
+      margin-bottom: 20px;
     }
 
     .float-btns {
-      margin-top: 20px;
       display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 10px;
     }
 
     .float-btns .btn {
-      font-size: 0.75rem;
-      padding: 8px 20px;
+      font-size: 0.8rem;
+      padding: 8px 16px;
     }
   </style>
 </head>
@@ -128,7 +134,7 @@
   <div class="navbar">
     <a href="index.html">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M15 18l-6-6 6-6" stroke="#C2B280" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </a>
   </div>
@@ -137,98 +143,87 @@
 
   <div class="video-container">
     <video id="mainVideo" controls preload="metadata">
-      <source src="YouCut_20250713_162158131.mp4" type="video/mp4" loading="lazy"/>
+      <source src="YouCut_20250713_162158131.mp4" type="video/mp4" loading="lazy">
       Your browser does not support the video tag.
     </video>
 
-    <p class="message">
+    <div class="message-box">
       These are just a few short clips I compiled. We have so many more videos together, I feel genuinely happy and safe whenever I’m with you. It’s wild how we become our truest, silliest selves when we’re together, like we’re living in a world that exists only for us.<br><br>
       We can’t predict what the future holds, and we trust God to unfold His best plan for us. But as long as we have each other, let’s continue to protect what we have, help each other grow, and do our best to hold on.<br><br>
       This love is real. And I’m choosing it, every single day.
-    </p>
+    </div>
 
     <div class="btn-group">
       <button class="btn" id="rhythmBtn">OUR RHYTHM</button>
-      <button class="btn" id="openBtn">OPEN IT NOW</button>
+      <button class="btn" id="presentBtn">OPEN IT NOW</button>
     </div>
   </div>
 
-  <!-- Float Box -->
   <div class="overlay" id="overlay">
     <div class="float-box">
-      Open your present Dy, sana magustuhan mo po. Mahal na mahal kita, alam ko po na you deserve more than that pero for now ayan po muna. Below is my recorded message, its up to you before or after you open your gift mo po pakinggan. Kilala mo ako madaldal kaya this site is halos puro message. hahaha I LOVE YOU PO
+      <p>Open your present Dy, sana magustuhan mo po. Mahal na mahal kita, alam ko po na you deserve more than that pero for now ayan po muna. Below is my recorded message, it's up to you before or after you open your gift mo po pakinggan. Kilala mo ako madaldal kaya this site is halos puro message. hahaha I LOVE YOU PO</p>
       <div class="float-btns">
         <button class="btn" id="recordedBtn">MESSAGE RECORDED</button>
-        <button class="btn" onclick="goHome()">BACK TO HOME</button>
+        <button class="btn" id="homeBtn">BACK TO HOME</button>
       </div>
     </div>
   </div>
 
-  <!-- Audio -->
-  <audio id="meanddy" src="meanddy.mp3" preload="auto"></audio>
+  <audio id="meandus" src="meanddy.mp3" preload="auto"></audio>
   <audio id="song3" src="song3-happy-birthday.mp3" preload="auto"></audio>
   <audio id="recorded" src="message.recorded.mp3" preload="auto"></audio>
   <audio id="song1" src="song1-kung-tayo.mp3" preload="auto"></audio>
 
   <script>
-    const rhythmBtn = document.getElementById("rhythmBtn");
-    const openBtn = document.getElementById("openBtn");
-    const recordedBtn = document.getElementById("recordedBtn");
+    const rhythmBtn = document.getElementById('rhythmBtn');
+    const presentBtn = document.getElementById('presentBtn');
+    const recordedBtn = document.getElementById('recordedBtn');
+    const homeBtn = document.getElementById('homeBtn');
+    const overlay = document.getElementById('overlay');
 
-    const meanddy = document.getElementById("meanddy");
-    const song3 = document.getElementById("song3");
-    const recorded = document.getElementById("recorded");
-    const song1 = document.getElementById("song1");
+    const meandus = document.getElementById('meandus');
+    const song3 = document.getElementById('song3');
+    const recorded = document.getElementById('recorded');
+    const song1 = document.getElementById('song1');
 
-    const overlay = document.getElementById("overlay");
+    let currentAudio = null;
 
-    let isPlayingMeAndDy = false;
-    let isPlayingRecorded = false;
-
-    rhythmBtn.onclick = () => {
-      if (isPlayingMeAndDy) {
-        meanddy.pause();
-        rhythmBtn.classList.remove("active");
-      } else {
-        meanddy.volume = 1.0;
-        meanddy.play();
-        rhythmBtn.classList.add("active");
-        song3.pause();
-        recorded.pause();
+    function playToggle(audio, button) {
+      if (currentAudio && currentAudio !== audio) {
+        currentAudio.pause();
+        document.querySelectorAll('.btn').forEach(btn => btn.classList.remove('active'));
       }
-      isPlayingMeAndDy = !isPlayingMeAndDy;
-    };
 
-    openBtn.onclick = () => {
-      overlay.style.display = "flex";
-      song3.volume = 1.0;
-      song3.play();
-      openBtn.classList.add("active");
-      meanddy.pause();
-      recorded.pause();
-      rhythmBtn.classList.remove("active");
-    };
-
-    recordedBtn.onclick = () => {
-      if (isPlayingRecorded) {
-        recorded.pause();
-        recordedBtn.classList.remove("active");
+      if (audio.paused) {
+        audio.volume = 1.0;
+        audio.play();
+        currentAudio = audio;
+        button.classList.add('active');
       } else {
-        recorded.volume = 1.0;
-        recorded.play();
-        recordedBtn.classList.add("active");
-        song3.pause();
+        audio.pause();
+        button.classList.remove('active');
+        currentAudio = null;
       }
-      isPlayingRecorded = !isPlayingRecorded;
-    };
-
-    function goHome() {
-      recorded.pause();
-      song3.pause();
-      meanddy.pause();
-      song1.volume = 1.0;
-      song1.play();
     }
+
+    rhythmBtn.addEventListener('click', () => {
+      playToggle(meandus, rhythmBtn);
+    });
+
+    presentBtn.addEventListener('click', () => {
+      overlay.style.display = 'flex';
+      playToggle(song3, presentBtn);
+    });
+
+    recordedBtn.addEventListener('click', () => {
+      playToggle(recorded, recordedBtn);
+    });
+
+    homeBtn.addEventListener('click', () => {
+      if (!song1.paused) song1.pause();
+      if (!recorded.paused) recorded.pause();
+      window.location.href = 'index.html';
+    });
   </script>
 </body>
 </html>
