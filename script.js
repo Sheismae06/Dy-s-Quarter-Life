@@ -2,110 +2,98 @@
 const audios = {  
   song1: new Audio('audio/song1.mp3'),  
   song2: new Audio('audio/song2.mp3'),  
-  song3: new Audio('audio/song3-happy-birthday.mp3'),  
+  song3: new Audio('audio/song3.mp3'),  
   meanddy: new Audio('audio/meanddy.mp3'),  
-  message: new Audio('audio/message.recorded.mp3')  
-};  
+  message: new Audio('audio/message-recorded.mp3')  
+};
 
-// Volume & loop  
-Object.values(audios).forEach(audio => {  
-  audio.volume = 1.0;  
-  audio.loop = true;  
-});  
+// Set loop and full volume for all  
+Object.values(audios).forEach(audio => {
+  audio.loop = true;
+  audio.volume = 1.0;
+});
 
-// Get and auto-play last playing track  
-const currentTrack = sessionStorage.getItem('playingTrack');  
-if (currentTrack && audios[currentTrack]) {  
-  audios[currentTrack].play().catch(() => {});  
-}  
-
-// Stop all audio  
-function stopAllAudio() {  
-  Object.values(audios).forEach(audio => {  
-    audio.pause();  
-    audio.currentTime = 0;  
-  });  
-  sessionStorage.removeItem('playingTrack');  
-}  
-
-// Set and play new track  
-function playTrack(name) {  
-  stopAllAudio();  
-  if (audios[name]) {  
-    audios[name].play();  
-    sessionStorage.setItem('playingTrack', name);  
-  }  
-}  
-
-// Toggle play/pause for toggleable audio
-function togglePlay(name) {  
-  const audio = audios[name];  
-  if (audio.paused) {  
-    stopAllAudio();  
-    audio.play();  
-    sessionStorage.setItem('playingTrack', name);  
-  } else {  
-    audio.pause();  
-    audio.currentTime = 0;  
-    sessionStorage.removeItem('playingTrack');  
-  }  
+// Restore playing audio if user switches pages  
+const currentTrack = sessionStorage.getItem('playingTrack');
+if (currentTrack && audios[currentTrack]) {
+  audios[currentTrack].play().catch(() => {});
 }
 
-// Button click events
-document.getElementById('btn-start')?.addEventListener('click', e => {  
-  playTrack('song1');  
-  e.target.classList.add('clicked');  
-});  
+// Stop all playing audio  
+function stopAllAudio() {
+  Object.values(audios).forEach(audio => {
+    audio.pause();
+    audio.currentTime = 0;
+  });
+  sessionStorage.removeItem('playingTrack');
+}
 
-document.getElementById('btn-album')?.addEventListener('click', e => {  
-  playTrack('song2');  
-  e.target.classList.add('clicked');  
+// Play a new track  
+function playTrack(name) {
+  stopAllAudio();
+  if (audios[name]) {
+    audios[name].play();
+    sessionStorage.setItem('playingTrack', name);
+  }
+}
+
+// Toggle track (used for meanddy and message)  
+function toggleTrack(name) {
+  const audio = audios[name];
+  if (!audio) return;
+
+  const isPlaying = !audio.paused;
+
+  stopAllAudio();
+
+  if (!isPlaying) {
+    audio.play();
+    sessionStorage.setItem('playingTrack', name);
+  }
+}
+
+// Button bindings  
+document.getElementById('btn-start')?.addEventListener('click', e => {
+  playTrack('song1');
+  e.target.classList.add('clicked');
+  setTimeout(() => {
+    window.location.href = 'letter.html';
+  }, 300);
+});
+
+document.getElementById('btn-album')?.addEventListener('click', e => {
+  playTrack('song2');
+  e.target.classList.add('clicked');
   setTimeout(() => {
     window.location.href = 'album.html';
-  }, 300);  
-});  
+  }, 300);
+});
 
-document.getElementById('btn-video')?.addEventListener('click', e => {  
-  stopAllAudio();  
-  e.target.classList.add('clicked');  
+document.getElementById('btn-watch')?.addEventListener('click', e => {
+  stopAllAudio();
+  e.target.classList.add('clicked');
   setTimeout(() => {
     window.location.href = 'video.html';
   }, 300);
-});  
-
-document.getElementById('btn-present')?.addEventListener('click', e => {  
-  playTrack('song3');  
-  e.target.classList.add('clicked');  
-});  
-
-document.getElementById('btn-soundus')?.addEventListener('click', e => {  
-  togglePlay('meanddy');  
-  e.target.classList.toggle('clicked');  
-});  
-
-document.getElementById('btn-message')?.addEventListener('click', e => {  
-  togglePlay('message');  
-  e.target.classList.toggle('clicked');  
 });
 
-// Special controls in video.html
-document.getElementById('rhythmBtn')?.addEventListener('click', e => {
-  togglePlay('meanddy');
-  e.target.classList.toggle('active');
+document.getElementById('btn-soundus')?.addEventListener('click', e => {
+  toggleTrack('meanddy');
+  e.target.classList.toggle('clicked');
 });
 
-document.getElementById('presentBtn')?.addEventListener('click', e => {
+document.getElementById('btn-present')?.addEventListener('click', e => {
   playTrack('song3');
-  e.target.classList.add('active');
-  document.getElementById('overlay')?.style.display = 'flex';
+  document.getElementById('overlay')?.classList.add('visible');
+  e.target.classList.add('clicked');
 });
 
-document.getElementById('recordedBtn')?.addEventListener('click', e => {
-  togglePlay('message');
-  e.target.classList.toggle('active');
+document.getElementById('btn-message')?.addEventListener('click', e => {
+  toggleTrack('message');
+  e.target.classList.toggle('clicked');
 });
 
-document.getElementById('homeBtn')?.addEventListener('click', () => {
+document.getElementById('btn-home')?.addEventListener('click', () => {
   stopAllAudio();
   window.location.href = 'index.html';
 });
