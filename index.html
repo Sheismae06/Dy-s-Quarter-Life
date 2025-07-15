@@ -12,7 +12,7 @@
 
   <!-- Main Section -->
   <section class="center-screen">
-    
+
     <!-- Infinity Logo -->
     <img src="infinity.svg" alt="Infinity Logo" class="infinity-logo" />
 
@@ -23,21 +23,12 @@
     <h1>Happy 25th, My Love</h1>
     <p>A quarter of a century of your light. Here’s a piece of my love for you.</p>
 
-    <!-- Get Started Button with ID -->
+    <!-- Get Started Button -->
     <button class="btn-start" id="btn-start">Get Started</button>
 
   </section>
 
-  <!-- JS Scripts -->
+  <!-- Script (must be included here for button to work) -->
   <script src="script.js"></script>
-  <script>
-    // Smooth redirect to letter.html after slight delay
-    document.getElementById("btn-start").addEventListener("click", function () {
-      this.classList.add("clicked");
-      setTimeout(() => {
-        window.location.href = "letter.html";
-      }, 300);
-    });
-  </script>
 </body>
 </html>
