@@ -1,22 +1,10 @@
-/* Root Colors */
-:root {
-  --dark-charcoal: #1F1F1F;
-  --cream-gold: #C2B280;
-  --maroon-bg: #3D1F1F;
-}
-
-/* Reset */
-* {
+/* Core Reset and Layout */
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-/* Body */
-body {
-  background-color: var(--maroon-bg);
-  color: #EAEAEA;
   font-family: 'Poppins', sans-serif;
+  background-color: #3D1F1F;
+  color: #EAEAEA;
   overflow-x: hidden;
 }
 
@@ -27,7 +15,7 @@ body {
   left: 0;
   width: 100%;
   height: 64px;
-  background-color: var(--dark-charcoal);
+  background-color: #1F1F1F;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -36,188 +24,158 @@ body {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 }
 
-/* Back Icon */
-.back-icon {
-  width: 24px;
-  height: 24px;
-  fill: var(--cream-gold);
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.back-icon:hover {
-  transform: scale(1.1);
-}
-
-/* Hide back icon on homepage */
-.homepage .back-icon {
-  display: none;
-}
-
-/* Infinity Logo */
-.infinity-logo {
-  width: 100px;
-  height: auto;
-  margin: 100px auto 20px;
-  display: block;
-  animation: floatLogo 4s ease-in-out infinite;
-  filter: drop-shadow(0 0 6px #C2B280aa);
-}
-
-/* Divider */
-.divider {
-  width: 60px;
-  height: 2px;
-  background-color: var(--cream-gold);
-  margin: 10px auto 30px;
-  opacity: 0.2;
-  border-radius: 10px;
-}
-
-/* Center Layout */
-.center-screen {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 100px 20px 40px;
-  text-align: center;
+.navbar a svg {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: #C2B280;
+  stroke-width: 2;
 }
 
 /* Titles */
-h1, h2 {
-  color: var(--cream-gold);
-  font-weight: 600;
+.title {
+  color: #C2B280;
   font-size: 2rem;
-  margin-top: 20px;
-  margin-bottom: 16px;
-  animation: fadeInUp 1s ease forwards;
+  margin: 100px 20px 20px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
-/* Paragraph */
-p {
-  color: #EAEAEA;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  animation: fadeInUp 1.2s ease forwards;
-  margin-bottom: 24px;
-  padding: 0 16px;
+/* Slide Section */
+.slide-container {
   max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 30px auto;
+  position: relative;
 }
 
-/* Signature */
-.signature {
-  font-style: italic;
-  font-size: 0.95rem;
-  text-align: right;
-  margin-top: 30px;
-  color: #e6e6e6;
-}
-
-/* Main Buttons */
-button, .btn, .btn-start {
-  background-color: transparent;
-  color: var(--cream-gold);
-  border: 2px solid var(--cream-gold);
-  font-weight: 600;
-  border-radius: 30px;
-  padding: 10px 26px;
-  font-size: 0.9rem;
-  margin: 12px auto;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  animation: fadeInUp 1.4s ease forwards;
-  display: block;
-}
-
-/* Clicked effect */
-button.clicked, .btn.clicked, .btn-start.clicked {
-  background-color: var(--cream-gold);
-  color: var(--maroon-bg);
-  transform: scale(1.05);
-}
-
-button:active {
-  transform: scale(0.95);
-}
-
-/* Glass Letter Container */
-.letter-container {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 80px 20px 60px;
+.slide {
+  display: none;
+  animation: slideIn 0.5s ease-in-out;
   text-align: center;
 }
 
-.letter-glass {
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.slide.active {
+  display: block;
+}
+
+.slide img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: contain;
   border-radius: 12px;
-  padding: 30px 24px;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  margin: 0 auto;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.2);
+}
+
+/* Messages */
+.message-box {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 16px;
+  margin: 20px auto;
+  border-radius: 15px;
+  max-width: 660px;
+  font-size: 0.78rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+/* Arrows */
+.arrow {
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-size: 1.2rem;
+  padding: 10px 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}
+
+/* Buttons — Unified Style */
+button,
+.watch-button,
+.music-toggle,
+.audio-control,
+.float-button,
+.back-button {
+  background-color: transparent;
+  color: #C2B280;
+  font-weight: bold;
+  border: 2px solid #C2B280;
+  padding: 8px 20px;
+  font-size: 0.85rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  margin: 6px;
+}
+
+button:hover,
+button.active,
+.watch-button:hover,
+.watch-button.active,
+.music-toggle:hover,
+.music-toggle.active,
+.audio-control:hover,
+.audio-control.active,
+.float-button:hover,
+.float-button.active,
+.back-button:hover,
+.back-button.active {
+  background-color: #C2B280;
+  color: #3D1F1F;
+}
+
+/* Float Box */
+.float-box {
+  background-color: rgba(0, 0, 0, 0.85);
+  border-radius: 20px;
+  padding: 20px;
+  max-width: 600px;
+  margin: 40px auto;
+  text-align: center;
+  color: #fff;
+  font-size: 0.78rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  animation: fadeInUp 0.5s ease-in-out;
+}
+
+/* Video */
+video {
+  display: block;
+  max-width: 90%;
+  margin: 20px auto;
+  border-radius: 14px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+/* Video Message */
+.video-message {
+  text-align: center;
+  font-size: 0.85rem;
+  max-width: 720px;
+  margin: 20px auto;
+  color: #EAEAEA;
 }
 
 /* Animations */
+@keyframes slideIn {
+  from { transform: translateX(30px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes floatLogo {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-.fade-in {
-  animation: fadeInUp 1s ease forwards;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  h1, h2 {
-    font-size: 1.5rem;
-  }
-
-  .btn,
-  .btn-start {
-    font-size: 0.85rem;
-    padding: 8px 20px;
-  }
-
-  .navbar {
-    height: 56px;
-    padding: 0 20px;
-  }
-
-  .infinity-logo {
-    width: 80px;
-  }
-
-  .letter-glass {
-    padding: 20px 16px;
-  }
-
-  .letter-container {
-    padding: 70px 16px 40px;
-  }
-}
-
-/* Optional Spacer to push content below navbar */
-.spacer {
-  height: 64px;
-}
-
-/* Adjusted title spacing */
-.letter-title {
-  margin-top: 0;
-}
