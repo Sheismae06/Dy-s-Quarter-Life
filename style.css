@@ -1,4 +1,4 @@
-/* Reset */
+/* Reset and Base */
 * {
   margin: 0;
   padding: 0;
@@ -13,10 +13,11 @@ body {
 }
 
 a {
-  color: inherit;
   text-decoration: none;
+  color: inherit;
 }
 
+/* Navbar (All Pages) */
 .navbar {
   position: fixed;
   top: 0;
@@ -40,7 +41,7 @@ a {
   stroke-width: 2;
 }
 
-/* Homepage Hero */
+/* Home Page Hero */
 .hero {
   height: 100vh;
   background-image: url('bg.webp');
@@ -60,18 +61,16 @@ a {
   animation: fadeInDown 1.2s ease-out;
 }
 
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Page Titles */
+.title {
+  color: #C2B280;
+  font-size: 2rem;
+  margin: 100px 20px 20px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
-/* Gold Buttons (all pages) */
+/* Shared Button Style (All Pages) */
 .button,
 .watch-button {
   background-color: transparent;
@@ -79,8 +78,8 @@ a {
   border: 2px solid #C2B280;
   font-weight: bold;
   padding: 8px 20px;
-  border-radius: 30px;
   font-size: 0.85rem;
+  border-radius: 30px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -93,16 +92,7 @@ a {
   color: #3D1F1F;
 }
 
-/* Titles (letter, album, video) */
-.title {
-  color: #C2B280;
-  font-size: 2rem;
-  margin: 100px 20px 20px;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-/* Slide container and message box (album) */
+/* Album Page */
 .slide-container {
   max-width: 700px;
   margin: 30px auto;
@@ -139,7 +129,7 @@ a {
   color: white;
 }
 
-/* Arrows for album */
+/* Arrows on Album Page */
 .arrow {
   background: transparent;
   color: #fff;
@@ -162,7 +152,7 @@ a {
   right: 10px;
 }
 
-/* Video Page Layout */
+/* Video Page */
 .video-section {
   max-width: 720px;
   margin: 100px auto 30px;
@@ -177,7 +167,7 @@ a {
   box-shadow: 0 4px 16px rgba(0,0,0,0.3);
 }
 
-/* Message in video page */
+/* Video Message */
 .video-message {
   margin: 24px auto;
   font-size: 0.9rem;
@@ -185,7 +175,7 @@ a {
   color: #EAEAEA;
 }
 
-/* Floating gift box */
+/* Float Box */
 .float-box {
   position: fixed;
   top: 50%;
@@ -214,13 +204,31 @@ a {
   font-size: 0.75rem;
 }
 
-/* Blurred background */
+/* Blur when open gift */
 .blurred {
   filter: blur(6px);
   pointer-events: none;
 }
 
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes slideIn {
-  from { transform: translateX(30px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+  from {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
