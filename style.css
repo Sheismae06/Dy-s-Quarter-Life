@@ -216,3 +216,8 @@ button:active {
 .spacer {
   height: 64px;
 }
+
+/* 🔺 Added: Move letter title closer to navbar */
+.letter-title {
+  margin-top: 10px;
+}
