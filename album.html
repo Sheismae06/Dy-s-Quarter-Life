@@ -24,18 +24,22 @@
       background-color: #1F1F1F;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       padding: 0 28px;
       z-index: 1000;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
     }
 
-    .navbar a svg.back-icon {
+    .navbar a svg {
       width: 28px;
       height: 28px;
+      fill: none;
+      stroke: #C2B280;
+      stroke-width: 2;
     }
 
     .title {
-      color: #D4AF37;
+      color: #C2B280;
       font-size: 2rem;
       margin: 100px 20px 20px;
       text-align: center;
@@ -78,11 +82,11 @@
     }
 
     .arrow {
-      background: rgba(0, 0, 0, 0.25);
+      background: transparent;
       color: #fff;
       border: none;
-      font-size: 1rem;
-      padding: 6px 12px;
+      font-size: 1.2rem;
+      padding: 10px 16px;
       border-radius: 50%;
       cursor: pointer;
       position: absolute;
@@ -101,18 +105,20 @@
 
     .watch-button {
       margin-top: 20px;
-      background: transparent;
-      color: #D4AF37;
-      border: 2px solid #D4AF37;
-      padding: 10px 22px;
+      background-color: transparent;
+      color: #C2B280;
+      font-weight: bold;
+      padding: 8px 20px;
+      font-size: 0.85rem;
+      border: 2px solid #C2B280;
       border-radius: 30px;
-      font-size: 0.9rem;
       cursor: pointer;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      transition: background-color 0.3s, color 0.3s;
     }
 
+    .watch-button.active,
     .watch-button:hover {
-      background-color: #D4AF37;
+      background-color: #C2B280;
       color: #3D1F1F;
     }
 
@@ -123,10 +129,9 @@
   </style>
 </head>
 <body>
-  <!-- Navbar with back icon -->
   <div class="navbar">
     <a href="index.html">
-      <svg class="back-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path d="M15 18l-6-6 6-6" stroke="#C2B280" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </a>
@@ -207,6 +212,12 @@
     function goWatch() {
       window.location.href = 'video.html';
     }
+
+    document.querySelectorAll('.watch-button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.classList.toggle('active');
+      });
+    });
   </script>
 </body>
 </html>
