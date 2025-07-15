@@ -1,18 +1,20 @@
-<!DOCTYPE html><html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FOR KEEPS</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      background-color: #3D1F1F;
-      color: #EAEAEA;
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-    }.navbar {
+/* GLOBAL STYLES */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1F1F1F;
+  color: #EAEAEA;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* NAVBAR */
+.navbar {
   position: fixed;
   top: 0;
   left: 0;
@@ -35,6 +37,7 @@
   stroke-width: 2;
 }
 
+/* TITLE */
 .title {
   color: #C2B280;
   font-size: 2rem;
@@ -43,6 +46,51 @@
   text-transform: uppercase;
 }
 
+/* BUTTON STYLE (UNIVERSAL) */
+button,
+.watch-button,
+.album-button,
+.video-button,
+.floatbox-button {
+  background-color: transparent;
+  color: #C2B280;
+  border: 2px solid #C2B280;
+  font-weight: bold;
+  padding: 8px 20px;
+  font-size: 0.85rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button.active,
+.watch-button.active,
+.album-button.active,
+.video-button.active,
+.floatbox-button.active {
+  background-color: #C2B280;
+  color: #1F1F1F;
+}
+
+/* HOMEPAGE HERO */
+.hero {
+  margin-top: 64px;
+  height: calc(100vh - 64px);
+  background: url('your-hero-image.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: #D4AF37;
+  animation: fadeIn 1.5s ease-out;
+}
+
+/* SLIDESHOW */
 .slide-container {
   max-width: 700px;
   margin: 30px auto;
@@ -68,6 +116,7 @@
   box-shadow: 0 0 8px rgba(212, 175, 55, 0.2);
 }
 
+/* MINI MESSAGE BOX */
 .message-box {
   background-color: rgba(0, 0, 0, 0.3);
   padding: 16px;
@@ -76,14 +125,67 @@
   max-width: 660px;
   font-size: 0.78rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  color: #fff;
 }
 
-.controls {
+/* VIDEO PAGE */
+.video-section {
+  padding: 40px 20px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.video-message {
+  font-size: 0.88rem;
+  margin-top: 20px;
+  text-align: justify;
+  color: #EAEAEA;
+}
+
+video {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+/* FLOATING BOX */
+.floating-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  max-width: 400px;
+  transform: translate(-50%, -50%);
+  background-color: rgba(29, 17, 17, 0.9);
+  border-radius: 15px;
+  padding: 20px;
+  color: white;
+  z-index: 9999;
+  box-shadow: 0 0 12px rgba(0,0,0,0.4);
+  text-align: center;
+  backdrop-filter: blur(8px);
+}
+
+.floating-box p {
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.floating-box-buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 12px;
   margin-top: 20px;
 }
 
+.floating-box button {
+  padding: 6px 16px;
+  font-size: 0.75rem;
+  border-radius: 20px;
+}
+
+/* ARROW BUTTONS */
 .arrow {
   background: transparent;
   color: #fff;
@@ -106,81 +208,39 @@
   right: 10px;
 }
 
-.watch-button {
-  margin-top: 20px;
-  background-color: transparent;
-  color: #C2B280;
-  font-weight: bold;
-  padding: 8px 20px;
-  font-size: 0.85rem;
-  border: 2px solid #C2B280;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.watch-button.active,
-.watch-button:hover {
-  background-color: #C2B280;
-  color: #3D1F1F;
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slideIn {
-  from {
-    transform: translateX(30px);
-    opacity: 0;
+  from { transform: translateX(30px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* MUSIC ICON */
+#music-toggle {
+  position: fixed;
+  top: 18px;
+  right: 20px;
+  z-index: 1001;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+#music-toggle svg {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s;
+}
+
+#music-toggle.playing svg {
+  animation: pianoPlay 1s infinite alternate;
+}
+
+@keyframes pianoPlay {
+  0% { transform: rotate(-2deg); }
+  100% { transform: rotate(2deg); }
   }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-  </style>
-</head>
-<body>
-  <div class="navbar">
-    <a href="index.html">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M15 18l-6-6 6-6" stroke="#C2B280" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </a>
-  </div>
-  <div class="title">FOR KEEPS</div>
-  <div class="slide-container">
-    <button class="arrow left" onclick="prevSlide()">◀</button>
-    <!-- Slides here unchanged -->
-    <button class="arrow right" onclick="nextSlide()">▶</button>
-  </div>
-  <script>
-    const slides = document.querySelectorAll('.slide');
-    let current = 0;function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.classList.remove('active');
-    if (i === index) slide.classList.add('active');
-  });
-}
-
-function nextSlide() {
-  current = (current + 1) % slides.length;
-  showSlide(current);
-}
-
-function prevSlide() {
-  current = (current - 1 + slides.length) % slides.length;
-  showSlide(current);
-}
-
-function goWatch() {
-  window.location.href = 'video.html';
-}
-
-document.querySelectorAll('.watch-button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    btn.classList.toggle('active');
-  });
-});
-
-  </script>
-</body>
-</html>
