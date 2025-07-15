@@ -46,7 +46,8 @@
     }
 
     .slide img {
-      max-width: 90%;
+      width: 600px;
+      height: auto;
       display: block;
       margin: 0 auto 20px;
       border-radius: 14px;
@@ -106,11 +107,11 @@
     }
 
     .prev-arrow {
-      left: -20px;
+      left: 10px;
     }
 
     .next-arrow {
-      right: -20px;
+      right: 10px;
     }
 
     @keyframes slideIn {
@@ -123,9 +124,11 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 600px) {
-      .title { font-size: 1.4rem; }
-      .message-box { font-size: 0.75rem; }
+    @media (max-width: 650px) {
+      .slide img {
+        width: 90%;
+      }
+
       .prev-arrow, .next-arrow {
         top: 50%;
         padding: 8px 12px;
@@ -212,7 +215,7 @@
       window.location.href = 'video.html';
     }
 
-    // Initial display
+    // Show the first slide on load
     showSlide(current);
   </script>
 </body>
