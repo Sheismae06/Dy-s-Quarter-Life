@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My kind man</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FOR KEEPS</title>
+  <link rel="stylesheet" href="style.css"/>
   <style>
     body {
       background-color: #3D1F1F;
@@ -24,6 +24,7 @@
       background-color: #1F1F1F;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       padding: 0 28px;
       z-index: 1000;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
@@ -37,72 +38,97 @@
       stroke-width: 2;
     }
 
-    .container {
-      max-width: 650px;
-      margin: 100px auto 50px;
-      padding: 20px;
-      animation: fadeIn 0.8s ease;
-    }
-
-    h1 {
-      text-align: center;
+    .title {
       color: #C2B280;
       font-size: 2rem;
-      margin-bottom: 1.5rem;
+      margin: 100px 20px 20px;
+      text-align: center;
       text-transform: uppercase;
     }
 
-    .description {
-      text-align: justify;
-      color: #EAEAEA;
-      font-size: 0.95rem;
-      line-height: 1.7;
-      margin-bottom: 2.5rem;
+    .slide-container {
+      max-width: 700px;
+      margin: 30px auto;
+      position: relative;
     }
 
-    h2 {
+    .slide {
+      display: none;
+      animation: slideIn 0.5s ease-in-out;
       text-align: center;
-      color: #C2B280;
-      font-size: 1.2rem;
-      margin: 2rem 0 1rem;
     }
 
-    .letter-img {
-      width: 90%;
-      max-width: 330px;
-      border-radius: 12px;
+    .slide.active {
       display: block;
-      margin: 0.8rem auto;
-      box-shadow: 0 4px 10px rgba(212, 175, 55, 0.2);
     }
 
-    .btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 10px 24px;
-      font-size: 0.9rem;
-      font-weight: bold;
-      border: 2px solid #C2B280;
-      border-radius: 30px;
+    .slide img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: contain;
+      border-radius: 12px;
+      margin: 0 auto;
+      box-shadow: 0 0 8px rgba(212, 175, 55, 0.2);
+    }
+
+    .message-box {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 16px;
+      margin: 20px auto;
+      border-radius: 15px;
+      max-width: 660px;
+      font-size: 0.78rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .arrow {
+      background: transparent;
+      color: #fff;
+      border: none;
+      font-size: 1.2rem;
+      padding: 10px 16px;
+      border-radius: 50%;
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+    }
+
+    .arrow.left {
+      left: 10px;
+    }
+
+    .arrow.right {
+      right: 10px;
+    }
+
+    .watch-button {
+      margin-top: 20px;
       background-color: transparent;
       color: #C2B280;
-      text-decoration: none;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      font-weight: bold;
+      padding: 8px 20px;
+      font-size: 0.85rem;
+      border: 2px solid #C2B280;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
     }
 
-    .btn:hover {
+    .watch-button.active,
+    .watch-button:hover {
       background-color: #C2B280;
       color: #3D1F1F;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes slideIn {
+      from { transform: translateX(30px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
     }
   </style>
 </head>
 <body>
-
   <div class="navbar">
     <a href="index.html">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -111,27 +137,87 @@
     </a>
   </div>
 
-  <div class="container">
-    <h1>My kind man</h1>
+  <div class="title">FOR KEEPS</div>
 
-    <p class="description">
-      Jeremy Marcial was born on July 20, 2000. He’s a Cancer, born in the Year of the Dragon, and grew up in Quezon City. He enjoys the simple things like playing basketball and mobile games, listening to music, reading manga, and watching anime, Asian dramas, and action-packed movies or series. His favorite color is green.
-      <br><br>
-      When it comes to food, he’s not that picky as long as it tastes good. But don’t expect him to eat sardines, bagoong, tuyo, itlog na maalat, or daing. If the ulam is fish, fried tilapia is always the safest bet for him.
-      <br><br>
-      He’s a fan of BTS and loves anime with lots of action. One of his dreams is to travel to Japan, Korea, and Taiwan. He just wants to go places, find peace, be happy, and be financially stable.
-      <br><br>
-      At first, he may seem quiet and distant, but once you get to know him, you’ll see that he’s kind, loyal, and real. He’s very protective of the people he loves and values honesty. He works hard, and when he’s upset, he stays quiet but one sweet gesture can already make him feel better. He’s not perfect, but he learns, grows, and knows how to say sorry.
-    </p>
+  <div class="slide-container">
+    <button class="arrow left" onclick="prevSlide()">◀</button>
 
-    <h2>BABY NUNOY</h2>
-    <img src="baby1.webp" alt="Baby Jeremy 1" class="letter-img" loading="lazy" />
-    <img src="baby2.webp" alt="Baby Jeremy 2" class="letter-img" loading="lazy" />
-
-    <div style="text-align: center;">
-      <a href="album.html" class="btn">Mini Album</a>
+    <div class="slide active">
+      <img src="FB_IMG_1752122440480.webp" alt="Slide 1" />
+      <div class="message-box">
+        This is my first favorite photo because on this day (December 31, 2022) we traveled to Tanay to celebrate New Year 2023 with my family. It was also the day you reunited with them after a very long time. Cheers to more New Years with you, my love.
+      </div>
     </div>
+
+    <div class="slide">
+      <img src="FB_IMG_1752323315519 (1).webp" alt="Slide 2" />
+      <div class="message-box">
+        This moment was when we went to MOA. Simula naghiwalay tayo, that day nalang ulit tayo nakapunta ulit sa MOA. That day also, we had a misunderstanding but honestly, it’s also the day I truly felt how much you love me. Even when I kept pushing you away and tried to break up with you, you never left. Tinakbuhan kita and tinaguan, hindi ka napagod hanapin ako. Despite how annoyed and hurt you must have been because of my attitude that day, you stayed. We still went home together. I’m really sorry for what happened. I know we were both wrong, but I made things worse with how I acted. Sorry talaga. I’m sorry again, love. I promise I won’t let that happen again. Thank you for staying.
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="FB_IMG_1752243357450.webp" alt="Slide 3" />
+      <div class="message-box">
+        On this day naman, we went to Manila Ocean Park—first time natin pumunta doon (thanks to Concentrix, libre lahat pati food!). Sobrang saya ko that time kasi we really enjoyed the sightseeing, panonood ng sea lions, at marami pang iba. Sana soon, makabalik tayo ulit doon... pero this time, kasama na natin ang little ones natin if papalarin at ibibigay na ni Lord.
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="Polish_20250712_212114634.webp" alt="Slide 4" />
+      <div class="message-box">
+        I love this picture too, kasi ito yung time na nag-bike tayo sa Riverbanks after natin lakarin yung PAG-IBIG mo. Ang init noon, pero sobrang saya kasi we were just enjoying our time. Nagmasid, kumain, at nag-bike. Hindi man ito yung first time natin pumunta dito, kasi ilang beses na rin tayong nagpunta, pero ewan ko, this one’s one of my favorites. Konti lang kasi yung tao that day, kaya ang sarap ng feeling—parang ang dami nating nasulit.
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="Polish_20250712_212348450.webp" alt="Slide 5" />
+      <div class="message-box">
+        Naalala mo 'to? Ito yung time na umalis tayo tapos nakalimutan natin magdala ng payong. Ang ginawa mo pa nga noon, humingi ka ng laundry plastic sa laundry shop malapit sa binabaan natin ng jeep. That day reminded me of our first time na naligo tayo sa ulan, way back 2019. Para tayong mga bata—takbuhan, tawanan, at enjoy lang sa ulan. Alam mo naman noon na hindi ko talaga gusto ang ulan, kasi halos lahat ng malungkot na moments sa buhay ko, umuulan. Pero nagbago ‘yon dahil sa’yo. Tinulungan mo akong kalimutan 'yung sakit at matutunang i-enjoy… at mahalin ang ulan. Thank you, love.
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="Polish_20250712_212903018.webp" alt="Slide 6" />
+      <div class="message-box">
+        I have a lot of favorite pictures—actually, lahat ng photos natin together are my favorites. Minsan lang rin tayo nakakakuha ng pictures kasi we’re always so caught up enjoying our moments together. And for me, that’s enough. Basta tayong dalawa, we laugh, we love, and it always feels like we’re in our own little world. I can’t wait to capture more memories with you. And I hope, soon, there’ll be three of us in one picture or even more, when the time is right, and God finally blesses us with our little ones. I can't wait to build a big, happy family with you.
+      </div>
+      <button class="watch-button" onclick="goWatch()">Watch here</button>
+    </div>
+
+    <button class="arrow right" onclick="nextSlide()">▶</button>
   </div>
 
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) slide.classList.add('active');
+      });
+    }
+
+    function nextSlide() {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }
+
+    function prevSlide() {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    }
+
+    function goWatch() {
+      window.location.href = 'video.html';
+    }
+
+    document.querySelectorAll('.watch-button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.classList.toggle('active');
+      });
+    });
+  </script>
 </body>
 </html>
