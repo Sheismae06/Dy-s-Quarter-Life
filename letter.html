@@ -1,16 +1,19 @@
 <!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jeremy’s Autograph</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>A Letter to the Man Who Came Back</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
-<body>
-  <div class="navbar">
-    <a href="index.html" class="back-btn">← Back</a>
-  </div>  <main class="autograph">
-    <h1 class="gold title">JEREMY MARCIAL</h1><div class="info-box">
+<body>  <!-- Fixed Navbar -->  <div class="navbar">
+    <a href="index.html">
+      <svg class="back-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M15 18l-6-6 6-6" stroke="#C2B280" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>  <!-- Spacing below navbar -->  <div class="spacer"></div>  <!-- Letter Content -->  <div class="letter-container fade-in">
+    <h2 class="letter-title center gold">A Letter to the Man Who Came Back Home to Me</h2>
+    <div class="divider"></div><div class="letter-glass align-left">
   <p><span class="label gold">NAME:</span> Jeremy Marcial</p>
   <p><span class="label gold">BIRTHDAY:</span> July 20, 2000</p>
   <p><span class="label gold">ZODIAC:</span> Cancer</p>
@@ -32,9 +35,7 @@
 
   <h2 class="section gold">HIS TRAITS:</h2>
   <p>He may seem cold and distant at first, quiet and hard to read but deep down, he's a kind, loyal, and genuine soul. He’s deeply protective of his loved ones and values honesty. A hardworking man who gives his all, he may go quiet when upset, but a simple gesture can warm his heart. He’s not perfect, but he learns, grows, and knows when to say sorry.</p>
-</div>
 
-<div class="baby-section">
   <h2 class="section gold">BABY JEREMY</h2>
   <div class="baby-pics">
     <img src="baby1.webp" alt="Baby Jeremy 1" loading="lazy" />
@@ -42,9 +43,10 @@
   </div>
 </div>
 
+<!-- Mini Album Button -->
 <div class="album-button">
   <a href="album.html" class="gold-btn">Go to Album</a>
 </div>
 
-  </main>  <script src="petals.js"></script></body>
+  </div>  <!-- Script (handles autoplay logic + button behavior) -->  <script src="script.js"></script></body>
 </html>
