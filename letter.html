@@ -2,62 +2,90 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>A Letter to the Man Who Came Back</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My kind man</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    .letter-container {
+    body {
+      background-color: #121212;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    .container {
+      padding: 1.5rem;
       max-width: 600px;
       margin: 0 auto;
-      padding: 20px;
-      color: #fff;
-      font-family: 'Georgia', serif;
-      line-height: 1.7;
-      animation: fadeIn 1s ease-in;
-    }
-
-    .letter-container h1 {
       text-align: center;
+    }
+
+    h1 {
       color: gold;
-      font-size: 1.8rem;
-      margin-bottom: 20px;
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
 
-    .letter-container img {
-      display: block;
-      max-width: 100%;
-      height: auto;
+    h2 {
+      color: gold;
+      font-size: 1.5rem;
+      margin: 2rem 0 1rem;
+    }
+
+    .letter-img {
+      width: 90%;
+      max-width: 350px;
       border-radius: 12px;
-      margin: 0 auto 20px;
+      margin: 1rem auto;
+      display: block;
+      box-shadow: 0 4px 10px rgba(255, 215, 0, 0.2);
     }
 
-    .letter-container p {
+    .description {
+      margin-bottom: 2rem;
       text-align: justify;
-      margin-bottom: 15px;
+      color: #eee;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .btn {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 30px;
+      color: white;
+      background: linear-gradient(to right, #a18d63, #e0c38c);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s ease;
     }
 
-    body {
-      background-color: #1a1a1a;
-      padding: 0;
-      margin: 0;
+    .btn:hover {
+      background: linear-gradient(to right, #e0c38c, #a18d63);
     }
   </style>
 </head>
 <body>
-  <div class="letter-container">
-    <h1>A Letter to the Man Who Came Back</h1>
-    <img src="images/you.jpg" alt="You" loading="lazy" />
+  <div class="container">
+    <h1>My kind man</h1>
     
-    <!-- Your exact updated letter content here -->
-    <p>He enjoys playing basketball and mobile games, listening to music, reading manga, and watching anime, Asian dramas, and action-packed movies or series.</p>
-    <p>He doesn’t like seeing the ones he loves being disrespected. He’s very protective of his family and loved ones. He also gets upset when someone lies in front of him, especially when he already knows the truth.</p>
-    <p>He’s a hardworking man. When he’s upset, he tends to be quiet — but just one act of affection is usually enough to make him feel better. Of course, he’s not perfect. He makes mistakes too and can be impatient sometimes. But what matters is that he learns from them and continues to grow.</p>
-    <p>I’m grateful for the man who came back — stronger, better, and still mine.</p>
+    <h2>BABY NUNOY</h2>
+    <img src="jeremy1.jpg" alt="Jeremy" class="letter-img" loading="lazy" />
+    <img src="jeremy2.jpg" alt="Jeremy" class="letter-img" loading="lazy" />
+
+    <p class="description">
+      Jeremy Marcial was born on July 20, 2000. He’s a Cancer, born in the Year of the Dragon, and grew up in Quezon City. He enjoys the simple things like playing basketball and mobile games, listening to music, reading manga, and watching anime, Asian dramas, and action-packed movies or series. His favorite color is green.
+      <br><br>
+      When it comes to food, he’s not that picky as long as it tastes good. But don’t expect him to eat sardines, bagoong, tuyo, itlog na maalat, or daing. If the ulam is fish, fried tilapia is always the safest bet for him.
+      <br><br>
+      He’s a fan of BTS and loves anime with lots of action. One of his dreams is to travel to Japan, Korea, and Taiwan. He just wants to go places, find peace, be happy, and be financially stable.
+      <br><br>
+      At first, he may seem quiet and distant, but once you get to know him, you’ll see that he’s kind, loyal, and real. He’s very protective of the people he loves and values honesty. He works hard, and when he’s upset, he stays quiet but one sweet gesture can already make him feel better. He’s not perfect, but he learns, grows, and knows how to say sorry.
+    </p>
+
+    <a href="album.html" class="btn">Mini Album</a>
   </div>
 </body>
 </html>
