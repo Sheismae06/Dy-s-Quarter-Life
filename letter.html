@@ -20,6 +20,16 @@
       I hope it reaches you with the warmth and sincerity I intend.  
       Thank you for being in my life.
     </p>
+    <p>
+      I may not always find the right words, but know that my love for you is constant and real.  
+      You bring light even in my darkest days. You make me laugh a little louder, smile a little bigger,  
+      and live a little better. I’m beyond grateful to walk this life with you.
+    </p>
+    <p>
+      With every beat of this song, may you feel how much I cherish you.  
+      Always remember, no matter what happens or where life takes us—  
+      it’s always been you, and it will always be you.
+    </p>
   </main>
 
   <!-- Hidden background music element -->
@@ -28,7 +38,6 @@
   <script>
     const bgMusic = document.getElementById("bgMusic");
 
-    // Check if music should be played from sessionStorage
     if (sessionStorage.getItem("playMusic") === "true" && !sessionStorage.getItem("musicPlaying")) {
       bgMusic.play().then(() => {
         sessionStorage.setItem("musicPlaying", "true");
@@ -37,7 +46,6 @@
       });
     }
 
-    // Save current music time when switching tabs or pages
     document.addEventListener("visibilitychange", () => {
       if (document.visibilityState === "hidden") {
         sessionStorage.setItem("musicTime", bgMusic.currentTime);
