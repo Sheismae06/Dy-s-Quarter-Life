@@ -2,78 +2,117 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My kind man</title>
   <link rel="stylesheet" href="style.css" />
   <style>
     body {
-      background-color: #121212;
-      color: white;
-      font-family: 'Segoe UI', sans-serif;
+      background-color: #3D1F1F;
+      color: #EAEAEA;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 64px;
+      background-color: #1F1F1F;
+      display: flex;
+      align-items: center;
+      padding: 0 28px;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .navbar a svg {
+      width: 28px;
+      height: 28px;
+      fill: none;
+      stroke: #C2B280;
+      stroke-width: 2;
     }
 
     .container {
-      padding: 1.5rem;
-      max-width: 600px;
-      margin: 0 auto;
-      text-align: center;
+      max-width: 650px;
+      margin: 100px auto 50px;
+      padding: 20px;
+      animation: fadeIn 0.8s ease;
     }
 
     h1 {
-      color: gold;
+      text-align: center;
+      color: #C2B280;
       font-size: 2rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+    }
+
+    .description {
+      text-align: justify;
+      color: #EAEAEA;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
     }
 
     h2 {
-      color: gold;
-      font-size: 1.5rem;
+      text-align: center;
+      color: #C2B280;
+      font-size: 1.2rem;
       margin: 2rem 0 1rem;
     }
 
     .letter-img {
       width: 90%;
-      max-width: 350px;
+      max-width: 330px;
       border-radius: 12px;
-      margin: 1rem auto;
       display: block;
-      box-shadow: 0 4px 10px rgba(255, 215, 0, 0.2);
-    }
-
-    .description {
-      margin-bottom: 2rem;
-      text-align: justify;
-      color: #eee;
+      margin: 0.8rem auto;
+      box-shadow: 0 4px 10px rgba(212, 175, 55, 0.2);
     }
 
     .btn {
       display: inline-block;
-      padding: 0.6rem 1.2rem;
-      font-size: 1rem;
-      border: none;
+      margin-top: 30px;
+      padding: 10px 24px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      border: 2px solid #C2B280;
       border-radius: 30px;
-      color: white;
-      background: linear-gradient(to right, #a18d63, #e0c38c);
-      cursor: pointer;
+      background-color: transparent;
+      color: #C2B280;
       text-decoration: none;
-      transition: background 0.3s ease;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     .btn:hover {
-      background: linear-gradient(to right, #e0c38c, #a18d63);
+      background-color: #C2B280;
+      color: #3D1F1F;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
+
+  <div class="navbar">
+    <a href="index.html">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M15 18l-6-6 6-6" stroke="#C2B280" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+
   <div class="container">
     <h1>My kind man</h1>
-    
-    <h2>BABY NUNOY</h2>
-    <img src="jeremy1.jpg" alt="Jeremy" class="letter-img" loading="lazy" />
-    <img src="jeremy2.jpg" alt="Jeremy" class="letter-img" loading="lazy" />
 
     <p class="description">
       Jeremy Marcial was born on July 20, 2000. He’s a Cancer, born in the Year of the Dragon, and grew up in Quezon City. He enjoys the simple things like playing basketball and mobile games, listening to music, reading manga, and watching anime, Asian dramas, and action-packed movies or series. His favorite color is green.
@@ -85,7 +124,14 @@
       At first, he may seem quiet and distant, but once you get to know him, you’ll see that he’s kind, loyal, and real. He’s very protective of the people he loves and values honesty. He works hard, and when he’s upset, he stays quiet but one sweet gesture can already make him feel better. He’s not perfect, but he learns, grows, and knows how to say sorry.
     </p>
 
-    <a href="album.html" class="btn">Mini Album</a>
+    <h2>BABY NUNOY</h2>
+    <img src="baby1.webp" alt="Baby Jeremy 1" class="letter-img" loading="lazy" />
+    <img src="baby2.webp" alt="Baby Jeremy 2" class="letter-img" loading="lazy" />
+
+    <div style="text-align: center;">
+      <a href="album.html" class="btn">Mini Album</a>
+    </div>
   </div>
+
 </body>
 </html>
