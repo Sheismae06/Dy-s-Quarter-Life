@@ -1,65 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Letter</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="images/infinity.svg" type="image/svg+xml" />
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>A Letter to the Man Who Came Back</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
 
-    <!-- Background Music -->
-    <audio id="bgMusic" loop>
-      <source src="audio/The Beginning.mp3" type="audio/mpeg" />
-    </audio>
+  <!-- Fixed Navbar -->
+  <div class="navbar">
+    <a href="index.html">
+      <svg class="back-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M15 18l-6-6 6-6" stroke="#C2B280" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const bgMusic = document.getElementById("bgMusic");
-        const musicToggle = document.getElementById("musicToggle");
+  <!-- Spacing below navbar -->
+  <div class="spacer"></div>
 
-        const isPlaying = localStorage.getItem("musicPlaying") === "true";
-        if (isPlaying) {
-          bgMusic.play().catch(() => {});
-          musicToggle.classList.add("playing");
-        }
+  <!-- Letter Content -->
+  <div class="letter-container fade-in">
 
-        musicToggle.addEventListener("click", function () {
-          if (bgMusic.paused) {
-            bgMusic.play();
-            musicToggle.classList.add("playing");
-            localStorage.setItem("musicPlaying", "true");
-          } else {
-            bgMusic.pause();
-            musicToggle.classList.remove("playing");
-            localStorage.setItem("musicPlaying", "false");
-          }
-        });
-      });
-    </script>
-  </head>
+    <h2 class="letter-title">A Letter to the Man Who Came Back Home to Me</h2>
+    <div class="divider"></div>
 
-  <body>
-    <!-- Music Toggle -->
-    <button id="musicToggle" class="music-btn"></button>
+    <div class="letter-glass">
+      <p>I still remember when we first connected on Neargroup (July 22, 2019). Who would've thought that simple chat would turn into something so meaningful and special?</p>
+      <p>July 28, 2019 we made it official. Tuwing kasama kita I felt like home. We laughed, dreamed, fought… for me it’s almost perfect pero March 2020, we broke up. That time, nasa isip ko minadali kasi natin kaya madali lang rin nawala lahat.</p>
+      <p>I tried moving on, but no one could fill the space you left. Then fate stepped in (October 2022), we reconnected and December 12, 2022 we chose to try again—not from where we left off, but stronger, wiser, braver.</p>
+      <p>Life isn’t easy now kasi adults na tayo, we have responsibilities, more pressures sa life and we need to work to survive. Our dreams is bigger than before at dahil sa pagod nagkakaroon tayo ng misunderstandings but we keep choosing each other. We forgive and understand, kumakapit at kinakaya natin.</p>
+      <p>Thank you Dy for being my person. For staying. For being born.</p>
+      <p>Happy 25th Birthday, Dy. I’m so proud of you. I’m still rooting for our happy ending and success.</p>
 
-    <!-- Navbar -->
-    <nav class="navbar">
-      <div class="logo">Dy's Quarter Life</div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="letter.html" class="active">Letter</a></li>
-        <li><a href="video.html">Video</a></li>
-      </ul>
-    </nav>
+      <div class="signature">With all my love,<br>Angela Mae Marco</div>
+    </div>
 
-    <!-- Letter Section -->
-    <section class="letter">
-      <h1>Dear Future Me,</h1>
-      <p>
-        Always remember the strength you've shown through every struggle.
-        Believe in the path you're walking, even if it's unclear at times.
-        You're doing better than you think, and your heart will guide you home.
-      </p>
-    </section>
-  </body>
+    <!-- Mini Album Button -->
+    <button class="btn" id="btn-album">Mini Album</button>
+
+  </div>
+
+  <!-- Script (handles autoplay logic + button behavior) -->
+  <script src="script.js"></script>
+</body>
 </html>
