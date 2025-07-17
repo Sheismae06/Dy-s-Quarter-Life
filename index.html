@@ -1,34 +1,63 @@
 <!DOCTYPE html>
-<html lang="en" class="homepage">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dy's Quarter Life</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <!-- Navbar (No Text) -->
-  <div class="navbar"></div>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dy's Quarter Life</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="images/infinity.svg" type="image/svg+xml" />
 
-  <!-- Main Section -->
-  <section class="center-screen">
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+      <source src="audio/The Beginning.mp3" type="audio/mpeg" />
+    </audio>
 
-    <!-- Infinity Logo -->
-    <img src="infinity.svg" alt="Infinity Logo" class="infinity-logo" />
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const bgMusic = document.getElementById("bgMusic");
+        const musicToggle = document.getElementById("musicToggle");
 
-    <!-- Divider Line -->
-    <div class="divider"></div>
+        // Check if user previously toggled music
+        const isPlaying = localStorage.getItem("musicPlaying") === "true";
 
-    <!-- Title Text -->
-    <h1>Happy 25th, My Love</h1>
-    <p>A quarter of a century of your light. Here’s a piece of my love for you.</p>
+        if (isPlaying) {
+          bgMusic.play().catch(() => {});
+          musicToggle.classList.add("playing");
+        }
 
-    <!-- Get Started Button -->
-    <button class="btn-start" id="btn-start">Get Started</button>
+        musicToggle.addEventListener("click", function () {
+          if (bgMusic.paused) {
+            bgMusic.play();
+            musicToggle.classList.add("playing");
+            localStorage.setItem("musicPlaying", "true");
+          } else {
+            bgMusic.pause();
+            musicToggle.classList.remove("playing");
+            localStorage.setItem("musicPlaying", "false");
+          }
+        });
+      });
+    </script>
+  </head>
 
-  </section>
+  <body>
+    <!-- Music Toggle Button -->
+    <button id="musicToggle" class="music-btn"></button>
 
-  <!-- Script (must be included here for button to work) -->
-  <script src="script.js"></script>
-</body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">Dy's Quarter Life</div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="letter.html">Letter</a></li>
+        <li><a href="video.html">Video</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>Welcome to Dy's Quarter Life</h1>
+      <p>A journey of emotions, growth, and memories.</p>
+    </section>
+  </body>
 </html>
