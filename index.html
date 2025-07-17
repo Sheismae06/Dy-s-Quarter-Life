@@ -1,22 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="homepage">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Quarter Life</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dy's Quarter Life</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Your existing hero section -->
-  <section class="hero">
-    <h1>Welcome to My Quarter Life</h1>
-    <!-- Get Started button -->
-    <a href="letter.html" id="getStartedBtn">Get Started</a>
+  <!-- Navbar (No Text) -->
+  <div class="navbar"></div>
+
+  <!-- Main Section -->
+  <section class="center-screen">
+
+    <!-- Infinity Logo -->
+    <img src="infinity.svg" alt="Infinity Logo" class="infinity-logo" />
+
+    <!-- Divider Line -->
+    <div class="divider"></div>
+
+    <!-- Title Text -->
+    <h1>Happy 25th, My Love</h1>
+    <p>A quarter of a century of your light. Here’s a piece of my love for you.</p>
+
+    <!-- Get Started Button -->
+    <button class="btn-start" id="btn-start">Get Started</button>
+
   </section>
 
-  <!-- Global audio player (hidden) -->
-  <audio id="globalSong" preload="auto" src="song2-until-i-found-you.mp3"></audio>
+  <!-- Hidden audio element -->
+  <audio id="bg-music" src="song2-until-i-found-you.mp3" preload="auto"></audio>
 
-  <script src="script.js"></script>
+  <!-- Script -->
+  <script>
+    const button = document.getElementById("btn-start");
+    const audio = document.getElementById("bg-music");
+
+    // Store playback across pages
+    if (!sessionStorage.getItem("musicStarted")) {
+      sessionStorage.setItem("musicStarted", "false");
+    }
+
+    button.addEventListener("click", () => {
+      if (sessionStorage.getItem("musicStarted") === "false") {
+        audio.play().catch(() => {});
+        sessionStorage.setItem("musicStarted", "true");
+      }
+
+      // Go to letter.html after short delay
+      setTimeout(() => {
+        window.location.href = "letter.html";
+      }, 500);
+    });
+
+    // Stop music if on video page (will be handled in video.html)
+  </script>
 </body>
 </html>
