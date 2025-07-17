@@ -221,29 +221,3 @@ button:active {
 .letter-title {
   margin-top: 0;
 }
-
-/* ✅ Baby Pics Styling — added by request */
-.baby-pics {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  margin-top: 24px;
-  animation: fadeInUp 1s ease forwards;
-  opacity: 0;
-}
-
-.baby-pics img {
-  width: 80%;
-  max-width: 260px;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  opacity: 0.9;
-}
-
-.baby-pics img:hover {
-  transform: scale(1.05);
-  opacity: 1;
-}
