@@ -189,6 +189,9 @@
     <button class="arrow right" onclick="nextSlide()">▶</button>
   </div>
 
+  <!-- Hidden music iframe (connects to player.html) -->
+  <iframe src="player.html" id="music-frame" style="display: none;"></iframe>
+
   <script>
     const slides = document.querySelectorAll('.slide');
     let current = 0;
