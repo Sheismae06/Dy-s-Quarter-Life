@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SNAPSHOTS OF US</title>
   <link rel="stylesheet" href="style.css"/>
+  <link rel="preload" as="image" href="FB_IMG_1752122440480.webp" />
   <style>
     body {
       background-color: #3D1F1F;
@@ -143,7 +144,7 @@
     <button class="arrow left" onclick="prevSlide()">◀</button>
 
     <div class="slide active">
-      <img src="FB_IMG_1752122440480.webp" alt="Slide 1" loading="lazy" />
+      <img src="FB_IMG_1752122440480.webp" alt="Slide 1" loading="eager" decoding="async" />
       <div class="message-box">
         Our first New Year, again — with my family and with love restored.
       </div>
