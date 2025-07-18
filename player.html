@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Music Player</title>
 </head>
 <body>
-  <audio id="bg-music" loop>
-    <source src="audio/song2-until-i-found-you.mp3" type="audio/mpeg">
-    Your browser does not support the audio tag.
-  </audio>
+  <audio id="bg-music" src="song2-until-i-found-you.mp3" autoplay loop></audio>
 
   <script>
-    const audio = document.getElementById("bg-music");
-    audio.volume = 1;
+    const music = document.getElementById("bg-music");
 
-    window.addEventListener("message", function (event) {
-      if (event.data === "start-music") {
-        audio.play();
-      } else if (event.data === "stop-music") {
-        audio.pause();
-        audio.currentTime = 0;
+    // Try to play immediately on load (needed for autoplay to work across iframes)
+    window.addEventListener("load", () => {
+      const played = music.play();
+      if (played !== undefined) {
+        played.catch(() => {
+          // Autoplay failed (likely because not user-initiated)
+          // Wait for user gesture
+          const resume = () => {
+            music.play();
+            window.removeEventListener("click", resume);
+            window.removeEventListener("keydown", resume);
+          };
+          window.addEventListener("click", resume);
+          window.addEventListener("keydown", resume);
+        });
       }
+    });
+
+    // Listen for external commands
+    window.addEventListener("message", (e) => {
+      if (e.data === "stop-music") music.pause();
+      if (e.data === "play-music") music.play();
     });
   </script>
 </body>
