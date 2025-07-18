@@ -28,23 +28,17 @@
 
   </section>
 
-  <!-- Hidden audio element -->
-  <audio id="bg-music" src="song2-until-i-found-you.mp3" preload="auto"></audio>
+  <!-- Hidden music iframe (connects to player.html) -->
+  <iframe src="player.html" id="music-frame" style="display: none;"></iframe>
 
   <!-- Script -->
   <script>
     const button = document.getElementById("btn-start");
-    const audio = document.getElementById("bg-music");
-
-    // Store playback across pages
-    if (!sessionStorage.getItem("musicStarted")) {
-      sessionStorage.setItem("musicStarted", "false");
-    }
 
     button.addEventListener("click", () => {
-      if (sessionStorage.getItem("musicStarted") === "false") {
-        audio.play().catch(() => {});
-        sessionStorage.setItem("musicStarted", "true");
+      const frame = document.getElementById("music-frame");
+      if (frame) {
+        frame.contentWindow.postMessage("start-music", "*");
       }
 
       // Go to letter.html after short delay
@@ -52,8 +46,6 @@
         window.location.href = "letter.html";
       }, 500);
     });
-
-    // Stop music if on video page (will be handled in video.html)
   </script>
 </body>
 </html>
